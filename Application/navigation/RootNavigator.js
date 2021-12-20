@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -9,7 +9,7 @@ import AuthorsCollections from '../screens/AuthorsCollection';
 
 const Stack = createStackNavigator();
 
-export const RootNavigator = () => {
+export default function RootNavigator() {
 	return (
         <NavigationContainer>
             <Stack.Navigator>
