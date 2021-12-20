@@ -14,6 +14,11 @@ export const RootNavigator = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen 
+                    name='Monthlyplanner'
+                    component={Monthlyplanner}
+                    options={{title: 'Ежемесячник'}}
+                />
+                <Stack.Screen 
                     name='Archive'
                     component={Archive}
                     options={{title: 'Архив'}}
