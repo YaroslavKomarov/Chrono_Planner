@@ -1,13 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 import TaskList from '../components/TaskList'
 import { gStyles } from '../styles/GlobalStyles'
+import { LinearGradient } from "expo-linear-gradient";
+
+const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
 export default function Archive() {
     return (
-        <View style={gStyles.container}>
-            <Text style={gStyles.title}>TDOD LIST</Text>
+        <AnimatedLinearGradient 
+            colors={['rgba(255, 154, 158, 0.53)', 'rgba(250, 208, 196, 1)']}
+            style={[gStyles.container]}
+        >
+            <Text style={gStyles.title}>Тут будет компонент Эльдара</Text>
             <TaskList />
-        </View>
+            <Text style={gStyles.title}>Тут будет компонент Дани</Text>
+        </AnimatedLinearGradient>
     );
 }

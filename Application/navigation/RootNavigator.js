@@ -24,8 +24,7 @@ export default function RootNavigator() {
                     options={
                         { 
                             title: 'Архив',
-                            headerStyle: { height: 90, backgroundColor: 'red' },
-                            headerTitleStyle: { textAlign: 'center' },
+                            headerStyle: { height: 0 },
                         }
                     }
                 />
