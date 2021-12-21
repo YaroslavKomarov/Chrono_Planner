@@ -22,6 +22,3 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-// flex: direction row для view
-// align center
-// space beetween
