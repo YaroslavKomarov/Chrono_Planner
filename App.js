@@ -1,18 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 import NavigationStack from './Application/navigation/RootNavigator'
+import { gStyles } from './Application/styles/GlobalStyles'
 
 export default function App() {
   return (
-    <View></View>
+    <SafeAreaView style={gStyles.container}>
+      <NavigationStack />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
