@@ -14,7 +14,7 @@ export default function Archive() {
         >
             <Text style={gStyles.title}>Тут будет компонент Эльдара</Text>
             <TaskList />
-            <Text style={gStyles.title}>Тут будет компонент Дани</Text>
+            <Text style={gStyles.title}>Тут будет компонент Эльдара</Text>
         </AnimatedLinearGradient>
     );
 }

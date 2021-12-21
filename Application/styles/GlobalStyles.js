@@ -7,8 +7,10 @@ export const gStyles = StyleSheet.create({
       paddingTop: 50,
     },
     title: {
-        color: '#333',
-        fontSize: 20,
-        textAlign: 'center',
+        //для закголовков коллекций
+        fontSize: 36,
+        marginLeft: 20,
+        fontFamily: 'PTSans-bold',
+        width: '80%'
     }
 });

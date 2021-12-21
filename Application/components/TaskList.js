@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { FlatList, View, Text } from 'react-native';
-import { gStyles } from '../styles/GlobalStyles'
+import { taskListStyles } from '../styles/TaskListStyles'
 
 export default function TaskList() {
     const [tasks, setTasks] = useState([
-        { text: 'todo_1', key: '1' },
-        { text: 'todo_2', key: '2' },
-        { text: 'todo_3', key: '3' },
-        { text: 'todo_4', key: '4' },
-        { text: 'todo_5', key: '5' },
-        { text: 'todo_6', key: '6' }
+        { text: 'Компонент Дани', key: '1' },
+        { text: 'Компонент Дани', key: '2' },
+        { text: 'Компонент Дани', key: '3' },
+        { text: 'Компонент Дани', key: '4' },
+        { text: 'Компонент Дани', key: '5' },
+        { text: 'Компонент Дани', key: '6' }
     ]);
 
     return (
-		<View>
+		<View style={taskListStyles.list}>
             <FlatList
                 data={tasks}
                 renderItem={({ item }) => (
-                    <Text style={gStyles.title}>{ item.text }</Text>
+					<View style={taskListStyles.taskContainer}>
+                    	<Text style={taskListStyles.task}>{ item.text }</Text>
+					</View>
                 )}
                 keyExtractor={item => item.key}
             />
