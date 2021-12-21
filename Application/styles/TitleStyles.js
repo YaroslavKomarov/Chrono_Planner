@@ -6,18 +6,20 @@ export const titleStyles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#F7C1BD'
     },
     caption:{
-        fontSize: '25px',
+        alignSelf: 'flex-end',
+        fontSize: 36,
         fontWeight: 'bold',
         color: '#2F0000',
         textAlign: 'left',
-        margin: '5%'
+        marginLeft: '7%',
+        fontFamily: 'PTSans-bold',
     },
     button:{
+        alignSelf: 'flex-end',
         textAlign: 'center',
-        alignSelf: 'center',
-        marginRight: '5%'
+        marginRight: '7%',
+        marginBottom: '3%',
     }
 });

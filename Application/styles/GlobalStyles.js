@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 
+
 export const gStyles = StyleSheet.create({
     container: {
-      flex: 1,
-      padding: 20,
-      paddingTop: 50,
+        flex: 1,
+        justifyContent: 'space-around',
+        flexDirection: 'column'
     },
     title: {
         //для закголовков коллекций

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import NavigationStack from './Application/navigation/RootNavigator';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
+
+import NavigationStack from './Application/navigation/RootNavigator';
+
 
 const fonts = () => Font.loadAsync({
   'roboto-reg': require('./Application/assets/fonts/Roboto/Roboto-Regular.ttf'),
