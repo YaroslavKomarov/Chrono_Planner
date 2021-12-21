@@ -9,7 +9,7 @@ const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 export default function Archive() {
     return (
         <AnimatedLinearGradient 
-            colors={['rgba(255, 154, 158, 0.53)', 'rgba(250, 208, 196, 1)']}
+            colors={['rgba(255, 154, 158, 1)', 'rgba(250, 208, 196, 1)']}
             style={[gStyles.container]}
         >
             <Text style={gStyles.title}>Тут будет компонент Эльдара</Text>
