@@ -7,7 +7,7 @@ export const gStyles = StyleSheet.create({
       paddingTop: 50,
     },
     title: {
-        color: '#3',
+        color: '#333',
         fontSize: 20,
         textAlign: 'center',
     }

@@ -21,7 +21,13 @@ export default function RootNavigator() {
                 <Stack.Screen 
                     name='Archive'
                     component={Archive}
-                    options={{title: 'Архив'}}
+                    options={
+                        { 
+                            title: 'Архив',
+                            headerStyle: { height: 90, backgroundColor: 'red' },
+                            headerTitleStyle: { textAlign: 'center' },
+                        }
+                    }
                 />
                 {/* <Stack.Screen 
                     name='Dailyplanner'
