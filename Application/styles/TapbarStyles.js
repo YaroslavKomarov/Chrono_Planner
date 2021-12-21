@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const tapbarStyles = StyleSheet.create({
     tapbar:{
-        paddingHorizontal: '10%',
+        paddingHorizontal: '15%',
         backgroundColor: '#FFEFDF',
         flexDirection: 'row',
         justifyContent: 'space-around',
