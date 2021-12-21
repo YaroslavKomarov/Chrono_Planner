@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import NavigationStack from './Application/navigation/RootNavigator';
+import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
+
+const fonts = () => Font.loadAsync({
+  'roboto-reg': require('./Application/assets/fonts/Roboto/Roboto-Regular.ttf'),
+  'roboto-bold': require('./Application/assets/fonts/Roboto/Roboto-Bold.ttf'),
+  'PTSans-reg': require('./Application/assets/fonts/PT_Sans/PTSans-Regular.ttf'),
+  'PTSans-bold': require('./Application/assets/fonts/PT_Sans/PTSans-Bold.ttf')
+});
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [font, setFont] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (font){
+    return (
+      <NavigationStack>
+      </NavigationStack>
+    );
+  } else {
+    return (
+      <AppLoading 
+        startAsync={fonts} 
+        onFinish={() => setFont(true)}
+        onError={console.warn}
+      />
+    );
+  }
+}
