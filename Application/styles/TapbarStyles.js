@@ -1,12 +1,15 @@
-import { StyleSheet } from "react-native-web";
-
+import { StyleSheet } from 'react-native';
 
 export const tapbarStyles = StyleSheet.create({
     tapbar:{
+        paddingHorizontal: '10%',
         backgroundColor: '#FFEFDF',
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 0.7,
+    },
+    vectorIcons: {
+        fontSize: 32,
     }
 });
