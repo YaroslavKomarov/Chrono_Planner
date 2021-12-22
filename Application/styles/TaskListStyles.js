@@ -8,24 +8,26 @@ export const taskListStyles = StyleSheet.create({
 		margin: '5%',
         backgroundColor: 'rgba(255, 225, 216, 0.9)',
         borderRadius: 20,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 2.22,
-        elevation: 3,
     },
-    // taskContainer:{
-    //     flex: 1,
-    //     marginHorizontal: 3,
-    //     marginTop: 10,
-    //     marginBottom: 5,
-    // },
-    // task: {
-    //     //для task в коллекциях
-    //     fontSize: 24,
-    //     fontFamily: 'roboto-bold',
-    // },
+    modalView: {
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        backgroundColor: 'rgba(35,35,35,0.45)'
+    },
+    formContainer: {
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: '5%',
+        alignItems: "center",
+        paddingBottom: '7%',
+        marginHorizontal: '4%',
+    },
+    formTitle: {
+        marginHorizontal: '10%',
+        marginBottom: '5%',
+        textAlign: 'center',
+        fontFamily: 'roboto-bold',
+        fontSize: 20,
+    }
 });

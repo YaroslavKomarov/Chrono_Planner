@@ -1,25 +1,25 @@
 import { StyleSheet } from 'react-native';
 
 
-export const titleStyles = StyleSheet.create({
-    header:{
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+export const collectionTitleStyles = StyleSheet.create({
+    titleContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
     },
-    caption:{
+    collectionTitle: {
         alignSelf: 'flex-end',
         fontSize: 36,
         fontWeight: 'bold',
         color: '#2F0000',
         textAlign: 'left',
         marginLeft: '7%',
-        fontFamily: 'PTSans-bold',
+        fontFamily: 'PTSans-bold'
     },
-    button:{
+    addButton: {
         alignSelf: 'flex-end',
         textAlign: 'center',
         marginRight: '7%',
-        marginBottom: '3%',
+        marginBottom: '3%'
     }
-});
+})
