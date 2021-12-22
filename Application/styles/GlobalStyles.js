@@ -3,15 +3,16 @@ import { StyleSheet } from 'react-native';
 
 export const gStyles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'space-around',
-        flexDirection: 'column'
+        flex: 1
     },
-    title: {
-        //для закголовков коллекций
-        fontSize: 36,
-        marginLeft: 20,
-        fontFamily: 'PTSans-bold',
-        width: '80%'
-    }
+    boxShadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowOpacity: 0.35,
+        shadowRadius: 3,
+        elevation: 5
+    },
 });
