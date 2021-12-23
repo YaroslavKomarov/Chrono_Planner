@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { FlatList, View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
+import { View, Text, Modal, FlatList } from 'react-native';
 
 import { taskListStyles } from '../styles/TaskListStyles';
 import { gStyles } from '../styles/GlobalStyles';
 import AddTaskForm from './AddTaskForm';
+import ListItemTask from './Task';
 
 
 export default function TaskList({ modalVisible, setModalVisible }) {
@@ -22,9 +23,10 @@ export default function TaskList({ modalVisible, setModalVisible }) {
                 data={tasks}
                 renderItem={({ item }) => (
 					<View style={taskListStyles.taskContainer}>
-                    	<Text style={taskListStyles.task}>{ item.text }</Text>
+                    	<ListItemTask taskText={item}/>
 					</View>
                 )}
+                keyExtractor={(item) => item.key}
             />
             <Modal transparent={true} visible={modalVisible}>
                 <View style={taskListStyles.modalView}>

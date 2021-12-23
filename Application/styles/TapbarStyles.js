@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+
 export const tapbarStyles = StyleSheet.create({
     tapbar:{
         paddingHorizontal: '15%',
