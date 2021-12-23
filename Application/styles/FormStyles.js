@@ -13,9 +13,9 @@ export const formStyles = StyleSheet.create({
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 4,
+            height: 3,
         },
-        shadowOpacity: 0.3,
+        shadowOpacity: 0.25,
         shadowRadius: 2,
         elevation: 0
     },

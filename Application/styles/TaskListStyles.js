@@ -4,9 +4,9 @@ import { StyleSheet } from 'react-native';
 export const taskListStyles = StyleSheet.create({
     list: {
 		flex: 4,
-        padding: 10,
 		margin: '5%',
-        backgroundColor: 'rgba(255, 225, 216, 0.9)',
+        paddingVertical: '6%',
+        backgroundColor: 'rgba(255, 225, 216, 1)',
         borderRadius: 20,
     },
     modalView: {
