@@ -6,10 +6,12 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { taskStyles } from '../styles/TaskStyles';
+import MigrateForm from './MigrateForm';
 
 
 export default function ListItemTask({ task, onRemove }) {
     const [isDone, setIsDone] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
 
     const LeftSwipeActions = () => {
         return (
@@ -36,10 +38,11 @@ export default function ListItemTask({ task, onRemove }) {
                 <TouchableOpacity 
                     disable={isDone}
                     style={taskStyles.migrateButtonWrap} 
-                    onPress={() => console.log('left button clicked')}
+                    onPress={() => isDone ? {} : setModalVisible(true)}
                     >
                     <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
+                <MigrateForm modalVisible={modalVisible} setModalVisible={setModalVisible}/>
             </TouchableOpacity>
         );
     };
