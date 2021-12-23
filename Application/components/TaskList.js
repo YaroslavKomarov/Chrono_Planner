@@ -9,13 +9,18 @@ import ListItemTask from './Task';
 
 export default function TaskList({ modalVisible, setModalVisible }) {
     const [tasks, setTasks] = useState([
-        { text: 'Компонент Дани', type: 'physical', key: '1' },
-        { text: 'Компонент Дани', type: 'physical', key: '2' },
-        { text: 'Компонент Дани', type: 'physical', key: '3' },
-        { text: 'Компонент Дани', type: 'physical', key: '4' },
-        { text: 'Компонент Дани', type: 'physical', key: '5' },
-        { text: 'Компонент Дани', type: 'physical', key: '6' }
+        { text: 'Купить молоко', type: 'physical', key: '1' },
+        { text: 'Починить кран', type: 'physical', key: '2' },
+        { text: 'Сделать проект', type: 'physical', key: '3' },
+        { text: 'Сходить в кино', type: 'physical', key: '4' },
+        { text: 'Стать президентом Украины', type: 'physical', key: '5' },
+        { text: 'Больше не наливать деду', type: 'physical', key: '6' }
     ]);
+
+    const handleRemove = (key) => {
+        const newList = tasks.filter((item) => item.key !== key);
+        setTasks(newList);
+    };
 
     return (
 		<View style={[gStyles.boxShadow, taskListStyles.list]}>
@@ -23,7 +28,7 @@ export default function TaskList({ modalVisible, setModalVisible }) {
                 data={tasks}
                 renderItem={({ item }) => (
 					<View style={taskListStyles.taskContainer}>
-                    	<ListItemTask taskText={item}/>
+                    	<ListItemTask task={item} onRemove={handleRemove}/>
 					</View>
                 )}
                 keyExtractor={(item) => item.key}

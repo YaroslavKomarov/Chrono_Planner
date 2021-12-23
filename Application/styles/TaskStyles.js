@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export const taskStyles = StyleSheet.create({
     swipeContainer: {
         flex: 1,
-        height: 80,
+        minHeight: 75,
         flexDirection: 'row',
         backgroundColor: 'rgba(255, 225, 216, 1)',
         alignItems: 'center',
@@ -12,21 +12,20 @@ export const taskStyles = StyleSheet.create({
     taskText: {
         fontFamily: 'roboto-bold',
         fontSize: 18,
-        marginLeft: '5%',
     },
     penIconWrap: {
-        marginLeft: '3%',
+        marginLeft: '4%',
     },
     deleteButtonWrap: {
         flex: 1,
-        height: 80,
+        minHeight: 75,
         aspectRatio: 1,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#FF6E84',
     },
     migrateButtonWrap: {
-        height: 80,
+        minHeight: 75,
         aspectRatio: 1,
         alignItems: 'center',
         justifyContent: 'center',
@@ -34,7 +33,7 @@ export const taskStyles = StyleSheet.create({
         alignSelf: 'flex-end',
     },
     doneButtonWrap: {
-        height: 80,
+        minHeight: 75,
         aspectRatio: 1,
         alignItems: 'center',
         justifyContent: 'center',
@@ -53,9 +52,18 @@ export const taskStyles = StyleSheet.create({
     },
     btnContainer: {
         flex: 1,
-        height: 80,
+        minHeight: 75,
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
+    },
+    textContainer: {
+        marginLeft: '5%',
+        marginHorizontal: '10%',
+    },
+    isDone: {
+        textDecorationLine: 'line-through',
+        textDecorationColor: 'rgba(0, 0, 0, 0.2)',
+        color: 'rgba(0, 0, 0, 0.2)',
     },
 });
