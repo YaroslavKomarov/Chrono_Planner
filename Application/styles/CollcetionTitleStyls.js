@@ -3,13 +3,13 @@ import { StyleSheet } from 'react-native';
 
 export const collectionTitleStyles = StyleSheet.create({
     titleContainer: {
-        flex: 1,
+        marginTop: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     collectionTitle: {
         alignSelf: 'flex-end',
-        fontSize: 36,
+        fontSize: 34,
         fontWeight: 'bold',
         color: '#2F0000',
         textAlign: 'left',

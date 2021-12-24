@@ -59,11 +59,15 @@ export const taskStyles = StyleSheet.create({
     },
     textContainer: {
         marginLeft: '5%',
-        marginHorizontal: '10%',
+        marginRight: '12%'
     },
     isDone: {
         textDecorationLine: 'line-through',
         textDecorationColor: 'rgba(0, 0, 0, 0.35)',
         color: 'rgba(0, 0, 0, 0.35)',
     },
+    monthlyTaskText: {
+        fontSize: 18,
+        fontFamily: 'PTSans-reg',
+    }
 });

@@ -8,10 +8,10 @@ export const tapbarStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        flex: 0.7,
+        height: '11%',
     },
     vectorIcons: {
-        fontSize: 34,
+        fontSize: 38,
         padding: '6%',
     },
     isPressed: {

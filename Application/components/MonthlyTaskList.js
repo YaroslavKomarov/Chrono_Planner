@@ -8,12 +8,11 @@ import ListItemTask from './Task';
 
 export default function MonthlyTaskList({ modalVisible, setModalVisible }) {
     const [tasks, setTasks] = useState([
-        { text: 'Купить молоко', type: 'physical', key: '1' },
-        { text: 'Починить кран', type: 'physical', key: '2' },
-        { text: 'Сделать проект', type: 'physical', key: '3' },
-        { text: 'Сходить в кино', type: 'physical', key: '4' },
-        { text: 'Построить коммунизм', type: 'physical', key: '5' },
-        { text: 'Больше не наливать деду', type: 'physical', key: '6' }
+        { text: 'Записаться в зал', type: 'physical', key: '1' },
+        { text: 'Научиться...', type: 'physical', key: '2' },
+        { text: 'Предзащаитить проект', type: 'physical', key: '3' },
+        { text: 'Посмотреть матрицу', type: 'physical', key: '4' },
+        { text: 'Научиться делать харакири', type: 'physical', key: '5' }
     ]);
 
     const handleRemove = (key) => {
@@ -27,7 +26,7 @@ export default function MonthlyTaskList({ modalVisible, setModalVisible }) {
                 data={tasks}
                 renderItem={({ item }) => (
 					<View style={monthlyTaskListStyles.taskContainer}>
-                    	<ListItemTask task={item} onRemove={handleRemove}/>
+                    	<ListItemTask task={item} onRemove={handleRemove} isMontly={true}/>
 					</View>
                 )}
                 keyExtractor={(item) => item.key}

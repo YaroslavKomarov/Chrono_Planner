@@ -9,16 +9,6 @@ export const formStyles = StyleSheet.create({
         padding: 10,
         borderRadius: 15,
     },
-    boxShadow: {
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 2,
-        elevation: 0
-    },
     btnContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',

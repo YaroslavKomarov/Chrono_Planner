@@ -9,7 +9,7 @@ import { taskStyles } from '../styles/TaskStyles';
 import MigrateForm from './MigrateForm';
 
 
-export default function ListItemTask({ task, onRemove, isMontly }) {
+export default function ProjectItem({ project, onRemove }) {
     const [isDone, setIsDone] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -18,7 +18,7 @@ export default function ListItemTask({ task, onRemove, isMontly }) {
             <TouchableOpacity
                 disable={isDone}
                 style={taskStyles.deleteButtonWrap} 
-                onPress={() => onRemove(task.key)}
+                onPress={() => onRemove(project.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
             </TouchableOpacity>
@@ -60,10 +60,9 @@ export default function ListItemTask({ task, onRemove, isMontly }) {
                 </View>
                 <View style={taskStyles.textContainer}>
                     <Text style={[
-                        isMontly ? taskStyles.monthlyTaskText : taskStyles.taskText, 
-                        taskStyles.boxShadow, 
+                        taskStyles.taskText, taskStyles.boxShadow, 
                         isDone ? taskStyles.isDone : {}]}>
-                            {task.text}
+                            {project.projName}
                     </Text>
                 </View>
             </View>
