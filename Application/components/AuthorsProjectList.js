@@ -21,23 +21,25 @@ export default function AuthorsProjectList({ modalVisible, setModalVisible }) {
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
-            <FlatList
-                data={tasks}
-                renderItem={({ item }) => (
-					<View style={taskListStyles.taskContainer}>
-                    	<ProjectItem project={item} onRemove={handleRemove}/>
-					</View>
-                )}
-                keyExtractor={(item) => item.key}
-            />
-            <Modal transparent={true} visible={modalVisible}>
-                <View style={taskListStyles.modalView}>
-                    <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-                        <Text style={taskListStyles.formTitle} >Добавьте новый авторский проект</Text>
-                        <AddProjectForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+            <View style={taskListStyles.flatListWrap}>
+                <FlatList
+                    data={tasks}
+                    renderItem={({ item }) => (
+                        <View style={taskListStyles.taskContainer}>
+                            <ProjectItem project={item} onRemove={handleRemove}/>
+                        </View>
+                    )}
+                    keyExtractor={(item) => item.key}
+                />
+                <Modal transparent={true} visible={modalVisible}>
+                    <View style={taskListStyles.modalView}>
+                        <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
+                            <Text style={taskListStyles.formTitle} >Добавьте новый авторский проект</Text>
+                            <AddProjectForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+                        </View>
                     </View>
-                </View>
-            </Modal>
+                </Modal>
+            </View>
 		</View>
 	);
 }

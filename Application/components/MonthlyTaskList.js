@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Modal, FlatList } from 'react-native';
 
-import { monthlyTaskListStyles } from '../styles/MonthlyTaskListStyles';
+import { taskListStyles } from '../styles/TaskListStyles';
 import AddTaskForm from './AddTaskForm';
 import ListItemTask from './Task';
 
@@ -21,24 +21,26 @@ export default function MonthlyTaskList({ modalVisible, setModalVisible }) {
     };
 
     return (
-		<View style={monthlyTaskListStyles.list}>
-            <FlatList
-                data={tasks}
-                renderItem={({ item }) => (
-					<View style={monthlyTaskListStyles.taskContainer}>
-                    	<ListItemTask task={item} onRemove={handleRemove} isMontly={true}/>
-					</View>
-                )}
-                keyExtractor={(item) => item.key}
-            />
-            <Modal transparent={true} visible={modalVisible}>
-                <View style={monthlyTaskListStyles.modalView}>
-                    <View style={monthlyTaskListStyles.formContainer}>
-                        <Text style={monthlyTaskListStyles.formTitle} >Добавьте новую задачу</Text>
-                        <AddTaskForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+		<View style={taskListStyles.list}>
+            <View style={taskListStyles.flatListWrap}>
+                <FlatList
+                    data={tasks}
+                    renderItem={({ item }) => (
+                        <View style={taskListStyles.taskContainer}>
+                            <ListItemTask task={item} onRemove={handleRemove} isMontly={true}/>
+                        </View>
+                    )}
+                    keyExtractor={(item) => item.key}
+                />
+                <Modal transparent={true} visible={modalVisible}>
+                    <View style={taskListStyles.modalView}>
+                        <View style={taskListStyles.formContainer}>
+                            <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
+                            <AddTaskForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+                        </View>
                     </View>
-                </View>
-            </Modal>
+                </Modal>
+            </View>
 		</View>
 	);
 }

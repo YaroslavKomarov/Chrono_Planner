@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import { gStyles } from '../styles/GlobalStyles';
 import CollectionTitle from '../components/CollectionTitle';
-import TaskList from '../components/TaskList';
+import ArchiveTaskList from '../components/ArchiveTaskList';
 
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
@@ -18,7 +18,7 @@ export default function Archive() {
         style={gStyles.container}
       >
         <CollectionTitle title='Архив' setModalVisible={setModalVisible} />
-        <TaskList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+        <ArchiveTaskList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </AnimatedLinearGradient>
     );
 }
