@@ -11,7 +11,7 @@ export const tapbarStyles = StyleSheet.create({
         height: '11%',
     },
     vectorIcons: {
-        fontSize: 34,
+        fontSize: 38,
         padding: '6%',
     },
     isPressed: {
