@@ -9,6 +9,12 @@ export const taskListStyles = StyleSheet.create({
         backgroundColor: 'rgba(255, 225, 216, 1)',
         borderRadius: 25,
     },
+    flatListWrap: {
+        flex: 1,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: 'rgba(0, 0, 0, 0.3)'
+    },
     modalView: {
         flex: 1, 
         alignItems: 'center', 

@@ -7,7 +7,7 @@ import AddTaskForm from './AddTaskForm';
 import ListItemTask from './Task';
 
 
-export default function TaskList({ modalVisible, setModalVisible }) {
+export default function ArchiveTaskList({ modalVisible, setModalVisible }) {
     const [tasks, setTasks] = useState([
         { text: 'Купить молоко', type: 'physical', key: '1' },
         { text: 'Починить кран', type: 'physical', key: '2' },
@@ -24,23 +24,25 @@ export default function TaskList({ modalVisible, setModalVisible }) {
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
-            <FlatList
-                data={tasks}
-                renderItem={({ item }) => (
-					<View style={taskListStyles.taskContainer}>
-                    	<ListItemTask task={item} onRemove={handleRemove}/>
-					</View>
-                )}
-                keyExtractor={(item) => item.key}
-            />
-            <Modal transparent={true} visible={modalVisible}>
-                <View style={taskListStyles.modalView}>
-                    <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-                        <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
-                        <AddTaskForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+            <View style={taskListStyles.flatListWrap}>
+                <FlatList
+                    data={tasks}
+                    renderItem={({ item }) => (
+                        <View style={taskListStyles.taskContainer}>
+                            <ListItemTask task={item} onRemove={handleRemove}/>
+                        </View>
+                    )}
+                    keyExtractor={(item) => item.key}
+                />
+                <Modal transparent={true} visible={modalVisible}>
+                    <View style={taskListStyles.modalView}>
+                        <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
+                            <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
+                            <AddTaskForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+                        </View>
                     </View>
-                </View>
-            </Modal>
+                </Modal>
+            </View>
 		</View>
 	);
 }
