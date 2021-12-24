@@ -2,7 +2,6 @@ import React from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-import { collectionTitleStyles } from '../styles/CollcetionTitleStyls';
 import { monthlyHeaderStyles } from '../styles/MonthlyplannerHeaderStyles';
 import { gStyles } from '../styles/GlobalStyles';
 import CollectionTitle from './CollectionTitle';

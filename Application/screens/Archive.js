@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import { gStyles } from '../styles/GlobalStyles';
 import CollectionTitle from '../components/CollectionTitle';
-import TaskList from '../components/MainTaskList';
+import TaskList from '../components/TaskList';
 import Tapbar from '../components/Tapbar';
 
 

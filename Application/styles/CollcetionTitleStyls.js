@@ -9,7 +9,7 @@ export const collectionTitleStyles = StyleSheet.create({
     },
     collectionTitle: {
         alignSelf: 'flex-end',
-        fontSize: 36,
+        fontSize: 34,
         fontWeight: 'bold',
         color: '#2F0000',
         textAlign: 'left',

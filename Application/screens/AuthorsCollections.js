@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import { gStyles } from '../styles/GlobalStyles';
 import CollectionTitle from '../components/CollectionTitle';
-import TaskList from '../components/MainTaskList';
+import AuthorsProjectList from '../components/AuthorsProjectList';
 import Tapbar from '../components/Tapbar';
 
 
@@ -18,8 +18,8 @@ export default function AuthorsCollections() {
         colors={['rgba(255, 154, 158, 1)', 'rgba(250, 208, 196, 1)']}
         style={gStyles.container}
       >
-            <CollectionTitle title='Архив' setModalVisible={setModalVisible} />
-            <TaskList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+            <CollectionTitle title='Авторские коллекции' setModalVisible={setModalVisible} />
+            <AuthorsProjectList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
             <Tapbar />
       </AnimatedLinearGradient>
     );

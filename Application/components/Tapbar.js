@@ -39,7 +39,7 @@ export default function Tapbar() {
                     <Feather style={tapbarStyles.vectorIcons} name="home" />
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={() => loadScreen(setIsPressedHome, 'AuthorsCollections')}>
                 <View style={ isPressedAuthor ? tapbarStyles.isPressed : {} }>
                     <Feather style={ tapbarStyles.vectorIcons } name="clipboard" />
                 </View>

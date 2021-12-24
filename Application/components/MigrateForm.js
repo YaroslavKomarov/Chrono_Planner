@@ -22,16 +22,16 @@ export default function MigrateModal({ modalVisible, setModalVisible }) {
                         {(props) => (
                             <View>
                                 <TextInput 
-                                    style={[formStyles.inputText, formStyles.boxShadow]}
+                                    style={[formStyles.inputText, gStyles.boxShadow]}
                                     value={props.values.text} 
-                                    placeholder='Введите текст задачи...' 
+                                    placeholder='Выберите коллекцию для перемещения' 
                                     onChangeText={props.handleChange('text')}
                                     />
                                 <View style={formStyles.btnContainer}>
-                                    <TouchableOpacity onPress={props.handleSubmit} style={[formStyles.addButton, formStyles.boxShadow]}>
+                                    <TouchableOpacity onPress={props.handleSubmit} style={[formStyles.addButton, gStyles.boxShadow]}>
                                         <Text style={formStyles.buttonText}>Создать</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={[formStyles.cancelButton, formStyles.boxShadow]}>
+                                    <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={[formStyles.cancelButton, gStyles.boxShadow]}>
                                         <Text style={formStyles.buttonText}>Отмена</Text>
                                     </TouchableOpacity>
                                 </View>
