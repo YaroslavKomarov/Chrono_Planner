@@ -7,11 +7,19 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { taskStyles } from '../styles/TaskStyles';
 import MigrateForm from './MigrateForm';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function ProjectItem({ project, onRemove }) {
     const [isDone, setIsDone] = useState(false);
+
     const [modalVisible, setModalVisible] = useState(false);
+
+    const navigation = useNavigation();
+
+    const loadProject = () => {
+        navigation.navigate('Project', { projName: project.projName });
+    };
 
     const LeftSwipeActions = () => {
         return (
@@ -58,13 +66,13 @@ export default function ProjectItem({ project, onRemove }) {
                         <SimpleLineIcons name="pencil" size={24} color={'#7E869E'}/>
                     </TouchableOpacity>
                 </View>
-                <View style={taskStyles.textContainer}>
+                <TouchableOpacity style={taskStyles.textContainer} onPress={() => loadProject()}>
                     <Text style={[
                         taskStyles.taskText, taskStyles.boxShadow, 
                         isDone ? taskStyles.isDone : {}]}>
                             {project.projName}
                     </Text>
-                </View>
+                </TouchableOpacity>
             </View>
         </Swipeable>
     );

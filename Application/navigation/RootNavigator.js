@@ -6,6 +6,7 @@ import Archive from '../screens/Archive';
 // import Dailyplanner from '../screens/Dailyplanner';
 import Monthlyplanner from '../screens/Montlyplanner';
 import AuthorsCollections from '../screens/AuthorsCollections';
+import Project from '../screens/Project';
 import Tapbar from '../components/Tapbar';
 
 const Stack = createStackNavigator();
@@ -47,6 +48,17 @@ export default function RootNavigator() {
                     options={
                         { 
                             title: 'Авторские коллекции',
+                            headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
+                        }
+                    }
+                />
+                <Stack.Screen 
+                    name='Project'
+                    component={Project}
+                    options={
+                        { 
+                            title: 'Проект',
                             headerStyle: { height: 0 },
                             headerLeft: ()=> null,
                         }

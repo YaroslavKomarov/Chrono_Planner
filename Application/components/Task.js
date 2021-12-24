@@ -49,8 +49,8 @@ export default function ListItemTask({ task, onRemove, isMontly }) {
 
     return (
         <Swipeable
-        renderLeftActions={LeftSwipeActions}
-        renderRightActions={rightSwipeActions}
+            renderLeftActions={LeftSwipeActions}
+            renderRightActions={rightSwipeActions}
         >
             <View style={taskStyles.swipeContainer}>
                 <View style={taskStyles.penIconWrap}>

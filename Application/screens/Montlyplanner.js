@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Animated, Text } from 'react-native';
+import { Animated, Text, View } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 
 import MonthlyplannerHeader from '../components/MonthlyplannerHeader';
@@ -18,7 +18,9 @@ export default function Monthlyplanner() {
             style={gStyles.container}
         >
             <MonthlyplannerHeader title='Декабрь' setModalVisible={setModalVisible} />
-            <Text style={{ alignSelf: 'center', flex: 1 }}>Календарика компонент</Text>
+            <View style={{ alignSelf: 'center', flex: 1, }}>
+                <Text style={{ marginTop: '25%' }}>//Тут будет компонент календаря</Text>
+            </View>
             <MonthlyTaskList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
         </AnimatedLinearGradient>
     );
