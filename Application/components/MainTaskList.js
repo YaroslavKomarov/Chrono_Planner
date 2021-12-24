@@ -13,7 +13,7 @@ export default function TaskList({ modalVisible, setModalVisible }) {
         { text: 'Починить кран', type: 'physical', key: '2' },
         { text: 'Сделать проект', type: 'physical', key: '3' },
         { text: 'Сходить в кино', type: 'physical', key: '4' },
-        { text: 'Стать президентом Украины', type: 'physical', key: '5' },
+        { text: 'Построить коммунизм', type: 'physical', key: '5' },
         { text: 'Больше не наливать деду', type: 'physical', key: '6' }
     ]);
 
@@ -23,7 +23,7 @@ export default function TaskList({ modalVisible, setModalVisible }) {
     };
 
     return (
-		<View style={[gStyles.boxShadow, taskListStyles.list]}>
+		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
             <FlatList
                 data={tasks}
                 renderItem={({ item }) => (
@@ -35,7 +35,7 @@ export default function TaskList({ modalVisible, setModalVisible }) {
             />
             <Modal transparent={true} visible={modalVisible}>
                 <View style={taskListStyles.modalView}>
-                    <View style={[taskListStyles.formContainer, gStyles.boxShadow]}>
+                    <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
                         <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
                         <AddTaskForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
                     </View>

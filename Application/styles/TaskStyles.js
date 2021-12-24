@@ -63,7 +63,7 @@ export const taskStyles = StyleSheet.create({
     },
     isDone: {
         textDecorationLine: 'line-through',
-        textDecorationColor: 'rgba(0, 0, 0, 0.2)',
-        color: 'rgba(0, 0, 0, 0.2)',
+        textDecorationColor: 'rgba(0, 0, 0, 0.35)',
+        color: 'rgba(0, 0, 0, 0.35)',
     },
 });

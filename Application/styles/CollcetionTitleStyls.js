@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 
 export const collectionTitleStyles = StyleSheet.create({
     titleContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     collectionTitle: {
         alignSelf: 'flex-end',
@@ -20,6 +20,6 @@ export const collectionTitleStyles = StyleSheet.create({
         alignSelf: 'flex-end',
         textAlign: 'center',
         marginRight: '7%',
-        marginBottom: '3%'
+        marginBottom: '2%'
     }
 })

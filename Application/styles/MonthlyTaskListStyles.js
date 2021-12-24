@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 
-export const taskListStyles = StyleSheet.create({
+export const monthlyTaskListStyles = StyleSheet.create({
     list: {
-		flex: 4,
+        flex: 2,
 		margin: '5%',
         paddingVertical: '6%',
         backgroundColor: 'rgba(255, 225, 216, 1)',

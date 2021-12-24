@@ -10,7 +10,7 @@ import Tapbar from '../components/Tapbar';
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
-export default function Archive() {
+export default function AuthorsCollections() {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (

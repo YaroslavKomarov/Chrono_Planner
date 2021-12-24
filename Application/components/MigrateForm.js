@@ -11,7 +11,7 @@ export default function MigrateModal({ modalVisible, setModalVisible }) {
     return (
         <Modal transparent={true} visible={modalVisible}>
             <View style={taskListStyles.modalView}>
-                <View style={[taskListStyles.formContainer, gStyles.boxShadow]}>
+                <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
                     <Text style={taskListStyles.formTitle} >Выберите коллекцию для перемещения задачи</Text>
                     <Formik 
                         initialValues={{  text: '' }} 
