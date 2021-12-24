@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Archive from '../screens/Archive';
 // import Dailyplanner from '../screens/Dailyplanner';
-// import Monthlyplanner from '../screens/Montlyplanner';
-// import AuthorsCollections from '../screens/AuthorsCollection';
+import Monthlyplanner from '../screens/Montlyplanner';
+// import AuthorsCollections from '../screens/AuthorsCollections';
 
 const Stack = createStackNavigator();
 
@@ -13,11 +13,16 @@ export default function RootNavigator() {
 	return (
         <NavigationContainer>
             <Stack.Navigator>
-                {/* <Stack.Screen 
+                <Stack.Screen 
                     name='Monthlyplanner'
                     component={Monthlyplanner}
-                    options={{title: 'Ежемесячник'}}
-                /> */}
+                    options={
+                        { 
+                            title: 'Ежемесячник',
+                            headerStyle: { height: 0 },
+                        }
+                    }
+                />
                 <Stack.Screen 
                     name='Archive'
                     component={Archive}

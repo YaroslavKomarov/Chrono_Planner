@@ -5,14 +5,14 @@ export const gStyles = StyleSheet.create({
     container: {
         flex: 1
     },
-    boxShadow: {
+    boxShadowMain: {
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 3
+            height: 4
         },
-        shadowOpacity: 0.35,
-        shadowRadius: 3,
+        shadowOpacity: 0.15,
+        shadowRadius: 4,
         elevation: 5
     },
 });

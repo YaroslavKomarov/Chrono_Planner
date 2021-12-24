@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 
@@ -18,8 +17,7 @@ export default function App() {
 
   if (font){
     return (
-      <NavigationStack>
-      </NavigationStack>
+      <NavigationStack />
     );
   } else {
     return (

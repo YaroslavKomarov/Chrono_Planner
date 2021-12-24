@@ -11,6 +11,11 @@ export const tapbarStyles = StyleSheet.create({
         flex: 0.7,
     },
     vectorIcons: {
-        fontSize: 32,
+        fontSize: 34,
+        padding: '6%',
+    },
+    isPressed: {
+        borderRadius: 25,
+        backgroundColor: 'rgba(196, 196, 196, 0.43)',
     }
 });
