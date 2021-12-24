@@ -17,7 +17,7 @@ export default function App() {
 
   if (font){
     return (
-      <NavigationStack />
+      <NavigationStack/>
     );
   } else {
     return (

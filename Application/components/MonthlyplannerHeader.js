@@ -9,7 +9,7 @@ import CollectionTitle from './CollectionTitle';
 
 export default function MonthlyplannerHeader({ title, setModalVisible }) {
     return (
-        <View style={ { flex: 1.2 } }>
+        <View>
             <View style={[monthlyHeaderStyles.dailyplannerWrap, gStyles.boxShadowMain]}>
                 <TouchableOpacity style={monthlyHeaderStyles.touchableWrap}>
                     <Text style={monthlyHeaderStyles.dailyplannerText}>Ежедневник</Text>

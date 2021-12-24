@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 export default function Tapbar() {
-    const navigation = useNavigation(); 
+    const navigation = useNavigation();
 
     const [isPressedArchive, setIsPressedArchive] = useState(false);
     
@@ -23,7 +23,7 @@ export default function Tapbar() {
     };
 
     const loadScreen = (mainSet ,screenName) => {
-        //changeState(mainSet);
+        changeState(mainSet);
         navigation.navigate(screenName);
     };
 
@@ -39,7 +39,7 @@ export default function Tapbar() {
                     <Feather style={tapbarStyles.vectorIcons} name="home" />
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => loadScreen(setIsPressedHome, 'AuthorsCollections')}>
+            <TouchableOpacity onPress={() => loadScreen(setIsPressedAuthor, 'AuthorsCollections')}>
                 <View style={ isPressedAuthor ? tapbarStyles.isPressed : {} }>
                     <Feather style={ tapbarStyles.vectorIcons } name="clipboard" />
                 </View>

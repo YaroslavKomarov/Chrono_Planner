@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export const gStyles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     boxShadowMain: {
         shadowColor: "#000",

@@ -6,6 +6,7 @@ import Archive from '../screens/Archive';
 // import Dailyplanner from '../screens/Dailyplanner';
 import Monthlyplanner from '../screens/Montlyplanner';
 import AuthorsCollections from '../screens/AuthorsCollections';
+import Tapbar from '../components/Tapbar';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function RootNavigator() {
                         { 
                             title: 'Ежемесячник',
                             headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
                         }
                     }
                 />
@@ -30,6 +32,7 @@ export default function RootNavigator() {
                         { 
                             title: 'Архив',
                             headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
                         }
                     }
                 />
@@ -45,10 +48,12 @@ export default function RootNavigator() {
                         { 
                             title: 'Авторские коллекции',
                             headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
                         }
                     }
                 />
             </Stack.Navigator>
+            <Tapbar />
         </NavigationContainer>
 	);
 };

@@ -20,7 +20,6 @@ export default function AuthorsCollections() {
       >
             <CollectionTitle title='Авторские коллекции' setModalVisible={setModalVisible} />
             <AuthorsProjectList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
-            <Tapbar />
       </AnimatedLinearGradient>
     );
 }

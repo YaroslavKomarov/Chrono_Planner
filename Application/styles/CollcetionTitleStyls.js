@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export const collectionTitleStyles = StyleSheet.create({
     titleContainer: {
-        flex: 1,
+        marginTop: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
