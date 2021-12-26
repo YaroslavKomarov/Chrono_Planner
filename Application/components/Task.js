@@ -9,7 +9,7 @@ import { taskStyles } from '../styles/TaskStyles';
 import MigrateForm from './MigrateForm';
 
 
-export default function ListItemTask({ task, onRemove, isMontly }) {
+export default function Task({ task, onRemove, isMontly }) {
     const [isDone, setIsDone] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -32,14 +32,14 @@ export default function ListItemTask({ task, onRemove, isMontly }) {
                     disable={isDone}
                     style={taskStyles.doneButtonWrap} 
                     onPress={() => setIsDone(true)}
-                    >
+                >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
                 <TouchableOpacity 
                     disable={isDone}
                     style={taskStyles.migrateButtonWrap} 
                     onPress={() => isDone ? {} : setModalVisible(true)}
-                    >
+                >
                     <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
                 <MigrateForm modalVisible={modalVisible} setModalVisible={setModalVisible}/>
@@ -49,8 +49,8 @@ export default function ListItemTask({ task, onRemove, isMontly }) {
 
     return (
         <Swipeable
-        renderLeftActions={LeftSwipeActions}
-        renderRightActions={rightSwipeActions}
+            renderLeftActions={LeftSwipeActions}
+            renderRightActions={rightSwipeActions}
         >
             <View style={taskStyles.swipeContainer}>
                 <View style={taskStyles.penIconWrap}>

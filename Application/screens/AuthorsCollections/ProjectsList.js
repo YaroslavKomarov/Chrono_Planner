@@ -1,32 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, Modal, FlatList } from 'react-native';
 
-import { taskListStyles } from '../styles/TaskListStyles';
-import { gStyles } from '../styles/GlobalStyles';
-import AddProjectForm from './AddProjectForm';
-import ProjectItem from './ProjectItem';
+import { taskListStyles } from '../../styles/TaskListStyles';
+import { gStyles } from '../../styles/GlobalStyles';
+import AddProjectForm from '../ProjectScreen/AddProjectForm';
+import ProjectsListItem from './ProjectsListItem';
 
 
-export default function AuthorsProjectList({ modalVisible, setModalVisible }) {
-    const [tasks, setTasks] = useState([
-        { projName: 'Приложение на react native', key: '1' },
-        { projName: 'Проект га Arduino nano', key: '2' },
-        { projName: 'Обучение немецкому языку', key: '3' }
-    ]);
-
+export default function ProjectsList({ modalVisible, setModalVisible, projects, setProjects }) {
     const handleRemove = (key) => {
-        const newList = tasks.filter((item) => item.key !== key);
-        setTasks(newList);
+        const newList = projects.filter((item) => item.key !== key);
+        setProjects(newList);
     };
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
             <View style={taskListStyles.flatListWrap}>
                 <FlatList
-                    data={tasks}
+                    data={projects}
                     renderItem={({ item }) => (
                         <View style={taskListStyles.taskContainer}>
-                            <ProjectItem project={item} onRemove={handleRemove}/>
+                            <ProjectsListItem
+                                project={item} 
+                                onRemove={handleRemove}
+                            />
                         </View>
                     )}
                     keyExtractor={(item) => item.key}
@@ -35,7 +32,7 @@ export default function AuthorsProjectList({ modalVisible, setModalVisible }) {
                     <View style={taskListStyles.modalView}>
                         <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
                             <Text style={taskListStyles.formTitle} >Добавьте новый авторский проект</Text>
-                            <AddProjectForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+                            <AddProjectForm modalVisible={modalVisible} setModalVisible={setModalVisible} setProject={setProjects}/>
                         </View>
                     </View>
                 </Modal>

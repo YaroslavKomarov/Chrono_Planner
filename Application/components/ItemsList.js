@@ -4,32 +4,23 @@ import { View, Text, Modal, FlatList } from 'react-native';
 import { taskListStyles } from '../styles/TaskListStyles';
 import { gStyles } from '../styles/GlobalStyles';
 import AddTaskForm from './AddTaskForm';
-import ListItemTask from './Task';
+import Task from './Task';
 
 
-export default function ArchiveTaskList({ modalVisible, setModalVisible }) {
-    const [tasks, setTasks] = useState([
-        { text: 'Купить молоко', type: 'physical', key: '1' },
-        { text: 'Починить кран', type: 'physical', key: '2' },
-        { text: 'Сделать проект', type: 'physical', key: '3' },
-        { text: 'Сходить в кино', type: 'physical', key: '4' },
-        { text: 'Построить коммунизм', type: 'physical', key: '5' },
-        { text: 'Больше не наливать деду', type: 'physical', key: '6' }
-    ]);
-
+export default function ItemsList({ modalVisible, setModalVisible, items, setItems, isMonthly }) {
     const handleRemove = (key) => {
-        const newList = tasks.filter((item) => item.key !== key);
-        setTasks(newList);
+        const newList = items.filter((item) => item.key !== key);
+        setItems(newList);
     };
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
             <View style={taskListStyles.flatListWrap}>
                 <FlatList
-                    data={tasks}
+                    data={items}
                     renderItem={({ item }) => (
                         <View style={taskListStyles.taskContainer}>
-                            <ListItemTask task={item} onRemove={handleRemove}/>
+                            <Task task={item} onRemove={handleRemove} isMontly={isMonthly}/>
                         </View>
                     )}
                     keyExtractor={(item) => item.key}
@@ -38,7 +29,11 @@ export default function ArchiveTaskList({ modalVisible, setModalVisible }) {
                     <View style={taskListStyles.modalView}>
                         <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
                             <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
-                            <AddTaskForm modalVisible={modalVisible} setModalVisible={setModalVisible} setTask={setTasks}/>
+                            <AddTaskForm
+                                modalVisible={modalVisible}
+                                setModalVisible={setModalVisible}
+                                setTask={setItems}
+                            />
                         </View>
                     </View>
                 </Modal>

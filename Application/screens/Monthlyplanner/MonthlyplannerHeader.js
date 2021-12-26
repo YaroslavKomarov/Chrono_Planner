@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-import { monthlyHeaderStyles } from '../styles/MonthlyplannerHeaderStyles';
-import { gStyles } from '../styles/GlobalStyles';
-import CollectionTitle from './CollectionTitle';
+import { monthlyHeaderStyles } from '../../styles/MonthlyplannerHeaderStyles';
+import { gStyles } from '../../styles/GlobalStyles';
+import CollectionTitle from '../../components/CollectionTitle';
 
 
 export default function MonthlyplannerHeader({ title, setModalVisible }) {

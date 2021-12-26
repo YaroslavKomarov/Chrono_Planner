@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Animated, Text } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 
-import MonthlyplannerHeader from '../components/MonthlyplannerHeader';
-import { gStyles } from '../styles/GlobalStyles';
-import MonthlyTaskList from '../components/MonthlyTaskList';
+import MonthlyplannerHeader from '../ArchiveScreen/Components/MonthlyplannerHeader';
+import { gStyles } from '../../styles/GlobalStyles';
+import MonthlyTaskList from '../ArchiveScreen/Components/MonthlyTaskList';
 
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
-export default function Monthlyplanner() {
+export default function Dailyplanner() {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (

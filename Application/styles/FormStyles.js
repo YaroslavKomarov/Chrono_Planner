@@ -6,7 +6,7 @@ export const formStyles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'silver',
         marginBottom: '6%',
-        padding: 10,
+        padding: '3%',
         borderRadius: 15,
     },
     btnContainer: {
