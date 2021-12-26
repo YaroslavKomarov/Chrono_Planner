@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 // import Dailyplanner from '../screens/Dailyplanner';
-import AuthorsCollections from '../screens/AuthorsCollections/AuthorsCollections';
+import AuthorsCollections from '../screens/AuthorsCollections/AuthorsCollections'
 import Monthlyplanner from '../screens/Monthlyplanner/Montlyplanner';
 import Project from '../screens/ProjectScreen/Project';
 import Archive from '../screens/ArchiveScreen/Archive'
