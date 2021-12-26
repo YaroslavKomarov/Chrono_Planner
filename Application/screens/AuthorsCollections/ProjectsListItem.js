@@ -5,12 +5,12 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { taskStyles } from '../styles/TaskStyles';
-import MigrateForm from './MigrateForm';
+import { taskStyles } from '../../styles/TaskStyles';
 import { useNavigation } from '@react-navigation/native';
+import MigrateForm from '../../components/MigrateForm';
 
 
-export default function ProjectItem({ project, onRemove }) {
+export default function ProjectsListItem({ project, onRemove }) {
     const [isDone, setIsDone] = useState(false);
 
     const [modalVisible, setModalVisible] = useState(false);

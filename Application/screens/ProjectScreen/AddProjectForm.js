@@ -2,16 +2,16 @@ import React from 'react';
 import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { Formik } from 'formik';
 
-import { formStyles } from '../styles/FormStyles';
-import { gStyles } from '../styles/GlobalStyles';
+import { formStyles } from '../../styles/FormStyles';
+import { gStyles } from '../../styles/GlobalStyles';
 
 
-export default function AddProjectForm({ modalVisible, setModalVisible, setTask }) {
-    const addTask = (task) => {
-        setTask((list) => {
-            task.key = (+list[list.length] + 1).toString();
+export default function AddProjectForm({ modalVisible, setModalVisible, setProject }) {
+    const addTask = (proj) => {
+        setProject((list) => {
+            proj.key = (+list[list.length] + 1).toString();
             return [
-                task,
+                proj,
                 ...list
             ]
         });

@@ -5,17 +5,18 @@ export const collectionTitleStyles = StyleSheet.create({
     titleContainer: {
         marginTop: '11%',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        maxHeight: 250
+    },
+    textWrap: {
+        flex: 1,
+        marginLeft: '7%',
     },
     collectionTitle: {
         fontSize: 34,
-        textAlign: 'left',
-        marginLeft: '7%',
-        fontFamily: 'PTSans-bold'
+        fontFamily: 'PTSans-bold',
     },
-    addButton: {
-        marginTop: '1%',
-        alignSelf: 'center',
-        marginRight: '7%',
+    btnWrap: {
+        justifyContent: 'center',
+        marginHorizontal: '7%',
     }
 })
