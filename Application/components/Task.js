@@ -60,8 +60,7 @@ export default function Task({ task, setTask, onRemove, isMontly }) {
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}
-                        onPress={() => isDone ? {} : setChangeModalVisible(true)
-                        }
+                        onPress={() => isDone ? {} : setChangeModalVisible(true)}
                     >
                         <SimpleLineIcons name="pencil" size={24} color={'#7E869E'}/>
                     </TouchableOpacity>
