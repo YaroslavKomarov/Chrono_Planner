@@ -25,4 +25,9 @@ export const gStyles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 0
     },
+    calenderText: {
+        textAlign: 'center',
+        fontFamily: 'PTSans-reg', 
+        fontSize: 13
+    },
 });

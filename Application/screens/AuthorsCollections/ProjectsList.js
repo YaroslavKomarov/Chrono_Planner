@@ -3,7 +3,7 @@ import { View, Text, Modal, FlatList } from 'react-native';
 
 import { taskListStyles } from '../../styles/TaskListStyles';
 import { gStyles } from '../../styles/GlobalStyles';
-import AddProjectForm from '../ProjectScreen/AddProjectForm';
+import AddProjectForm from './AddProjectForm';
 import ProjectsListItem from './ProjectsListItem';
 
 
@@ -15,13 +15,15 @@ export default function ProjectsList({ modalVisible, setModalVisible, projects, 
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
-            <View style={taskListStyles.flatListWrap}>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
+            <View style={{ flex: 1 }}>
                 <FlatList
                     data={projects}
                     renderItem={({ item }) => (
                         <View style={taskListStyles.taskContainer}>
                             <ProjectsListItem
                                 project={item} 
+                                setProject={setProjects}
                                 onRemove={handleRemove}
                             />
                         </View>
@@ -37,6 +39,7 @@ export default function ProjectsList({ modalVisible, setModalVisible, projects, 
                     </View>
                 </Modal>
             </View>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
 		</View>
 	);
 }
