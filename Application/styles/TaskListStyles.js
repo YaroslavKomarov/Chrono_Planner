@@ -24,13 +24,11 @@ export const taskListStyles = StyleSheet.create({
         backgroundColor: "white",
         borderRadius: 20,
         padding: '5%',
-        paddingBottom: '7%',
         marginHorizontal: '4%',
         marginTop: '60%',
     },
     formTitle: {
         marginHorizontal: '10%',
-        marginBottom: '5%',
         textAlign: 'center',
         fontFamily: 'roboto-bold',
         fontSize: 20,

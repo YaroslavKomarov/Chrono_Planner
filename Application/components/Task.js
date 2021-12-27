@@ -7,11 +7,15 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { taskStyles } from '../styles/TaskStyles';
 import MigrateForm from './MigrateForm';
+import ChangeTaskForm from './ChangeTaskForm';
 
 
-export default function Task({ task, onRemove, isMontly }) {
+export default function Task({ task, setTask, onRemove, isMontly }) {
     const [isDone, setIsDone] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
+
+    const [migrateModalVisible, setMigrateModalVisible] = useState(false);
+
+    const [changeModalVisible, setChangeModalVisible] = useState(false);
 
     const LeftSwipeActions = () => {
         return (
@@ -38,11 +42,11 @@ export default function Task({ task, onRemove, isMontly }) {
                 <TouchableOpacity 
                     disable={isDone}
                     style={taskStyles.migrateButtonWrap} 
-                    onPress={() => isDone ? {} : setModalVisible(true)}
+                    onPress={() => isDone ? {} : setMigrateModalVisible(true)}
                 >
                     <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
-                <MigrateForm modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+                <MigrateForm modalVisible={migrateModalVisible} setModalVisible={setMigrateModalVisible}/>
             </TouchableOpacity>
         );
     };
@@ -54,9 +58,19 @@ export default function Task({ task, onRemove, isMontly }) {
         >
             <View style={taskStyles.swipeContainer}>
                 <View style={taskStyles.penIconWrap}>
-                    <TouchableOpacity disable={isDone}>
+                    <TouchableOpacity
+                        disable={isDone}
+                        onPress={() => isDone ? {} : setChangeModalVisible(true)
+                        }
+                    >
                         <SimpleLineIcons name="pencil" size={24} color={'#7E869E'}/>
                     </TouchableOpacity>
+                    <ChangeTaskForm
+                        modalVisible={changeModalVisible}
+                        setModalVisible={setChangeModalVisible}
+                        setTask={setTask}
+                        task={task}
+                    />
                 </View>
                 <View style={taskStyles.textContainer}>
                     <Text style={[
