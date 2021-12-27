@@ -34,11 +34,17 @@ export default function AddProjectForm({ modalVisible, setModalVisible, setProje
                         onChangeText={props.handleChange('projName')}
                         />
                     <View style={formStyles.btnContainer}>
-                        <TouchableOpacity onPress={props.handleSubmit} style={[formStyles.addButton, gStyles.boxShadow]}>
-                            <Text style={formStyles.buttonText}>Создать</Text>
+                        <TouchableOpacity
+                            onPress={props.handleSubmit} 
+                            style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]} 
+                        >
+                            <Text style={formStyles.buttonText}>Done</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={[formStyles.cancelButton, gStyles.boxShadow]}>
-                            <Text style={formStyles.buttonText}>Отмена</Text>
+                        <TouchableOpacity 
+                            onPress={() => setModalVisible(!modalVisible)} 
+                            style={[formStyles.cancelButton, gStyles.boxShadow, formStyles.button]}
+                        >
+                            <Text style={formStyles.buttonText}>Cancel</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

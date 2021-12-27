@@ -20,7 +20,12 @@ export default function ItemsList({ modalVisible, setModalVisible, items, setIte
                     data={items}
                     renderItem={({ item }) => (
                         <View style={taskListStyles.taskContainer}>
-                            <Task task={item} onRemove={handleRemove} isMontly={isMonthly}/>
+                            <Task
+                                task={item}
+                                setTask={setItems}
+                                onRemove={handleRemove}
+                                isMontly={isMonthly}
+                            />
                         </View>
                     )}
                     keyExtractor={(item) => item.key}
