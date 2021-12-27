@@ -15,7 +15,8 @@ export default function ItemsList({ modalVisible, setModalVisible, items, setIte
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
-            <View style={taskListStyles.flatListWrap}>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
+            <View style={{ flex: 1 }}>
                 <FlatList
                     data={items}
                     renderItem={({ item }) => (
@@ -43,6 +44,7 @@ export default function ItemsList({ modalVisible, setModalVisible, items, setIte
                     </View>
                 </Modal>
             </View>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
 		</View>
 	);
 }

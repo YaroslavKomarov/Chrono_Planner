@@ -15,7 +15,8 @@ export default function ProjectsList({ modalVisible, setModalVisible, projects, 
 
     return (
 		<View style={[gStyles.boxShadowMain, taskListStyles.list]}>
-            <View style={taskListStyles.flatListWrap}>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
+            <View style={{ flex: 1 }}>
                 <FlatList
                     data={projects}
                     renderItem={({ item }) => (
@@ -37,6 +38,7 @@ export default function ProjectsList({ modalVisible, setModalVisible, projects, 
                     </View>
                 </Modal>
             </View>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
 		</View>
 	);
 }

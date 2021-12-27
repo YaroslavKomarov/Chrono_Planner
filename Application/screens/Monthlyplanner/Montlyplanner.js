@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import MonthlyplannerHeader from './MonthlyplannerHeader';
 import ItemsList from '../../components/ItemsList';
 import { gStyles } from '../../styles/GlobalStyles';
+import MyCalendar from '../../components/Calendar';
 
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
@@ -27,9 +28,7 @@ export default function Monthlyplanner() {
             style={gStyles.container}
         >
             <MonthlyplannerHeader title='Декабрь' setModalVisible={setModalVisible} />
-            <View style={{ alignSelf: 'center', flex: 1, }}>
-                <Text style={{ marginTop: '25%' }}>//Тут будет компонент календаря</Text>
-            </View>
+            <MyCalendar />
             <ItemsList
                 modalVisible={modalVisible}
                 setModalVisible={setModalVisible}

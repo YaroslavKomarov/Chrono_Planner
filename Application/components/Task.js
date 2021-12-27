@@ -21,7 +21,7 @@ export default function Task({ task, setTask, onRemove, isMontly }) {
         return (
             <TouchableOpacity
                 disable={isDone}
-                style={taskStyles.deleteButtonWrap} 
+                style={[taskStyles.deleteButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
                 onPress={() => onRemove(task.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
@@ -31,17 +31,17 @@ export default function Task({ task, setTask, onRemove, isMontly }) {
 
     const rightSwipeActions = () => {
         return (
-            <TouchableOpacity style={taskStyles.btnContainer}>
+            <TouchableOpacity style={taskStyles.btnsContainer}>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={taskStyles.doneButtonWrap} 
+                    style={[taskStyles.doneButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
                     onPress={() => setIsDone(true)}
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={taskStyles.migrateButtonWrap} 
+                    style={[taskStyles.migrateButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
                     onPress={() => isDone ? {} : setMigrateModalVisible(true)}
                 >
                     <Feather name="arrow-right" size={38} color={'white'} />
@@ -56,7 +56,7 @@ export default function Task({ task, setTask, onRemove, isMontly }) {
             renderLeftActions={LeftSwipeActions}
             renderRightActions={rightSwipeActions}
         >
-            <View style={taskStyles.swipeContainer}>
+            <View style={[taskStyles.swipeContainer, isMontly ? {minHeight: 60} : {}]}>
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}

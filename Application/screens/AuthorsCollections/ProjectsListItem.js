@@ -25,7 +25,7 @@ export default function ProjectsListItem({ project, onRemove }) {
         return (
             <TouchableOpacity
                 disable={isDone}
-                style={taskStyles.deleteButtonWrap} 
+                style={[taskStyles.deleteButtonWrap, taskStyles.buttonWrap]} 
                 onPress={() => onRemove(project.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
@@ -35,19 +35,19 @@ export default function ProjectsListItem({ project, onRemove }) {
 
     const rightSwipeActions = () => {
         return (
-            <TouchableOpacity style={taskStyles.btnContainer}>
+            <TouchableOpacity style={taskStyles.btnsContainer}>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={taskStyles.doneButtonWrap} 
+                    style={[taskStyles.doneButtonWrap, taskStyles.buttonWrap]} 
                     onPress={() => setIsDone(true)}
-                    >
+                >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={taskStyles.migrateButtonWrap} 
+                    style={[taskStyles.migrateButtonWrap, taskStyles.buttonWrap]}
                     onPress={() => isDone ? {} : setModalVisible(true)}
-                    >
+                >
                     <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
                 <MigrateForm modalVisible={modalVisible} setModalVisible={setModalVisible}/>
