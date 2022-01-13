@@ -3,6 +3,7 @@ import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { Formik } from 'formik';
 import RNPickerSelect from 'react-native-picker-select';
 
+import TagList from './TagList';
 import { formStyles } from '../styles/FormStyles';
 import { gStyles } from '../styles/GlobalStyles';
 
@@ -34,12 +35,7 @@ export default function AddTaskForm({ modalVisible, setModalVisible, setTask }) 
                         placeholder='Введите текст задачи...' 
                         onChangeText={props.handleChange('text')}
                         />
-                    <TextInput 
-                        style={[formStyles.inputText, gStyles.boxShadow]}
-                        value={props.values.type} 
-                        placeholder='Выберите тип активности' 
-                        onChangeText={props.handleChange('type')}
-                        />
+                    <TagList/>
                     {/* <RNPickerSelect
                         style={[formStyles.inputText, formStyles.boxShadow]}
                         value={props.values.type} 
