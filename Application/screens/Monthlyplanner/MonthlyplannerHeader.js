@@ -7,11 +7,14 @@ import { gStyles } from '../../styles/GlobalStyles';
 import CollectionTitle from '../../components/CollectionTitle';
 
 
-export default function MonthlyplannerHeader({ title, setModalVisible }) {
+export default function MonthlyplannerHeader({ title, setModalVisible, navigation }) {
     return (
         <View>
             <View style={[monthlyHeaderStyles.dailyplannerWrap, gStyles.boxShadowMain]}>
-                <TouchableOpacity style={monthlyHeaderStyles.touchableWrap}>
+                <TouchableOpacity 
+                    style={monthlyHeaderStyles.touchableWrap}
+                    onPress={() => navigation.navigate('Dailyplanner')}
+                >
                     <Text style={monthlyHeaderStyles.dailyplannerText}>Ежедневник</Text>
                     <Feather name="arrow-down" size={24} color="black" />
                 </TouchableOpacity>

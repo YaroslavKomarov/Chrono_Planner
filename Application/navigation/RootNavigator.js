@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-// import Dailyplanner from '../screens/Dailyplanner';
+import Dailyplanner from '../screens/Dailyplanner/Dailyplanner';
 import AuthorsCollections from '../screens/AuthorsCollections/AuthorsCollections'
 import Monthlyplanner from '../screens/Monthlyplanner/Montlyplanner';
 import Project from '../screens/ProjectScreen/Project';
@@ -37,11 +37,17 @@ export default function RootNavigator() {
                         }
                     }
                 />
-                {/* <Stack.Screen 
+                <Stack.Screen 
                     name='Dailyplanner'
                     component={Dailyplanner}
-                    options={{title: 'Ежедневник'}}
-                /> */}
+                    options={
+                        { 
+                            title: 'Ежедневник',
+                            headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
+                        }
+                    }
+                />
                 <Stack.Screen 
                     name='AuthorsCollections'
                     component={AuthorsCollections}
