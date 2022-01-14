@@ -9,14 +9,10 @@ import { gStyles } from '../styles/GlobalStyles';
 export default function CollectionTitle({ title, setModalVisible }) {
     return (
         <View style={collectionTitleStyles.titleContainer}>
-            <View style={collectionTitleStyles.textWrap}>
-                <Text style={[collectionTitleStyles.collectionTitle, gStyles.boxShadow]}>{title}</Text>
-            </View>
-            <View style={collectionTitleStyles.btnWrap}>
-                <TouchableOpacity onPress={() => setModalVisible(true)}>
-                    <AntDesign name="pluscircleo" size={32} />
-                </TouchableOpacity>
-            </View>
+            <Text style={[collectionTitleStyles.collectionTitle, gStyles.boxShadow]}>{title}</Text>
+            <TouchableOpacity style={collectionTitleStyles.addButton} onPress={() => setModalVisible(true)}>
+                <AntDesign name="pluscircleo" size={32} />
+            </TouchableOpacity>
         </View>
 	);
 }

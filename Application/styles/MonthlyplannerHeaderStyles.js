@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native"
 export const monthlyHeaderStyles = StyleSheet.create({
     dailyplannerWrap: {
         width: '100%',
-        paddingTop: '11%',
+        paddingTop: '12%',
         paddingBottom: '3%',
         backgroundColor: 'rgba(250, 208, 196, 1)',
     },

@@ -3,20 +3,23 @@ import { StyleSheet } from 'react-native';
 
 export const collectionTitleStyles = StyleSheet.create({
     titleContainer: {
-        marginTop: '11%',
+        marginTop: '10%',
         flexDirection: 'row',
-        maxHeight: 250
-    },
-    textWrap: {
-        flex: 1,
-        marginLeft: '7%',
+        justifyContent: 'space-between'
     },
     collectionTitle: {
+        alignSelf: 'flex-end',
         fontSize: 34,
-        fontFamily: 'PTSans-bold',
+        fontWeight: 'bold',
+        color: '#2F0000',
+        textAlign: 'left',
+        marginLeft: '7%',
+        fontFamily: 'PTSans-bold'
     },
-    btnWrap: {
-        justifyContent: 'center',
-        marginHorizontal: '7%',
+    addButton: {
+        alignSelf: 'flex-end',
+        textAlign: 'center',
+        marginRight: '7%',
+        marginBottom: '2%'
     }
 })
