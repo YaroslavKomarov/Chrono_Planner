@@ -16,29 +16,21 @@ export const taskStyles = StyleSheet.create({
     penIconWrap: {
         marginLeft: '4%',
     },
-    deleteButtonWrap: {
+    buttonWrap: {
         flex: 1,
         minHeight: 75,
         aspectRatio: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    deleteButtonWrap: {
         backgroundColor: '#FF6E84',
     },
     migrateButtonWrap: {
-        minHeight: 75,
-        aspectRatio: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: '#879CFF',
-        alignSelf: 'flex-end',
     },
     doneButtonWrap: {
-        minHeight: 75,
-        aspectRatio: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: '#AAE2AA',
-        alignSelf: 'flex-end',
     },
     boxShadow: {
         shadowColor: "#000",
@@ -50,9 +42,8 @@ export const taskStyles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 3,
     },
-    btnContainer: {
+    btnsContainer: {
         flex: 1,
-        minHeight: 75,
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
@@ -69,5 +60,8 @@ export const taskStyles = StyleSheet.create({
     monthlyTaskText: {
         fontSize: 18,
         fontFamily: 'PTSans-reg',
+    },
+    monthlyTaskHeight: {
+        minHeight: 60
     }
 });

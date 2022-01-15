@@ -11,21 +11,18 @@ export const taskListStyles = StyleSheet.create({
     },
     modalView: {
         flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center', 
+        alignItems: 'center',
         backgroundColor: 'rgba(35,35,35,0.45)'
     },
     formContainer: {
         backgroundColor: "white",
         borderRadius: 20,
         padding: '5%',
-        alignItems: "center",
-        paddingBottom: '7%',
         marginHorizontal: '4%',
+        marginTop: '60%',
     },
     formTitle: {
         marginHorizontal: '10%',
-        marginBottom: '5%',
         textAlign: 'center',
         fontFamily: 'roboto-bold',
         fontSize: 20,

@@ -2,10 +2,11 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Archive from '../screens/Archive';
-// import Dailyplanner from '../screens/Dailyplanner';
-import Monthlyplanner from '../screens/Montlyplanner';
-import AuthorsCollections from '../screens/AuthorsCollections';
+import Dailyplanner from '../screens/Dailyplanner/Dailyplanner';
+import AuthorsCollections from '../screens/AuthorsCollections/AuthorsCollections'
+import Monthlyplanner from '../screens/Monthlyplanner/Montlyplanner';
+import Project from '../screens/ProjectScreen/Project';
+import Archive from '../screens/ArchiveScreen/Archive'
 import Tapbar from '../components/Tapbar';
 
 const Stack = createStackNavigator();
@@ -36,17 +37,34 @@ export default function RootNavigator() {
                         }
                     }
                 />
-                {/* <Stack.Screen 
+                <Stack.Screen 
                     name='Dailyplanner'
                     component={Dailyplanner}
-                    options={{title: 'Ежедневник'}}
-                /> */}
+                    options={
+                        { 
+                            title: 'Ежедневник',
+                            headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
+                        }
+                    }
+                />
                 <Stack.Screen 
                     name='AuthorsCollections'
                     component={AuthorsCollections}
                     options={
                         { 
                             title: 'Авторские коллекции',
+                            headerStyle: { height: 0 },
+                            headerLeft: ()=> null,
+                        }
+                    }
+                />
+                <Stack.Screen 
+                    name='Project'
+                    component={Project}
+                    options={
+                        { 
+                            title: 'Проект',
                             headerStyle: { height: 0 },
                             headerLeft: ()=> null,
                         }

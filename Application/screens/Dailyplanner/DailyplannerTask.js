@@ -1,27 +1,32 @@
 import React, { useState } from 'react'
-import { View, Text } from 'react-native';
+import { View, Text,  } from 'react-native';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { taskStyles } from '../styles/TaskStyles';
-import MigrateForm from './MigrateForm';
-import ChangeTaskForm from './ChangeTaskForm';
+import { taskStyles } from '../../styles/TaskStyles';
+import MigrateForm from '../../components/MigrateForm'
+import ChangeTaskForm from '../../components/ChangeTaskForm';
 
 
-export default function Task({ task, setTask, isMontly, onRemove }) {
+export default function DailyplannerTask({ task, setTask }) {
     const [isDone, setIsDone] = useState(false);
+
+    const [changeModalVisible, setChangeModalVisible] = useState(false);
 
     const [migrateModalVisible, setMigrateModalVisible] = useState(false);
 
-    const [changeModalVisible, setChangeModalVisible] = useState(false);
+    const onRemove = (key) => {
+        const newList = items.filter((item) => item.key !== key);
+        setItems(newList);
+    };
 
     const LeftSwipeActions = () => {
         return (
             <TouchableOpacity
                 disable={isDone}
-                style={[taskStyles.deleteButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
+                style={[taskStyles.deleteButtonWrap, taskStyles.buttonWrap]} 
                 onPress={() => onRemove(task.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
@@ -34,17 +39,10 @@ export default function Task({ task, setTask, isMontly, onRemove }) {
             <TouchableOpacity style={taskStyles.btnsContainer}>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={[taskStyles.doneButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
+                    style={[taskStyles.doneButtonWrap, taskStyles.buttonWrap]} 
                     onPress={() => setIsDone(true)}
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    disable={isDone}
-                    style={[taskStyles.migrateButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
-                    onPress={() => isDone ? {} : setMigrateModalVisible(true)}
-                >
-                    <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
                 <MigrateForm modalVisible={migrateModalVisible} setModalVisible={setMigrateModalVisible}/>
             </TouchableOpacity>
@@ -56,7 +54,7 @@ export default function Task({ task, setTask, isMontly, onRemove }) {
             renderLeftActions={LeftSwipeActions}
             renderRightActions={rightSwipeActions}
         >
-            <View style={[taskStyles.swipeContainer, isMontly ? {minHeight: 60} : {}]}>
+            <View style={taskStyles.swipeContainer}>
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}
@@ -73,7 +71,7 @@ export default function Task({ task, setTask, isMontly, onRemove }) {
                 </View>
                 <View style={taskStyles.textContainer}>
                     <Text style={[
-                        isMontly ? taskStyles.monthlyTaskText : taskStyles.taskText, 
+                        taskStyles.taskText, 
                         taskStyles.boxShadow, 
                         isDone ? taskStyles.isDone : {}]}>
                             {task.text}
