@@ -6,6 +6,7 @@ export const taskListStyles = StyleSheet.create({
 		flex: 1,
 		margin: '5%',
         paddingVertical: '6%',
+        paddingHorizontal: '2%',
         backgroundColor: 'rgba(255, 225, 216, 1)',
         borderRadius: 25,
     },

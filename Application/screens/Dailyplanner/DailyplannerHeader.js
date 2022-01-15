@@ -20,5 +20,5 @@ export default function DailyplannerHeader({ title, setModalVisible }) {
                 </View>
             </View>
         </View>
-	);
+	);  
 }

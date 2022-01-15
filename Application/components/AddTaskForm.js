@@ -49,12 +49,6 @@ export default function AddTaskForm({ modalVisible, setModalVisible, setTask }) 
                             <AntDesign name="exclamationcircleo" size={20} color="red" />
                         </View>
                     }
-                    <TextInput 
-                        style={[formStyles.inputText, gStyles.boxShadow]}
-                        value={props.values.type} 
-                        placeholder='Выберите тип активности' 
-                        onChangeText={props.handleChange('type')}
-                    />
                     <View style={formStyles.btnContainer}>
                         <TouchableOpacity 
                             onPress={props.handleSubmit} 

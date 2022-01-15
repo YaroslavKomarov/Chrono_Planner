@@ -5,7 +5,7 @@ export const getColorsMap = () => {
     map.set('creative', 'rgba(255, 228, 199, 1)');
     map.set('rest', 'rgba(214, 228, 253, 1)');
     map.set('communication', 'rgba(255, 228, 199, 1)');
-    map.set('mealtime', 'rgba(17, 18, 53, 0.2)');
+    map.set('mealtime', 'rgba(212, 202, 202, 1)');
     return map;
 };
 

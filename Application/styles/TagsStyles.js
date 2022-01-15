@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 
 export const tagsStyles = StyleSheet.create({
     container: {
+        marginTop: '5%',
+        marginLeft: '2%',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
@@ -11,7 +13,7 @@ export const tagsStyles = StyleSheet.create({
     element: {
         padding: 10,
         margin: 4,
-        borderRadius: 50,
+        borderRadius: 15,
         flexDirection: 'row'
     },
     icon: {

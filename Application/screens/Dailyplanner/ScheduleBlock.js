@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Modal, FlatList, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useWindowDimensions } from 'react-native';
 
@@ -7,10 +7,13 @@ import { taskListStyles } from '../../styles/TaskListStyles';
 import DailyplannerTask from './DailyplannerTask';
 import { gStyles } from '../../styles/GlobalStyles';
 import { getColorsMap } from '../../Global';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function ScheduleBlock({ block }) {
     const { height, width } = useWindowDimensions();
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     const [tasks, setTasks] = useState([
         { text: 'Купить молоко', key: '1' },
@@ -20,6 +23,11 @@ export default function ScheduleBlock({ block }) {
         { text: 'Построить коммунизм', key: '5' },
         { text: 'Больше не наливать деду', key: '6' }
     ]);
+
+    const handleRemove = (key) => {
+        const newList = tasks.filter((item) => item.key !== key);
+        setTasks(newList);
+    };
 
     const startTime = () => {
         const arr = block.StartTime.split(':');
@@ -60,24 +68,42 @@ export default function ScheduleBlock({ block }) {
                 </View>
             </View>
             <View style={ [styles.scheduleBlock(blockSize(), blockColor()), styles.boxShadow]}>
-                <View style={styles.blockHeader}>
-                    <AntDesign name="down" size={18} color="black" style={ { marginTop: '1%'} } />
-                    <Text>  {block.ActivityType}</Text>
+                <View>
+                    <TouchableOpacity style={styles.blockHeader} onPress={() => setModalVisible(!modalVisible)}>
+                        <AntDesign name="down" size={18} color="black" style={ { marginTop: '1%'} } />
+                        <Text> {block.ActivityType}</Text>
+                    </TouchableOpacity>
+                    {/* Поместить сюда плюсик для добавления задачи */}
                 </View>
-                <View style={{ flex: 1 }}>
-                    {/* <FlatList
-                        data={tasks}
-                        renderItem={({ item }) => (
-                            <View style={taskListStyles.taskContainer}>
-                                <DailyplannerTask 
-                                    task={item} 
-                                    setTask={setTasks}
-                                />
-                            </View>
-                        )}
-                        keyExtractor={(item) => item.key}
-                    /> */}
-                </View>
+                { modalVisible ? 
+                    <View style={{ paddingHorizontal: '2%' }}>
+                        <View style={{ 
+                            borderBottomWidth: 1, 
+                            borderColor: 'black',
+                            marginBottom: '2%'
+                        }}></View>
+                        <FlatList
+                            data={tasks}
+                            renderItem={({ item }) => (
+                                <View style={taskListStyles.taskContainer}>
+                                    <DailyplannerTask 
+                                        task={item} 
+                                        setTask={setTasks}
+                                        onRemove={handleRemove}
+                                        taskColor={blockColor()}
+                                    />
+                                </View>
+                            )}
+                            keyExtractor={(item) => item.key}
+                        />
+                        <View style={{
+                            borderBottomWidth: 1, 
+                            borderColor: 'black', 
+                            marginTop: '2%'
+                        }}></View>
+                    </View> : 
+                        <View />
+                }
             </View>
         </View>
     );  
@@ -107,6 +133,7 @@ const styles = StyleSheet.create({
     blockHeader: {
         flexDirection: 'row',
         marginLeft: '3%',
+        marginBottom: '2%'
     },
     scheduleBlock: (blockSize, blockColor) => {
         return {
@@ -129,5 +156,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.15,
         shadowRadius: 3,
         elevation: 0
+    },
+    blockTasksWrap: {
+        minHeight: '80%',
+
     },
 });

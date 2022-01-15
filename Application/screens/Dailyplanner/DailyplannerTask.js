@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text,  } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
@@ -10,23 +10,18 @@ import MigrateForm from '../../components/MigrateForm'
 import ChangeTaskForm from '../../components/ChangeTaskForm';
 
 
-export default function DailyplannerTask({ task, setTask }) {
+export default function DailyplannerTask({ task, setTask, onRemove, taskColor }) {
     const [isDone, setIsDone] = useState(false);
 
     const [changeModalVisible, setChangeModalVisible] = useState(false);
 
     const [migrateModalVisible, setMigrateModalVisible] = useState(false);
 
-    const onRemove = (key) => {
-        const newList = items.filter((item) => item.key !== key);
-        setItems(newList);
-    };
-
     const LeftSwipeActions = () => {
         return (
             <TouchableOpacity
                 disable={isDone}
-                style={[taskStyles.deleteButtonWrap, taskStyles.buttonWrap]} 
+                style={[taskStyles.deleteButtonWrap, styles.buttonWrap]} 
                 onPress={() => onRemove(task.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
@@ -39,7 +34,7 @@ export default function DailyplannerTask({ task, setTask }) {
             <TouchableOpacity style={taskStyles.btnsContainer}>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={[taskStyles.doneButtonWrap, taskStyles.buttonWrap]} 
+                    style={[taskStyles.doneButtonWrap, styles.buttonWrap]} 
                     onPress={() => setIsDone(true)}
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
@@ -54,13 +49,13 @@ export default function DailyplannerTask({ task, setTask }) {
             renderLeftActions={LeftSwipeActions}
             renderRightActions={rightSwipeActions}
         >
-            <View style={taskStyles.swipeContainer}>
+            <View style={styles.swipeContainer(taskColor)}>
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}
                         onPress={() => isDone ? {} : setChangeModalVisible(true)}
                     >
-                        <SimpleLineIcons name="pencil" size={24} color={'#7E869E'}/>
+                        <SimpleLineIcons name="pencil" size={22} color={'#7E869E'}/>
                     </TouchableOpacity>
                     <ChangeTaskForm
                         modalVisible={changeModalVisible}
@@ -71,7 +66,7 @@ export default function DailyplannerTask({ task, setTask }) {
                 </View>
                 <View style={taskStyles.textContainer}>
                     <Text style={[
-                        taskStyles.taskText, 
+                        styles.taskText, 
                         taskStyles.boxShadow, 
                         isDone ? taskStyles.isDone : {}]}>
                             {task.text}
@@ -81,3 +76,62 @@ export default function DailyplannerTask({ task, setTask }) {
         </Swipeable>
     );
 }
+
+const styles = StyleSheet.create({
+    swipeContainer: (color) => {
+        return {
+            minHeight: 50,
+            flexDirection: 'row',
+            backgroundColor: color,
+            alignItems: 'center',
+        }
+    },
+    taskText: {
+        fontFamily: 'roboto-reg',
+        fontSize: 12,
+    },
+    penIconWrap: {
+        marginLeft: '4%',
+    },
+    buttonWrap: {
+        flex: 1,
+        minHeight: 50,
+        aspectRatio: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    deleteButtonWrap: {
+        backgroundColor: '#FF6E84',
+    },
+    migrateButtonWrap: {
+        backgroundColor: '#879CFF',
+    },
+    doneButtonWrap: {
+        backgroundColor: '#AAE2AA',
+    },
+    boxShadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3,
+        elevation: 3,
+    },
+    btnsContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    },
+    textContainer: {
+        marginLeft: '5%',
+        marginRight: '12%'
+    },
+    isDone: {
+        textDecorationLine: 'line-through',
+        textDecorationColor: 'rgba(0, 0, 0, 0.35)',
+        color: 'rgba(0, 0, 0, 0.35)',
+    },
+});
