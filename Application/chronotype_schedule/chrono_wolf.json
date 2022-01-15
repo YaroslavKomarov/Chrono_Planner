@@ -1,0 +1,98 @@
+[
+    {
+      "StartTime": "7:00",
+      "EndTime": "7:30",
+      "ActivityType": "rest",
+      "key": "1"
+    },
+    {
+      "StartTime": "7:30",
+      "EndTime": "8:00",
+      "ActivityType": "creative",
+      "key": "2"
+    },
+    {
+      "StartTime": "8:00",
+      "EndTime": "8:30",
+      "ActivityType": "mealtime",
+      "key": "3"
+    },
+    {
+      "StartTime": "8:30",
+      "EndTime": "9:00",
+      "ActivityType": "physical",
+      "key": "4"
+    },
+    {
+      "StartTime": "9:00",
+      "EndTime": "11:00",
+      "ActivityType": "creative",
+      "key": "5"
+    },
+    {
+      "StartTime": "11:00",
+      "EndTime": "11:15",
+      "ActivityType": "rest",
+      "key": "6"
+    },
+    {
+      "StartTime": "11:15",
+      "EndTime": "13:00",
+      "ActivityType": "intellectual",
+      "key": "7"
+    },
+    {
+      "StartTime": "13:00",
+      "EndTime": "14:00",
+      "ActivityType": "mealtime",
+      "key": "8"
+    },
+    {
+      "StartTime": "14:00",
+      "EndTime": "16:00",
+      "ActivityType": "intellectual",
+      "key": "9"
+    },
+    {
+      "StartTime": "16:00",
+      "EndTime": "16:15",
+      "ActivityType": "mealtime",
+      "key": "10"
+    },
+    {
+      "StartTime": "16:15",
+      "EndTime": "18:00",
+      "ActivityType": "communication",
+      "key": "11"
+    },
+    {
+      "StartTime": "18:00",
+      "EndTime": "19:00",
+      "ActivityType": "physical",
+      "key": "12"
+    },
+    {
+      "StartTime": "19:00",
+      "EndTime": "20:00",
+      "ActivityType": "intellectual",
+      "key": "13"
+    },
+    {
+      "StartTime": "20:00",
+      "EndTime": "21:00",
+      "ActivityType": "mealtime",
+      "key": "14"
+    },
+    {
+      "StartTime": "21:00",
+      "EndTime": "23:00",
+      "ActivityType": "creative",
+      "key": "15"
+    },
+    {
+      "StartTime": "23:00",
+      "EndTime": "0:00",
+      "ActivityType": "rest",
+      "key": "16"
+    }
+  ]

@@ -4,34 +4,36 @@ import { View, Text, Modal, FlatList, ViewComponent, StyleSheet } from 'react-na
 import { useWindowDimensions } from 'react-native';
 
 import { taskListStyles } from '../../styles/TaskListStyles';
-import ScheduleBlock from './ScheduleBlock';
 import { gStyles } from '../../styles/GlobalStyles';
-import bear_data from '../../chronotype_schedule/chrono_bear.json';
-import { chrontype } from '../../../App';
-import { FlipInEasyX } from 'react-native-reanimated';
+import { chronotype } from '../../Global';
+import ScheduleBlock from './ScheduleBlock';
+import bearSchedule from '../../chronotype_schedule/chrono_bear.json';
+import lionSchedule from '../../chronotype_schedule/chrono_lion.json';
+import wolfSchedule from '../../chronotype_schedule/chrono_wolf.json';
+import dolphinSchedule from '../../chronotype_schedule/chrono_dolphin.json';
 
 
 export default function Schedule() {
-    const schedule = bear_data;
-    //() => {
-    //     switch (chrontype) {
-    //         case 'bear':
-    //             return bear_data;
-    //         case 'dolphin':
-    //             return 
-    //         case 'wolf':
-    //             return 
-    //         case 'lion':
-    //             return 
-    //         default:
-    //             break;
-    //     }
-    // }
+    const schedule = () => {
+        switch (chronotype) {
+            case 'bear':
+                return bearSchedule;
+            case 'dolphin':
+                return dolphinSchedule;
+            case 'wolf':
+                return wolfSchedule;
+            case 'lion':
+                return lionSchedule;
+            default:
+                break;
+        }
+    }
 
     return (
-        <View style={ styles.list }>
+        <View style={ [styles.list, gStyles.boxShadowMain] }>
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
             <FlatList
-                data={schedule}
+                data={schedule()}
                 renderItem={({ item }) => (
                     <View style={taskListStyles.taskContainer}>
                         <ScheduleBlock
@@ -41,6 +43,7 @@ export default function Schedule() {
                 )}
                 keyExtractor={(item) => item.key}
             />
+            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
         </View>
     );
   }
