@@ -17,6 +17,15 @@ export default function RootNavigator() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Test1"
+          component={Test1}
+          options={{
+            title: "Тест 1",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
           name="Monthlyplanner"
           component={Monthlyplanner}
           options={{
@@ -44,15 +53,6 @@ export default function RootNavigator() {
           component={AuthorsCollections}
           options={{
             title: "Авторские коллекции",
-            headerStyle: { height: 0 },
-            headerLeft: () => null,
-          }}
-        />
-        <Stack.Screen
-          name="Test1"
-          component={Test1}
-          options={{
-            title: "Тест 1",
             headerStyle: { height: 0 },
             headerLeft: () => null,
           }}

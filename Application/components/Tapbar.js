@@ -55,7 +55,7 @@ export default function Tapbar() {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => loadScreen(setIsPressedTest, "Test1")}>
         <View style={isPressedTest ? tapbarStyles.isPressed : {}}>
-          <AntDesign name="book" style={tapbarStyles.vectorIcons} />
+          <AntDesign name="exception1" style={tapbarStyles.vectorIcons} />
         </View>
       </TouchableOpacity>
     </View>

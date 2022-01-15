@@ -8,7 +8,7 @@ import {
   Animated,
 } from "react-native";
 import * as React from "react";
-import { RadioButton } from "react-native-paper";
+import RadioForm from "react-native-simple-radio-button";
 
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -62,34 +62,50 @@ const DATA = [
 
 var arr = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
 
+var radio_props = [
+  { label: "Да    ", value: 0 },
+  { label: "Нет", value: 1 },
+];
+
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
 function addArr(str, val) {
   for (var i = 1; i < 11; i++) {
-    if (i == val) arr[i] = str;
+    if (i == val) arr[i] = radio_props[str].label;
   }
 }
 
 const Item = ({ item }) => (
-  <View style={styles.quethion}>
+  <View style={[gStyles.boxShadowMain, styles.quethion]}>
     <Text style={styles.Text}>{item.title}</Text>
-    <View style={styles.row}>
-      <Text style={styles.answer}>да</Text>
-      <RadioButton value="да" onPress={() => addArr("да", item.id)} />
-      <Text style={styles.answer}>нет</Text>
-      <RadioButton value="нет" onPress={() => addArr("нет", item.id)} />
+    <View>
+      <RadioForm
+        radio_props={radio_props}
+        initial={2}
+        onPress={
+          ((value) => {
+            this.setState({ value: value });
+          },
+          (value) => addArr(value, item.id))
+        }
+        style={styles.radioButton}
+        formHorizontal={true}
+        buttonColor={"rgba(17, 18, 53, 0.5)"}
+        selectedButtonColor={"rgba(170, 226, 170, 1)"}
+        buttonSize={20}
+        labelStyle={{ fontSize: 20, fontFamily: "PTSans-reg" }}
+      />
     </View>
   </View>
 );
-
 class Test1 extends React.Component {
   checkArr(val) {
     var count = 0;
     for (var i = 1; i < 11; i++) {
       if (val[i] == "0") {
-        return alert("Не все ответы выбраны !");
+        return alert("Вы выбрали не все ответы ");
       }
-      if (val[i] == "да") {
+      if (val[i] == "Да    ") {
         count += 1;
       }
     }
@@ -98,28 +114,50 @@ class Test1 extends React.Component {
   }
   state = {
     modalVisible: false,
+    modalVisibleHome: false,
+    modalOfHello: true,
   };
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
     this.props.navigation.navigate("Test2");
   }
-  state = {
-    modalVisibleHome: false,
-  };
   setModalVisibleHome(visible) {
     this.setState({ modalVisibleHome: visible });
-    this.props.navigation.navigate("Test1");
+    this.props.navigation.navigate("Monthlyplanner");
   }
-
+  setModalVisibleHello(visible) {
+    this.setState({ modalOfHello: visible });
+  }
   render() {
     const renderItem = ({ item }) => {
       return <Item item={item} />;
     };
+
     return (
       <AnimatedLinearGradient
         colors={["rgba(255, 154, 158, 1)", "rgba(250, 208, 196, 1)"]}
         style={gStyles.container}
       >
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={this.state.modalOfHello}
+          style
+        >
+          <View style={taskListStyles.modalView}>
+            <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
+              <Text style={taskListStyles.formTitle}>
+                Этот тест покажет вам к какому хронотипу вы относитесь
+              </Text>
+              <TouchableOpacity
+                onPress={() => this.setModalVisibleHello(false)}
+                style={styles.touchableWrap}
+              >
+                <Text style={[styles.Button, styles.answer]}> Закрыть </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
         <Modal
           animationType="slide"
           transparent={true}
@@ -136,7 +174,9 @@ class Test1 extends React.Component {
                 onPress={() => this.setModalVisible(false)}
                 style={styles.touchableWrap}
               >
-                <Text style={styles.Text}>Дополнительный тест</Text>
+                <Text style={[styles.Button, styles.answer]}>
+                  Дополнительный тест
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -155,7 +195,7 @@ class Test1 extends React.Component {
                 onPress={() => this.setModalVisibleHome(false)}
                 style={styles.touchableWrap}
               >
-                <Text style={styles.Text}>Вернуться домой</Text>
+                <Text style={[styles.Button]}>Вернуться домой</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -171,7 +211,7 @@ class Test1 extends React.Component {
             onPress={() => this.checkArr(arr)}
             style={styles.touchableWrap}
           >
-            <Text style={styles.Text}>Получить результат</Text>
+            <Text style={[styles.Button]}>Получить результат</Text>
           </TouchableOpacity>
         </View>
       </AnimatedLinearGradient>
@@ -185,27 +225,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginLeft: "34%",
+  radioButton: {
+    margin: 10,
+    marginLeft: "27%",
   },
   Button: {
-    top: -5,
-  },
-  answer: {
-    marginTop: 7,
+    textAlign: "center",
+    fontSize: 20,
+    fontFamily: "roboto-reg",
+    color: "white",
   },
   Text: {
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 20,
+    fontFamily: "PTSans-bold",
+    margin: 5,
   },
   quethion: {
     textAlign: "center",
     margin: 10,
     borderWidth: 2,
     borderColor: "#FCE2D8",
-    borderRadius: 10,
+    borderRadius: 20,
     backgroundColor: "#FCE2D8",
   },
   FlatList: {
