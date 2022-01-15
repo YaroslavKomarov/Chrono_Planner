@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { AntDesign } from '@expo/vector-icons';
 
+import TagList from './TagList';
 import { formStyles } from '../styles/FormStyles';
 import { gStyles } from '../styles/GlobalStyles';
 
@@ -41,6 +42,7 @@ export default function AddTaskForm({ modalVisible, setModalVisible, setTask }) 
                         placeholder='Введите текст задачи...' 
                         onChangeText={props.handleChange('text')}
                     />
+                    <TagList/>
                     {(props.errors.text) &&
                         <View style={formStyles.errorWrap}>
                             <Text style={formStyles.errorText}>{props.errors.text}  </Text>
