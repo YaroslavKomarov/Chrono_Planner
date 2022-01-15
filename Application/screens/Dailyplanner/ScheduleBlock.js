@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     time: {
-        backgroundColor: 'rgba(170, 226, 170, 1)',
+        backgroundColor: 'rgba(135, 156, 255, 1)',
         padding: '2%',
         borderRadius: 10,
     },
