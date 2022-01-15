@@ -10,7 +10,7 @@ import MyCalendar from '../../components/Calendar';
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
-export default function Monthlyplanner() {
+export default function Monthlyplanner({ navigation }) {
     const [tasks, setTasks] = useState([
         { text: 'Купить молоко', type: 'physical', key: '1' },
         { text: 'Починить кран', type: 'physical', key: '2' },
@@ -27,7 +27,11 @@ export default function Monthlyplanner() {
             colors={['rgba(255, 154, 158, 1)', 'rgba(250, 208, 196, 1)']}
             style={gStyles.container}
         >
-            <MonthlyplannerHeader title='Декабрь' setModalVisible={setModalVisible} />
+            <MonthlyplannerHeader
+                title='Декабрь' 
+                setModalVisible={setModalVisible} 
+                navigation={navigation}
+            />
             <MyCalendar />
             <ItemsList
                 modalVisible={modalVisible}
