@@ -16,6 +16,8 @@ import { gStyles } from "../../styles/GlobalStyles";
 
 import { taskListStyles } from "../../styles/TaskListStyles";
 
+import { formStyles } from "../../styles/FormStyles";
+
 const DATA = [
   {
     title: "Я не могу заснуть или просыпаюсь от малейшего звука или света",
@@ -91,8 +93,8 @@ const Item = ({ item }) => (
         style={styles.radioButton}
         formHorizontal={true}
         buttonColor={"rgba(17, 18, 53, 0.5)"}
-        selectedButtonColor={"rgba(170, 226, 170, 1)"}
-        buttonSize={20}
+        selectedButtonColor={"rgba(135, 156, 255, 1)"}
+        buttonSize={15}
         labelStyle={{ fontSize: 20, fontFamily: "PTSans-reg" }}
       />
     </View>
@@ -115,7 +117,7 @@ class Test1 extends React.Component {
   state = {
     modalVisible: false,
     modalVisibleHome: false,
-    modalOfHello: true,
+    modalOfHI: true,
   };
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
@@ -125,8 +127,8 @@ class Test1 extends React.Component {
     this.setState({ modalVisibleHome: visible });
     this.props.navigation.navigate("Monthlyplanner");
   }
-  setModalVisibleHello(visible) {
-    this.setState({ modalOfHello: visible });
+  setModalVisibleHI(visible) {
+    this.setState({ modalOfHI: visible });
   }
   render() {
     const renderItem = ({ item }) => {
@@ -138,23 +140,31 @@ class Test1 extends React.Component {
         colors={["rgba(255, 154, 158, 1)", "rgba(250, 208, 196, 1)"]}
         style={gStyles.container}
       >
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={this.state.modalOfHello}
-          style
-        >
-          <View style={taskListStyles.modalView}>
+        <Modal animationType="slide" visible={this.state.modalOfHI}>
+          <View>
             <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-              <Text style={taskListStyles.formTitle}>
-                Этот тест покажет вам к какому хронотипу вы относитесь
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.setModalVisibleHello(false)}
-                style={styles.touchableWrap}
+              <Text
+                style={[taskListStyles.formTitle, { borderBottomWidth: 2 }]}
               >
-                <Text style={[styles.Button, styles.answer]}> Закрыть </Text>
-              </TouchableOpacity>
+                Добро пожаловать в приложение ChronoPlanner - Ваш персональный
+                планировщик задач с опорой на биоритмы
+              </Text>
+              <Text style={[taskListStyles.formTitle, { marginBottom: 5 }]}>
+                Сейчас перед вами появится тест , который поможет нам определить
+                ваш хронотип
+              </Text>
+              <View style={{ height: 60 }}>
+                <TouchableOpacity
+                  onPress={() => this.setModalVisibleHI(false)}
+                  style={[
+                    formStyles.addButton,
+                    gStyles.boxShadow,
+                    formStyles.button,
+                  ]}
+                >
+                  <Text style={formStyles.buttonText}> Далее </Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -170,14 +180,20 @@ class Test1 extends React.Component {
                 Просьба пройти еще один тест для более точного определения
                 хронотипа
               </Text>
-              <TouchableOpacity
-                onPress={() => this.setModalVisible(false)}
-                style={styles.touchableWrap}
-              >
-                <Text style={[styles.Button, styles.answer]}>
-                  Дополнительный тест
-                </Text>
-              </TouchableOpacity>
+
+              <View style={styles.touchableWrap}>
+                <TouchableOpacity
+                  onPress={() => this.setModalVisible(false)}
+                  style={[
+                    formStyles.addButton,
+                    gStyles.boxShadow,
+                    formStyles.button,
+                    styles.Button,
+                  ]}
+                >
+                  <Text style={formStyles.buttonText}>Дополнительный тест</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -191,12 +207,18 @@ class Test1 extends React.Component {
               <Text style={taskListStyles.formTitle}>
                 Ваш хронотип это дельфин
               </Text>
-              <TouchableOpacity
-                onPress={() => this.setModalVisibleHome(false)}
-                style={styles.touchableWrap}
-              >
-                <Text style={[styles.Button]}>Вернуться домой</Text>
-              </TouchableOpacity>
+              <View style={styles.touchableWrap}>
+                <TouchableOpacity
+                  onPress={() => this.setModalVisibleHome(false)}
+                  style={[
+                    formStyles.addButton,
+                    gStyles.boxShadow,
+                    formStyles.button,
+                  ]}
+                >
+                  <Text style={formStyles.buttonText}>Вернуться домой</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -209,9 +231,9 @@ class Test1 extends React.Component {
         <View style={styles.Button}>
           <TouchableOpacity
             onPress={() => this.checkArr(arr)}
-            style={styles.touchableWrap}
+            style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
           >
-            <Text style={[styles.Button]}>Получить результат</Text>
+            <Text style={formStyles.buttonText}>Получить результат</Text>
           </TouchableOpacity>
         </View>
       </AnimatedLinearGradient>
@@ -230,10 +252,9 @@ const styles = StyleSheet.create({
     marginLeft: "27%",
   },
   Button: {
-    textAlign: "center",
-    fontSize: 20,
-    fontFamily: "roboto-reg",
-    color: "white",
+    height: 60,
+    marginTop: 1,
+    marginBottom: 2,
   },
   Text: {
     textAlign: "center",
@@ -253,13 +274,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   touchableWrap: {
-    height: 30,
-    margin: 5,
-    marginBottom: 0,
-    borderColor: "#AAE2AA",
-    backgroundColor: "#AAE2AA",
-    borderWidth: 3,
-    borderRadius: 5,
+    height: 60,
   },
 });
 

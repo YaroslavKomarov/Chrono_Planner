@@ -16,6 +16,8 @@ import { gStyles } from "../../styles/GlobalStyles";
 
 import { taskListStyles } from "../../styles/TaskListStyles";
 
+import { formStyles } from "../../styles/FormStyles";
+
 const DATA = [
   {
     title:
@@ -255,8 +257,8 @@ const Item = ({ item }) => (
         labelHorizontal={true}
         style={styles.answer}
         buttonColor={"rgba(17, 18, 53, 0.5)"}
-        selectedButtonColor={"rgba(170, 226, 170, 1)"}
-        buttonSize={20}
+        selectedButtonColor={"rgba(135, 156, 255, 1)"}
+        buttonSize={15}
         labelStyle={{ margin: 5, fontSize: 20, fontFamily: "PTSans-reg" }}
       />
     </View>
@@ -305,15 +307,22 @@ class Test2 extends React.Component {
               <Text style={taskListStyles.formTitle}>
                 Ваш хронотип это {this.state.result}
               </Text>
-              <TouchableOpacity
-                onPress={
-                  (() => this.setModalOfREsult(false),
-                  () => this.props.navigation.navigate("Monthlyplanner"))
-                }
-                style={styles.touchableWrap}
-              >
-                <Text style={[styles.Button]}>Вернуться домой</Text>
-              </TouchableOpacity>
+
+              <View style={styles.touchableWrap}>
+                <TouchableOpacity
+                  onPress={
+                    (() => this.setModalOfREsult(false),
+                    () => this.props.navigation.navigate("Monthlyplanner"))
+                  }
+                  style={[
+                    formStyles.addButton,
+                    gStyles.boxShadow,
+                    formStyles.button,
+                  ]}
+                >
+                  <Text style={formStyles.buttonText}>Вернуться домой</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -323,12 +332,15 @@ class Test2 extends React.Component {
           keyExtractor={(item) => item.id}
           style={styles.FlatList}
         />
-        <TouchableOpacity
-          onPress={() => this.checkArr(arr)}
-          style={styles.touchableWrap}
-        >
-          <Text style={styles.Button}>Получить результат</Text>
-        </TouchableOpacity>
+
+        <View style={styles.touchableWrap}>
+          <TouchableOpacity
+            onPress={() => this.checkArr(arr)}
+            style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
+          >
+            <Text style={formStyles.buttonText}>Получить результат</Text>
+          </TouchableOpacity>
+        </View>
       </AnimatedLinearGradient>
     );
   }
@@ -373,13 +385,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   touchableWrap: {
-    height: 30,
-    margin: 5,
-    marginBottom: 0,
-    borderColor: "#AAE2AA",
-    backgroundColor: "#AAE2AA",
-    borderWidth: 3,
-    borderRadius: 5,
+    height: 60,
   },
 });
 
