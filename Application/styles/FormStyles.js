@@ -13,12 +13,11 @@ export const formStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: '7%',
+        marginBottom: '3%'
     },
     button: {
-        flex: 1,
         borderRadius: 15,
         padding: '4%',
-        marginHorizontal: '5%',
     },
     cancelButton: {
         backgroundColor: 'rgba(255, 154, 158, 1)',

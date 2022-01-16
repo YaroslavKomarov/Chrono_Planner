@@ -11,7 +11,7 @@ export default function Tapbar() {
 
   const [isPressedArchive, setIsPressedArchive] = useState(false);
 
-  const [isPressedHome, setIsPressedHome] = useState(false);
+  const [isPressedHome, setIsPressedHome] = useState(true);
 
   const [isPressedAuthor, setIsPressedAuthor] = useState(false);
 

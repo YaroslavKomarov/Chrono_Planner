@@ -6,7 +6,7 @@ export const tapbarStyles = StyleSheet.create({
         paddingHorizontal: '15%',
         backgroundColor: '#FFEFDF',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
         height: '11%',
     },

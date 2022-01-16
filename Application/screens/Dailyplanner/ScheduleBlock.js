@@ -7,13 +7,15 @@ import { taskListStyles } from '../../styles/TaskListStyles';
 import DailyplannerTask from './DailyplannerTask';
 import { gStyles } from '../../styles/GlobalStyles';
 import { getColorsMap } from '../../Global';
-import { useNavigation } from '@react-navigation/native';
+import AddTaskForm from '../../components/AddTaskForm'
 
 
 export default function ScheduleBlock({ block }) {
     const { height, width } = useWindowDimensions();
 
     const [modalVisible, setModalVisible] = useState(false);
+
+    const [addTaskVisible, setAddTaskVisible] = useState(false);
 
     const [tasks, setTasks] = useState([
         { text: 'Купить молоко', key: '1' },
@@ -68,15 +70,19 @@ export default function ScheduleBlock({ block }) {
                 </View>
             </View>
             <View style={ [styles.scheduleBlock(blockSize(), blockColor()), styles.boxShadow]}>
-                <View>
-                    <TouchableOpacity style={styles.blockHeader} onPress={() => setModalVisible(!modalVisible)}>
+                <View style={styles.headerWrap}>
+                    <TouchableOpacity style={styles.blockTitle} onPress={() => setModalVisible(!modalVisible)}>
                         <AntDesign name="down" size={18} color="black" style={ { marginTop: '1%'} } />
                         <Text> {block.ActivityType}</Text>
                     </TouchableOpacity>
-                    {/* Поместить сюда плюсик для добавления задачи */}
+                    <View style={styles.btnWrap}>
+                        <TouchableOpacity onPress={() => setAddTaskVisible(true)}>
+                            <AntDesign name="pluscircleo" size={24} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 { modalVisible ? 
-                    <View style={{ paddingHorizontal: '2%' }}>
+                    <View style={styles.listWrap}>
                         <View style={{ 
                             borderBottomWidth: 1, 
                             borderColor: 'black',
@@ -104,6 +110,18 @@ export default function ScheduleBlock({ block }) {
                     </View> : 
                         <View />
                 }
+                <Modal transparent={true} visible={addTaskVisible}>
+                    <View style={taskListStyles.modalView}>
+                        <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
+                            <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
+                            <AddTaskForm
+                                modalVisible={addTaskVisible}
+                                setModalVisible={setAddTaskVisible}
+                                setTask={setTasks}
+                            />
+                        </View>
+                    </View>
+                </Modal>
             </View>
         </View>
     );  
@@ -130,22 +148,34 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 12,
     },
-    blockHeader: {
+    headerWrap: {
         flexDirection: 'row',
-        marginLeft: '3%',
+        justifyContent: 'space-between'
+    },
+    btnWrap: {
+        marginHorizontal: '5%' 
+    },
+    blockTitle: {
+        flex: 1,
+        flexDirection: 'row',
+        marginHorizontal: '3%',
         marginBottom: '2%'
     },
     scheduleBlock: (blockSize, blockColor) => {
         return {
-            alignSelf: 'flex-end',
+            flex: 1,
             minHeight: blockSize,
             marginVertical: '3%',
             marginRight: '2%',
+            marginLeft: '4%',
             paddingVertical: '6%',
             backgroundColor: blockColor,
             borderRadius: 18,
-            width: '80%',
         }
+    },
+    listWrap: {
+        flex: 1,
+        paddingHorizontal: '2%',
     },
     boxShadow: {
         shadowColor: "#000",
@@ -159,6 +189,5 @@ const styles = StyleSheet.create({
     },
     blockTasksWrap: {
         minHeight: '80%',
-
     },
 });
