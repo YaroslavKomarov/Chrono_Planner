@@ -52,9 +52,11 @@ export default function MyCalendar() {
   return (
     <View
       style={[
-        gStyles.container,
-        { marginHorizontal: "5%", marginTop: "5%" },
-        gStyles.boxShadowMain,
+        { 
+          flex: 1.5,
+          marginHorizontal: "5%", 
+          marginVertical: "3%"
+          },
       ]}
     >
       <Calendar
@@ -119,7 +121,7 @@ export default function MyCalendar() {
           textMonthFontSize: 16,
           "stylesheet.calendar.header": {
             week: {
-              marginTop: "2%",
+              marginTop: "4%",
               marginHorizontal: "1%",
               flexDirection: "row",
               justifyContent: "space-around",
@@ -132,9 +134,10 @@ export default function MyCalendar() {
             },
           },
         }}
-        style={{
+        style={[{
           borderRadius: 25,
-        }}
+          paddingBottom: '2.8%',
+        }, gStyles.boxShadowMain]}
       />
     </View>
   );

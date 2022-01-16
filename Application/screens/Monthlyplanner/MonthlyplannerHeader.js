@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 
 import { monthlyHeaderStyles } from '../../styles/MonthlyplannerHeaderStyles';
 import { gStyles } from '../../styles/GlobalStyles';
-import CollectionTitle from '../../components/CollectionTitle';
+import MontlyplannerTitle from './MonthlyplannerTitle';
 
 
 export default function MonthlyplannerHeader({ title, setModalVisible, navigation }) {
@@ -19,7 +19,7 @@ export default function MonthlyplannerHeader({ title, setModalVisible, navigatio
                     <Feather name="arrow-down" size={24} color="black" />
                 </TouchableOpacity>
             </View>
-            <CollectionTitle title={title} setModalVisible={setModalVisible}/>
+            <MontlyplannerTitle title={title} setModalVisible={setModalVisible}/>
         </View>
 	);
 }
