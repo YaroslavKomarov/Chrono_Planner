@@ -32,13 +32,13 @@ export default function MigrateModal({ modalVisible, setModalVisible }) {
                                         onPress={props.handleSubmit} 
                                         style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
                                     >
-                                        <Text style={formStyles.buttonText}>Done</Text>
+                                        <Text style={formStyles.buttonText}>Принять</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity 
                                         onPress={() => setModalVisible(!modalVisible)} 
                                         style={[formStyles.cancelButton, gStyles.boxShadow, formStyles.button]}
                                     >
-                                        <Text style={formStyles.buttonText}>Cancel</Text>
+                                        <Text style={formStyles.buttonText}>Отмена</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

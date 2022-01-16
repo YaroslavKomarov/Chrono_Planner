@@ -5,7 +5,6 @@ import { useWindowDimensions } from 'react-native';
 
 import { taskListStyles } from '../../styles/TaskListStyles';
 import { gStyles } from '../../styles/GlobalStyles';
-import { chronotype } from '../../Global';
 import ScheduleBlock from './ScheduleBlock';
 import bearSchedule from '../../chronotype_schedule/chrono_bear.json';
 import lionSchedule from '../../chronotype_schedule/chrono_lion.json';
@@ -15,7 +14,7 @@ import dolphinSchedule from '../../chronotype_schedule/chrono_dolphin.json';
 
 export default function Schedule() {
     const schedule = () => {
-        switch (chronotype) {
+        switch (global.chronotype) {
             case 'bear':
                 return bearSchedule;
             case 'dolphin':

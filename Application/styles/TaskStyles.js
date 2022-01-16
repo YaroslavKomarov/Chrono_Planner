@@ -6,6 +6,7 @@ export const taskStyles = StyleSheet.create({
         flex: 1,
         minHeight: 75,
         flexDirection: 'row',
+        marginHorizontal: '4%',
         backgroundColor: 'rgba(255, 225, 216, 1)',
         alignItems: 'center',
     },
@@ -25,9 +26,12 @@ export const taskStyles = StyleSheet.create({
     },
     deleteButtonWrap: {
         backgroundColor: '#FF6E84',
+        marginLeft: '10%'
     },
     migrateButtonWrap: {
         backgroundColor: '#879CFF',
+        
+        marginRight: '3%'
     },
     doneButtonWrap: {
         backgroundColor: '#AAE2AA',
@@ -47,6 +51,7 @@ export const taskStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
+        marginRight: '3%'
     },
     textContainer: {
         marginLeft: '5%',

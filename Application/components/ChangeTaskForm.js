@@ -53,13 +53,13 @@ export default function ChangeTaskForm({ modalVisible, setModalVisible, setTask,
                                         onPress={props.handleSubmit} 
                                         style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
                                     >
-                                        <Text style={formStyles.buttonText}>Done</Text>
+                                        <Text style={formStyles.buttonText}>Приянть</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity 
                                         onPress={() => setModalVisible(!modalVisible)} 
                                         style={[formStyles.cancelButton, gStyles.boxShadow, formStyles.button]}
                                     >
-                                        <Text style={formStyles.buttonText}>Cancel</Text>
+                                        <Text style={formStyles.buttonText}>Отмена</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

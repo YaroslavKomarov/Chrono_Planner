@@ -11,7 +11,7 @@ export default function Tapbar() {
 
   const [isPressedArchive, setIsPressedArchive] = useState(false);
 
-  const [isPressedHome, setIsPressedHome] = useState(false);
+  const [isPressedHome, setIsPressedHome] = useState(true);
 
   const [isPressedAuthor, setIsPressedAuthor] = useState(false);
 
@@ -53,11 +53,11 @@ export default function Tapbar() {
           <AntDesign name="book" style={tapbarStyles.vectorIcons} />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => loadScreen(setIsPressedTest, "Test1")}>
+      {/* <TouchableOpacity onPress={() => loadScreen(setIsPressedTest, "Test1")}>
         <View style={isPressedTest ? tapbarStyles.isPressed : {}}>
-          <AntDesign name="exception1" style={tapbarStyles.vectorIcons} />
+          <AntDesign name="book" style={tapbarStyles.vectorIcons} />
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }

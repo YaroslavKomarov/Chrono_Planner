@@ -272,9 +272,18 @@ class Test2 extends React.Component {
       }
       sum += val[i];
     }
-    if (sum > 19 && sum < 32) this.state.result = "Лев";
-    else if (sum >= 33 && sum <= 47) this.state.result = "Медведь";
-    else if (sum >= 48 && sum <= 61) this.state.result = "Волк";
+    if (sum > 19 && sum < 32){
+       this.state.result = "Лев";
+       global.chronotype = 'lion';
+    }
+    else if (sum >= 33 && sum <= 47){
+       this.state.result = "Медведь";
+       global.chronotype = 'bear';
+    }
+    else if (sum >= 48 && sum <= 61){
+       this.state.result = "Волк";
+       global.chronotype = 'wolf';
+    }
     this.setModalOfREsult(true);
   }
   state = {

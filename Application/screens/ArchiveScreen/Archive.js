@@ -17,12 +17,10 @@ export default function Archive() {
     { text: 'Сходить в кино', type: 'physical', key: '4' },
     { text: 'Построить коммунизм', type: 'physical', key: '5' },
     { text: 'Больше не наливать деду', type: 'physical', key: '6' },
-    { text: 'Купить молоко', type: 'physical', key: '7' },
-    { text: 'Починить кран', type: 'physical', key: '8' },
-    { text: 'Сделать проект', type: 'physical', key: '9' },
-    { text: 'Сходить в кино', type: 'physical', key: '10' },
-    { text: 'Построить коммунизм', type: 'physical', key: '11' },
-    { text: 'Больше не наливать деду', type: 'physical', key: '12' }
+    { text: 'Купить кран', type: 'physical', key: '7' },
+    { text: 'Починить молоко', type: 'physical', key: '8' },
+    { text: 'Сделать деда', type: 'physical', key: '9' },
+    { text: 'Сходить в коммунизм', type: 'physical', key: '10' }
   ]);
   
   const [modalVisible, setModalVisible] = useState(false);

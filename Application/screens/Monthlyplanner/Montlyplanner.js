@@ -28,7 +28,7 @@ export default function Monthlyplanner({ navigation }) {
             style={gStyles.container}
         >
             <MonthlyplannerHeader
-                title='Декабрь' 
+                title='Январь' 
                 setModalVisible={setModalVisible} 
                 navigation={navigation}
             />

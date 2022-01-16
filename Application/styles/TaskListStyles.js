@@ -2,11 +2,10 @@ import { StyleSheet } from 'react-native';
 
 
 export const taskListStyles = StyleSheet.create({
-    list: {
-		flex: 1,
+    listWrap: {
+        flex: 1,
 		margin: '5%',
-        paddingVertical: '6%',
-        paddingHorizontal: '2%',
+        paddingVertical: '5%',
         backgroundColor: 'rgba(255, 225, 216, 1)',
         borderRadius: 25,
     },
@@ -20,7 +19,7 @@ export const taskListStyles = StyleSheet.create({
         borderRadius: 20,
         padding: '5%',
         marginHorizontal: '4%',
-        marginTop: '60%',
+        marginTop: '50%',
     },
     formTitle: {
         marginHorizontal: '10%',

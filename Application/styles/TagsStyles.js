@@ -4,17 +4,16 @@ import { StyleSheet } from 'react-native';
 export const tagsStyles = StyleSheet.create({
     container: {
         marginTop: '5%',
-        marginLeft: '2%',
         display: 'flex',
         flexWrap: 'wrap',
-        flexDirection: 'row',
-        marginBottom: 13
+        flexDirection: 'row'
     },
     element: {
-        padding: 10,
-        margin: 4,
+        padding: '3%',
+        margin: '1%',
         borderRadius: 15,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     icon: {
         marginRight: 3

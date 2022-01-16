@@ -1,3 +1,6 @@
+import * as React from "react";
+import RadioForm from "react-native-simple-radio-button";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   View,
   FlatList,
@@ -7,14 +10,10 @@ import {
   Text,
   Animated,
 } from "react-native";
-import * as React from "react";
-import RadioForm from "react-native-simple-radio-button";
-
-import { LinearGradient } from "expo-linear-gradient";
 
 import { gStyles } from "../../styles/GlobalStyles";
-
 import { taskListStyles } from "../../styles/TaskListStyles";
+
 
 const DATA = [
   {
@@ -98,6 +97,7 @@ const Item = ({ item }) => (
     </View>
   </View>
 );
+
 class Test1 extends React.Component {
   checkArr(val) {
     var count = 0;
@@ -109,7 +109,10 @@ class Test1 extends React.Component {
         count += 1;
       }
     }
-    if (count >= 7) this.setState({ modalVisibleHome: true });
+    if (count >= 7) {
+      this.setState({ modalVisibleHome: true });
+      global.chronotype = 'dolphin';
+    }
     else this.setState({ modalVisible: true });
   }
   state = {
