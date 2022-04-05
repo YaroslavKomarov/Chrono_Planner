@@ -4,17 +4,19 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import { gStyles } from '../styles/GlobalStyles';
 import CollectionTitle from '../components/common/CollectionTitle';
-import ProjectsList from '../components/authorsCollections/ProjectsList';
-
+import ItemsList from '../components/common/ItemsList';
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
-export default function AuthorsCollections() {
-  const [projects, setProjects] = useState([
-    { projName: 'Приложение на react native', key: '1' },
-    { projName: 'Проект на Arduino nano', key: '2' },
-    { projName: 'Обучение немецкому языку', key: '3' }
+export default function Project({ route }) {
+  const [tasks, setTasks] = useState([
+    { text: 'Валидация Formik', type: 'physical', key: '1' },
+    { text: 'Адаптивная верстка', type: 'physical', key: '2' },
+    { text: 'Почитать про использование hooks', type: 'physical', key: '3' },
+    { text: 'Построить коммунизм', type: 'physical', key: '4' },
   ]);
+
+  const { projName } = route.params;
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -23,12 +25,12 @@ export default function AuthorsCollections() {
       colors={['rgba(255, 154, 158, 1)', 'rgba(250, 208, 196, 1)']}
       style={gStyles.container}
     >
-      <CollectionTitle title='Авторские коллекции' setModalVisible={setModalVisible} />
-      <ProjectsList
+      <CollectionTitle title={projName} setModalVisible={setModalVisible} />
+      <ItemsList 
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
-        projects={projects}
-        setProjects={setProjects}
+        items={tasks}
+        setItems={setTasks}
       />
     </AnimatedLinearGradient>
   );

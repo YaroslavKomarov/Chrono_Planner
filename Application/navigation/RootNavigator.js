@@ -2,14 +2,14 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
-import Dailyplanner from "../screens/Dailyplanner/Dailyplanner";
-import AuthorsCollections from "../screens/AuthorsCollections/AuthorsCollections";
-import Monthlyplanner from "../screens/Monthlyplanner/Montlyplanner";
-import Project from "../screens/ProjectScreen/Project";
-import Test1 from "../screens/TestScreen/firstTest";
-import Test2 from "../screens/TestScreen/secondTest";
-import Archive from "../screens/ArchiveScreen/Archive";
-import Tapbar from "../components/Tapbar";
+import Dailyplanner from "../screens/Dailyplanner";
+import AuthorsCollections from "../screens/AuthorsCollections";
+import Monthlyplanner from "../screens/Montlyplanner";
+import Project from "../screens/Project";
+import Test1 from "../screens/InitialTest";
+import Test2 from "../screens/AdditionalTest";
+import Archive from "../screens/Archive";
+import Tapbar from "../components/common/Tapbar";
 
 const Stack = createStackNavigator();
 
@@ -17,7 +17,7 @@ export default function RootNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Test1"
           component={Test1}
           options={{
@@ -25,7 +25,7 @@ export default function RootNavigator() {
             headerStyle: { height: 0 },
             headerLeft: () => null,
           }}
-        />
+        /> */}
         <Stack.Screen
           name="Monthlyplanner"
           component={Monthlyplanner}
@@ -34,7 +34,7 @@ export default function RootNavigator() {
             headerStyle: { height: 0 },
             headerLeft: () => null,
           }}
-        />
+        /> 
         <Stack.Screen
           name="Archive"
           component={Archive}
