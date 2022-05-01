@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { AntDesign } from '@expo/vector-icons';
 
-import { gStyles, formStyles, taskListStyles } from '../../styles/GlobalStyles';
+import { gStyles, formStyles } from '../../styles/GlobalStyles';
 
 
 export default function ChangeTaskForm({ modalVisible, setModalVisible, setTask, task}) {
@@ -23,9 +23,9 @@ export default function ChangeTaskForm({ modalVisible, setModalVisible, setTask,
 
     return (
         <Modal transparent={true} visible={modalVisible}>
-            <View style={taskListStyles.modalView}>
-                <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-                    <Text style={taskListStyles.formTitle} >Измените задачу</Text>
+            <View style={formStyles.modalView}>
+                <View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+                    <Text style={formStyles.formTitle} >Измените название задачи</Text>
                     <Formik 
                         initialValues={{  text: task.text, type: task.type, key: task.key}} 
                         validationSchema={validate}
@@ -38,6 +38,7 @@ export default function ChangeTaskForm({ modalVisible, setModalVisible, setTask,
                                 <TextInput 
                                     style={[formStyles.inputText, gStyles.boxShadow]}
                                     value={props.values.text} 
+                                    placeholder='Введите текст задачи...'
                                     onChangeText={props.handleChange('text')}
                                 />
                                 {(props.errors.text) &&

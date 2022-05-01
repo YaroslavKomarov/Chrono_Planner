@@ -1,98 +1,98 @@
 [
   {
-    "StartTime": "6:30",
-    "EndTime": "7:10",
-    "ActivityType": "Физическая активность",
+    "StartTime": "06:30",
+    "EndTime": "07:10",
+    "ActivityType": "physical",
     "key": "1"
   },
   {
-    "StartTime": "7:10",
-    "EndTime": "7:30",
-    "ActivityType": "Отдых",
+    "StartTime": "07:10",
+    "EndTime": "07:30",
+    "ActivityType": "rest",
     "key": "2"
   },
   {
-    "StartTime": "7:30",
-    "EndTime": "8:00",
-    "ActivityType": "Прием пищи",
+    "StartTime": "07:30",
+    "EndTime": "08:00",
+    "ActivityType": "mealtime",
     "key": "3"
   },
   {
-    "StartTime": "8:00",
-    "EndTime": "9:30",
-    "ActivityType": "Интеллектуальная активность",
+    "StartTime": "08:00",
+    "EndTime": "09:30",
+    "ActivityType": "intellectual",
     "key": "4"
   },
   {
-    "StartTime": "9:30",
-    "EndTime": "9:45",
-    "ActivityType": "Отдых",
+    "StartTime": "09:30",
+    "EndTime": "09:45",
+    "ActivityType": "rest",
     "key": "5"
   },
   {
-    "StartTime": "9:45",
+    "StartTime": "09:45",
     "EndTime": "10:00",
-    "ActivityType": "Интеллектуальная активность",
+    "ActivityType": "intellectual",
     "key": "6"
   },
   {
     "StartTime": "10:00",
     "EndTime": "12:00",
-    "ActivityType": "Творчество",
+    "ActivityType": "creative",
     "key": "7"
   },
   {
     "StartTime": "12:00",
     "EndTime": "13:00",
-    "ActivityType": "Прием пищи",
+    "ActivityType": "mealtime",
     "key": "8"
   },
   {
     "StartTime": "13:00",
     "EndTime": "16:00",
-    "ActivityType": "Творчество",
+    "ActivityType": "creative",
     "key": "9"
   },
   {
     "StartTime": "16:00",
     "EndTime": "18:00",
-    "ActivityType": "Интеллектуальная активность",
+    "ActivityType": "intellectual",
     "key": "10"
   },
   {
     "StartTime": "18:00",
     "EndTime": "18:15",
-    "ActivityType": "Отдых",
+    "ActivityType": "rest",
     "key": "11"
   },
   {
     "StartTime": "18:15",
     "EndTime": "19:00",
-    "ActivityType": "Прием пищи",
+    "ActivityType": "mealtime",
     "key": "12"
   },
   {
     "StartTime": "19:00",
     "EndTime": "20:00",
-    "ActivityType": "Коммуникации",
+    "ActivityType": "communication",
     "key": "13"
   },
   {
     "StartTime": "20:00",
     "EndTime": "20:30",
-    "ActivityType": "Физическая активность",
+    "ActivityType": "physical",
     "key": "14"
   },
   {
     "StartTime": "20:30",
     "EndTime": "22:30",
-    "ActivityType": "Творчество",
+    "ActivityType": "creative",
     "key": "15"
   },
   {
     "StartTime": "22:30",
     "EndTime": "23:30",
-    "ActivityType": "Отдых",
+    "ActivityType": "rest",
     "key": "16"
   }
 ]

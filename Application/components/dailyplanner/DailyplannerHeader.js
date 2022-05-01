@@ -1,26 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
-import { getDays } from '../../Global';
-import { getMonth } from '../../Global';
+import { days, months } from '../../Global';
 import { gStyles } from '../../styles/GlobalStyles';
 
 
-export default function DailyplannerHeader() {
+export default function DailyplannerHeader({ setModalVisible }) {
     const currentDate = new Date();
 
     const dailyTitle = () => {
-        const arr = getDays();
-        const arr1 = getMonth();
-        return `${arr[currentDate.getDay()]},  ${currentDate.getDate()}.${arr1[currentDate.getMonth()]}`;
+        return `${days[currentDate.getDay()]},  ${currentDate.getDate()}.${months[currentDate.getMonth()]}`;
     };
 
     return (
-        <View>
-            <View style={[styles.headerWrap, gStyles.boxShadowMain]}>
-                <View style={styles.textWrap}>
-                    <Text style={[styles.dailyplannerTitle, gStyles.boxShadow]}>{dailyTitle()}</Text>
-                </View>
+        <View style={[styles.headerWrap, gStyles.boxShadowMain]}>
+            <View style={styles.textWrap}>
+                <Text style={[styles.dailyplannerTitle, gStyles.boxShadow]}>{dailyTitle()}</Text>
+            </View>
+            <View style={styles.btnWrap}>
+                <TouchableOpacity onPress={() => setModalVisible(true)}>
+                    <AntDesign name="pluscircleo" size={32} />
+                </TouchableOpacity>
             </View>
         </View>
 	);

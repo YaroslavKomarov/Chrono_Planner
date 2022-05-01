@@ -1,29 +1,55 @@
-import React from 'react';
-import { View, TouchableOpacity, TextInput, Text, Modal } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text, Modal } from 'react-native';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
-import { gStyles, formStyles, taskListStyles } from '../../styles/GlobalStyles';
+import TagList from '../common/TagList';
+import { gStyles, formStyles } from '../../styles/GlobalStyles';
 
 
-export default function MigrateModal({ modalVisible, setModalVisible }) {
+export default function MigrateForm({ modalVisible, setModalVisible, sourceCollection }) {
+    const [collectionType, setCollectionType] = useState('');
+
+    const getTagNames = () => { 
+        const initTags = ['unassembled', 'monthlyplanner', 'dailyplanner', 'projects'];
+        if (sourceCollection !== 'projects') {
+            const index = initTags.indexOf(sourceCollection);
+            initTags.splice(index, 1);   
+        }
+        return initTags;
+    };
+
+    const addTask = (task) => {
+        // Вызов БД для добавления вместо использования setTask
+        // Вместо setTask следует передавать контекст, для определения коллекции добавления (Например, имя таблицы)
+        const today = new Date();
+        const currentDate = today.getDate();
+        const currentTime = today.getHours() + ":" + today.getMinutes();
+
+        setTask((list) => {
+            task.key = Math.random().toString();
+            return [ task, ...list ]
+        });
+        setModalVisible(false);
+    };
+
     return (
         <Modal transparent={true} visible={modalVisible}>
-            <View style={taskListStyles.modalView}>
-                <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-                    <Text style={taskListStyles.formTitle} >Выберите коллекцию для перемещения задачи</Text>
+            <View style={formStyles.modalView}>
+                <View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+                    <Text style={formStyles.formTitle} >Выберите коллекцию для перемещения задачи</Text>
                     <Formik 
-                        initialValues={{  text: '' }} 
+                        initialValues={{  type: '' }} 
                         onSubmit={(values, action) => {
                             //addTask(values);
                             action.resetForm();
                         }}>
                         {(props) => (
                             <View>
-                                <TextInput 
-                                    style={[formStyles.inputText, gStyles.boxShadow]}
-                                    value={props.values.text} 
-                                    placeholder='Выберите коллекцию для перемещения' 
-                                    onChangeText={props.handleChange('text')}
+                                <TagList 
+                                    tagNames={getTagNames()} 
+                                    setType={setCollectionType}
+                                    formType='migrate'
                                 />
                                 <View style={formStyles.btnContainer}>
                                     <TouchableOpacity 

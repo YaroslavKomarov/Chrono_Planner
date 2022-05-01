@@ -3,21 +3,20 @@ import { Animated } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 
 import { gStyles } from '../styles/GlobalStyles';
-import AddTaskForm from '../components/common/AddTaskForm'
 import CollectionTitle from '../components/common/CollectionTitle';
-import TasksList from '../components/common/TasksList';
+import ProjectsList from '../components/projects/ProjectsList';
+import AddProjectForm from '../components/projects/AddProjectForm';
+import { collections } from '../Global';
+
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
-export default function Project({ route }) {
-	const [tasks, setTasks] = useState([
-		{ text: 'Валидация Formik', type: 'physical', key: '1' },
-		{ text: 'Адаптивная верстка', type: 'physical', key: '2' },
-		{ text: 'Почитать про использование hooks', type: 'physical', key: '3' },
-		{ text: 'Построить коммунизм', type: 'physical', key: '4' },
+export default function Projects() {
+	const [projects, setProjects] = useState([
+		{ projName: 'Приложение на react native', key: '1' },
+		{ projName: 'Проект на Arduino nano', key: '2' },
+		{ projName: 'Обучение немецкому языку', key: '3' }
 	]);
-
-	const { projName } = route.params;
 
 	const [modalVisible, setModalVisible] = useState(false);
 
@@ -27,18 +26,17 @@ export default function Project({ route }) {
 			style={gStyles.container}
 		>
 			<CollectionTitle 
-				title={projName} 
+				title={collections['projects']} 
 				setModalVisible={setModalVisible} 
 			/>
-			<TasksList
-				tasks={tasks}
-				setTasks={setTasks}
-				sourceCollection='projects'
+			<ProjectsList
+				projects={projects}
+				setProjects={setProjects}
 			/>
-			<AddTaskForm 
+			<AddProjectForm 
 				modalVisible={modalVisible}
 				setModalVisible={setModalVisible}
-				setTask={setTasks}
+				setProject={setProjects}
 			/>
 		</AnimatedLinearGradient>
 	);

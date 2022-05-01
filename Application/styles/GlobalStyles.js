@@ -42,7 +42,7 @@ export const collectionTitleStyles = StyleSheet.create({
         marginLeft: '7%',
     },
     collectionTitle: {
-        fontSize: 34,
+        fontSize: 30,
         fontFamily: 'PTSans-bold',
     },
     btnWrap: {
@@ -58,24 +58,6 @@ export const taskListStyles = StyleSheet.create({
         paddingVertical: '5%',
         backgroundColor: 'rgba(255, 225, 216, 1)',
         borderRadius: 25,
-    },
-    modalView: {
-        flex: 1, 
-        alignItems: 'center',
-        backgroundColor: 'rgba(35,35,35,0.45)'
-    },
-    formContainer: {
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: '5%',
-        marginHorizontal: '4%',
-        marginTop: '50%',
-    },
-    formTitle: {
-        marginHorizontal: '10%',
-        textAlign: 'center',
-        fontFamily: 'roboto-bold',
-        fontSize: 20,
     }
 });
 
@@ -132,6 +114,11 @@ export const taskStyles = StyleSheet.create({
         marginRight: '3%'
     },
     textContainer: {
+        width: '70%',
+        marginLeft: '5%',
+        marginRight: '3%'
+    },
+    projectTextContainer: {
         marginLeft: '5%',
         marginRight: '12%'
     },
@@ -189,6 +176,22 @@ export const formStyles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'roboto-reg',
     },
-    errorExclamation: {
+    modalView: {
+        flex: 1, 
+        alignItems: 'center',
+        backgroundColor: 'rgba(35,35,35,0.45)'
     },
+    formContainer: {
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: '5%',
+        marginHorizontal: '4%',
+        marginTop: '50%',
+    },
+    formTitle: {
+        marginHorizontal: '10%',
+        textAlign: 'center',
+        fontFamily: 'roboto-bold',
+        fontSize: 20,
+    }
 });

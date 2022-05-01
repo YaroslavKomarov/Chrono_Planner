@@ -1,16 +1,43 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
 
-import Tag from './Tag';
+import ActivityTag from './ActivityTag';
+import CollectionTag from './CollectionTeg'
 
-export default function TagList(){
+
+export default function TagList({ tagNames, setType, formType }) {
+    const [tagItems, setTagItems] = useState(tagNames.map(tagName => {
+        return { name: tagName, isSelected: false, key: Math.random().toString() };
+    }));
+
+    const selectItem = (key) => {
+        setTagItems(existingItems => {
+            const newItems = [...existingItems];
+            newItems.forEach(item => item.isSelected = false);
+            newItems.find(item => item.key === key).isSelected = true;
+            return newItems;
+        })
+    };
+
     return(
         <View style={styles.container}>
-            <Tag name="Творчество" color="rgba(255, 228, 199, 1)"/>
-            <Tag name="Коммуникации" color="rgba(255, 228, 199, 1)"/>
-            <Tag name="Отдых" color="rgba(214, 228, 253, 1)"/>
-            <Tag name="Интеллектуальная активность" color="rgba(217, 230, 221, 1)"/>
-            <Tag name="Физическая активность" color="rgba(255, 199, 219, 1)"/>
+            <FlatList
+                data={tagItems}
+                renderItem={({ item }) => (
+                    formType === 'migrate' 
+                    ? <CollectionTag 
+                        item={item}
+                        selectItem={selectItem}
+                        setCollectionType={setType}
+                    />
+                    :  <ActivityTag
+                        item={item}
+                        selectItem={selectItem}
+                        setTaskType={setType}
+                    />
+                )}
+                keyExtractor={(item) => item.key}
+            />
         </View>
     );
 }
@@ -19,7 +46,6 @@ const styles = StyleSheet.create({
     container: {
         marginTop: '5%',
         display: 'flex',
-        flexWrap: 'wrap',
         flexDirection: 'row'
     }
 });

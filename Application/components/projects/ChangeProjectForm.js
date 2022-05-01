@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { AntDesign } from '@expo/vector-icons';
 
-import { gStyles, formStyles, taskListStyles } from '../../styles/GlobalStyles';
+import { gStyles, formStyles } from '../../styles/GlobalStyles';
 
 
 export default function ChangeProjectForm({ modalVisible, setModalVisible, setProject, project }) {
@@ -23,9 +23,9 @@ export default function ChangeProjectForm({ modalVisible, setModalVisible, setPr
 
     return (
         <Modal transparent={true} visible={modalVisible}>
-            <View style={taskListStyles.modalView}>
-                <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-                    <Text style={taskListStyles.formTitle} >Измените задачу</Text>
+            <View style={formStyles.modalView}>
+                <View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+                    <Text style={formStyles.formTitle} >Измените название проекта</Text>
                     <Formik 
                         initialValues={{  projName: project.projName, key: project.key }} 
                         validationSchema={validate}
@@ -52,13 +52,13 @@ export default function ChangeProjectForm({ modalVisible, setModalVisible, setPr
                                         onPress={props.handleSubmit} 
                                         style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]} 
                                     >
-                                        <Text style={formStyles.buttonText}>Done</Text>
+                                        <Text style={formStyles.buttonText}>Принять</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity 
                                         onPress={() => setModalVisible(!modalVisible)} 
                                         style={[formStyles.cancelButton, gStyles.boxShadow, formStyles.button]}
                                     >
-                                        <Text style={formStyles.buttonText}>Cancel</Text>
+                                        <Text style={formStyles.buttonText}>Отмена</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

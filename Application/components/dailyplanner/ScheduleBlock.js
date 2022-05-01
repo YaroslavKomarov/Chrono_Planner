@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useWindowDimensions } from 'react-native';
 
+import ActivitiesMarks from '../common/ActivitiesMarks';
 import DailyplannerTask from './DailyplannerTask';
-import { gStyles, taskListStyles } from '../../styles/GlobalStyles';
-import { getColorsMap } from '../../Global';
-import AddTaskForm from '../common/AddTaskForm'
+import { taskListStyles } from '../../styles/GlobalStyles';
+import { activitiesColor, activities } from '../../Global';
 
 
 export default function ScheduleBlock({ block }) {
     const { height, width } = useWindowDimensions();
 
     const [modalVisible, setModalVisible] = useState(false);
-
-    const [addTaskVisible, setAddTaskVisible] = useState(false);
 
     const [tasks, setTasks] = useState([
         { text: 'Купить молоко', key: '1' },
@@ -51,11 +49,6 @@ export default function ScheduleBlock({ block }) {
         return (diffHours + diffMin / 60) * oneHourSize;
     }
 
-    const blockColor = () => {
-        const map = getColorsMap();
-        return map.get(block.ActivityType);
-    };
-
     return (
         <View style={styles.wrapper}>
             <View style={styles.timeRangeWrap}>
@@ -68,17 +61,18 @@ export default function ScheduleBlock({ block }) {
                     <Text style={styles.timeText}>{block.EndTime}</Text>
                 </View>
             </View>
-            <View style={ [styles.scheduleBlock(blockSize(), blockColor()), styles.boxShadow]}>
+            <View 
+                style={ [
+                    styles.scheduleBlock, 
+                    styles.boxShadow, 
+                    { minHeight: blockSize(), backgroundColor: activitiesColor[block.ActivityType] }
+                ]}>
                 <View style={styles.headerWrap}>
                     <TouchableOpacity style={styles.blockTitle} onPress={() => setModalVisible(!modalVisible)}>
                         <AntDesign name="down" size={18} color="black" style={ { marginTop: '1%'} } />
-                        <Text> {block.ActivityType}</Text>
+                        <Text> {activities[block.ActivityType]}</Text>
                     </TouchableOpacity>
-                    <View style={styles.btnWrap}>
-                        <TouchableOpacity onPress={() => setAddTaskVisible(true)}>
-                            <AntDesign name="pluscircleo" size={24} />
-                        </TouchableOpacity>
-                    </View>
+                    <ActivitiesMarks style={styles.headerMark} activityType={block.ActivityType}/>
                 </View>
                 { modalVisible ? 
                     <View style={styles.listWrap}>
@@ -95,7 +89,6 @@ export default function ScheduleBlock({ block }) {
                                         task={item} 
                                         setTask={setTasks}
                                         onRemove={handleRemove}
-                                        taskColor={blockColor()}
                                     />
                                 </View>
                             )}
@@ -109,18 +102,6 @@ export default function ScheduleBlock({ block }) {
                     </View> : 
                         <View />
                 }
-                <Modal transparent={true} visible={addTaskVisible}>
-                    <View style={taskListStyles.modalView}>
-                        <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-                            <Text style={taskListStyles.formTitle} >Добавьте новую задачу</Text>
-                            <AddTaskForm
-                                modalVisible={addTaskVisible}
-                                setModalVisible={setAddTaskVisible}
-                                setTask={setTasks}
-                            />
-                        </View>
-                    </View>
-                </Modal>
             </View>
         </View>
     );  
@@ -149,28 +130,23 @@ const styles = StyleSheet.create({
     },
     headerWrap: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
     },
-    btnWrap: {
-        marginHorizontal: '5%' 
+    headerMark: {
+        marginLeft: 'auto'
     },
     blockTitle: {
-        flex: 1,
+        width: '80%',
         flexDirection: 'row',
         marginHorizontal: '3%',
         marginBottom: '2%'
     },
-    scheduleBlock: (blockSize, blockColor) => {
-        return {
-            flex: 1,
-            minHeight: blockSize,
-            marginVertical: '3%',
-            marginRight: '2%',
-            marginLeft: '4%',
-            paddingVertical: '6%',
-            backgroundColor: blockColor,
-            borderRadius: 18,
-        }
+    scheduleBlock: {
+        flex: 1,
+        marginVertical: '3%',
+        marginRight: '2%',
+        marginLeft: '4%',
+        paddingVertical: '6%',
+        borderRadius: 18,
     },
     listWrap: {
         flex: 1,

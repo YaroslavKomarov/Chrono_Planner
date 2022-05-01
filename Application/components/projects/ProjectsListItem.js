@@ -14,8 +14,6 @@ import ChangeProjectForm from './ChangeProjectForm';
 export default function ProjectsListItem({ project, setProject, onRemove }) {
     const [isDone, setIsDone] = useState(false);
 
-    const [migrateModalVisible, setMigrateModalVisible] = useState(false);
-
     const [changeModalVisible, setChangeModalVisible] = useState(false);
 
     const navigation = useNavigation();
@@ -24,7 +22,7 @@ export default function ProjectsListItem({ project, setProject, onRemove }) {
         navigation.navigate('Project', { projName: project.projName });
     };
 
-    const LeftSwipeActions = () => {
+    const leftSwipeActions = () => {
         return (
             <TouchableOpacity
                 disable={isDone}
@@ -46,21 +44,13 @@ export default function ProjectsListItem({ project, setProject, onRemove }) {
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
-                <TouchableOpacity 
-                    disable={isDone}
-                    style={[taskStyles.migrateButtonWrap, taskStyles.buttonWrap]}
-                    onPress={() => isDone ? {} : setMigrateModalVisible(true)}
-                >
-                    <Feather name="arrow-right" size={38} color={'white'} />
-                </TouchableOpacity>
-                <MigrateForm modalVisible={migrateModalVisible} setModalVisible={setMigrateModalVisible}/>
             </TouchableOpacity>
         );
     };
 
     return (
         <Swipeable
-        renderLeftActions={LeftSwipeActions}
+        renderLeftActions={leftSwipeActions}
         renderRightActions={rightSwipeActions}
         >
             <View style={taskStyles.swipeContainer}>
@@ -78,7 +68,7 @@ export default function ProjectsListItem({ project, setProject, onRemove }) {
                         project={project}
                     />
                 </View>
-                <TouchableOpacity style={taskStyles.textContainer} onPress={() => loadProject()}>
+                <TouchableOpacity style={taskStyles.projectTextContainer} onPress={() => loadProject()}>
                     <Text style={[
                         taskStyles.taskText, taskStyles.boxShadow, 
                         isDone ? taskStyles.isDone : {}]}>

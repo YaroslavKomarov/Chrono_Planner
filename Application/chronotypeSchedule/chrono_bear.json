@@ -1,86 +1,86 @@
 [
   {
-    "StartTime": "7:00",
-    "EndTime": "7:30",
-    "ActivityType": "Физическая активность",
+    "StartTime": "07:00",
+    "EndTime": "07:30",
+    "ActivityType": "physical",
     "key": "1" 
   },
   {
-    "StartTime": "7:30",
-    "EndTime": "8:00",
-    "ActivityType": "Прием пищи",
+    "StartTime": "07:30",
+    "EndTime": "08:00",
+    "ActivityType": "mealtime",
     "key": "2" 
   },
   {
-    "StartTime": "8:00",
-    "EndTime": "9:00",
-    "ActivityType": "Интеллектуальная активность",
+    "StartTime": "08:00",
+    "EndTime": "09:00",
+    "ActivityType": "intellectual",
     "key": "3" 
   },
   {
-    "StartTime": "9:00",
+    "StartTime": "09:00",
     "EndTime": "10:00",
-    "ActivityType": "Творчество",
+    "ActivityType": "creative",
     "key": "4" 
   },
   {
     "StartTime": "10:00",
     "EndTime": "12:00",
-    "ActivityType": "Интеллектуальная активность",
+    "ActivityType": "intellectual",
     "key": "5" 
   },
   {
     "StartTime": "12:00",
     "EndTime": "12:30",
-    "ActivityType": "Физическая активность",
+    "ActivityType": "physical",
     "key": "6" 
   },
   {
     "StartTime": "12:30",
     "EndTime": "13:00",
-    "ActivityType": "Прием пищи",
+    "ActivityType": "mealtime",
     "key": "7" 
   },
   {
     "StartTime": "13:00",
     "EndTime": "14:30",
-    "ActivityType": "Интеллектуальная активность",
+    "ActivityType": "intellectual",
     "key": "8" 
   },
   {
     "StartTime": "14:30",
     "EndTime": "15:00",
-    "ActivityType": "Отдых",
+    "ActivityType": "rest",
     "key": "9" 
   },
   {
     "StartTime": "15:00",
     "EndTime": "18:00",
-    "ActivityType": "Коммуникации",
+    "ActivityType": "communication",
     "key": "10" 
   },
   {
     "StartTime": "18:00",
     "EndTime": "19:00",
-    "ActivityType": "Физическая активность",
+    "ActivityType": "physical",
     "key": "11" 
   },
   {
     "StartTime": "19:00",
     "EndTime": "19:30",
-    "ActivityType": "Прием пищи",
+    "ActivityType": "mealtime",
     "key": "12" 
   },
   {
     "StartTime": "20:00",
     "EndTime": "22:00",
-    "ActivityType": "Творчество",
+    "ActivityType": "creative",
     "key": "13" 
   },
   {
     "StartTime": "22:00",
     "EndTime": "23:00",
-    "ActivityType": "Отдых",
+    "ActivityType": "rest",
     "key": "14" 
   }
 ]

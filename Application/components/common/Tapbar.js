@@ -28,7 +28,7 @@ export default function Tapbar() {
 	return (
 		<View style={styles.tapbar}>
 		<TouchableOpacity
-			onPress={() => loadScreen(setIsPressedArchive, "Archive")}>
+			onPress={() => loadScreen(setIsPressedArchive, "Unassembled")}>
 			<View style={isPressedArchive ? styles.isPressed : {}}>
 			<AntDesign name="save" style={styles.vectorIcons} />
 			</View>
@@ -40,7 +40,7 @@ export default function Tapbar() {
 			</View>
 		</TouchableOpacity>
 		<TouchableOpacity
-			onPress={() => loadScreen(setIsPressedAuthor, "AuthorsCollections")}>
+			onPress={() => loadScreen(setIsPressedAuthor, "Projects")}>
 			<View style={isPressedAuthor ? styles.isPressed : {}}>
 			<AntDesign name="book" style={styles.vectorIcons} />
 			</View>

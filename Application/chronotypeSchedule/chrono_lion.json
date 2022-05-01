@@ -1,30 +1,30 @@
 [
     {
-      "StartTime": "5:30",
-      "EndTime": "6:15",
+      "StartTime": "05:30",
+      "EndTime": "06:15",
       "ActivityType": "mealtime",
       "key": "1"
     },
     {
-      "StartTime": "6:15",
-      "EndTime": "7:00",
+      "StartTime": "06:15",
+      "EndTime": "07:00",
       "ActivityType": "creative",
       "key": "2"
     },
     {
-      "StartTime": "7:00",
-      "EndTime": "7:30",
+      "StartTime": "07:00",
+      "EndTime": "07:30",
       "ActivityType": "physical",
       "key": "3"
     },
     {
-      "StartTime": "7:30",
-      "EndTime": "9:00",
+      "StartTime": "07:30",
+      "EndTime": "09:00",
       "ActivityType": "communication",
       "key": "4"
     },
     {
-      "StartTime": "9:00",
+      "StartTime": "09:00",
       "EndTime": "10:00",
       "ActivityType": "rest",
       "key": "5"

@@ -12,8 +12,6 @@ const fonts = () => Font.loadAsync({
     'PTSans-bold': require('./Application/assets/fonts/PT_Sans/PTSans-Bold.ttf')
 });
 
-//export const chrontype = "bear";
-
 export default function App() {
     const [font, setFont] = useState(false);
 

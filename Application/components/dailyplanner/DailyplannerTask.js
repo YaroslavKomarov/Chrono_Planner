@@ -10,14 +10,14 @@ import MigrateForm from '../common/MigrateForm'
 import ChangeTaskForm from '../common/ChangeTaskForm';
 
 
-export default function DailyplannerTask({ task, setTask, onRemove, taskColor }) {
+export default function DailyplannerTask({ task, setTask, onRemove }) {
     const [isDone, setIsDone] = useState(false);
 
     const [changeModalVisible, setChangeModalVisible] = useState(false);
 
     const [migrateModalVisible, setMigrateModalVisible] = useState(false);
 
-    const LeftSwipeActions = () => {
+    const leftSwipeActions = () => {
         return (
             <TouchableOpacity
                 disable={isDone}
@@ -46,10 +46,10 @@ export default function DailyplannerTask({ task, setTask, onRemove, taskColor })
 
     return (
         <Swipeable
-            renderLeftActions={LeftSwipeActions}
+            renderLeftActions={leftSwipeActions}
             renderRightActions={rightSwipeActions}
         >
-            <View style={[styles.swipeContainer, {backgroundColor: taskColor}]}>
+            <View style={[styles.swipeContainer, { backgroundColor: 'transparent' }]}>
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}

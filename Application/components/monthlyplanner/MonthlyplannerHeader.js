@@ -3,10 +3,11 @@ import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import { gStyles } from '../../styles/GlobalStyles';
+import { collections } from '../../Global';
 import MontlyplannerTitle from './MonthlyplannerTitle';
 
 
-export default function MonthlyplannerHeader({ title, setModalVisible, navigation }) {
+export default function MonthlyplannerHeader({ setModalVisible, navigation }) {
     return (
         <View>
             <View style={[styles.dailyplannerWrap, gStyles.boxShadowMain]}>
@@ -14,11 +15,11 @@ export default function MonthlyplannerHeader({ title, setModalVisible, navigatio
                     style={styles.touchableWrap}
                     onPress={() => navigation.navigate('Dailyplanner')}
                 >
-                    <Text style={styles.dailyplannerText}>Ежедневник</Text>
+                    <Text style={styles.dailyplannerText}>{collections['dailyplanner']}</Text>
                     <Feather name="arrow-down" size={24} color="black" />
                 </TouchableOpacity>
             </View>
-            <MontlyplannerTitle title={title} setModalVisible={setModalVisible}/>
+            <MontlyplannerTitle setModalVisible={setModalVisible}/>
         </View>
 	);
 }

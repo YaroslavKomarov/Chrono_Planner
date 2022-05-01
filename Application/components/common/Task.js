@@ -6,22 +6,27 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { taskStyles } from '../../styles/GlobalStyles';
-import MigrateForm from './MigrateForm';
+import ActivitiesMarks from './ActivitiesMarks';
 import ChangeTaskForm from './ChangeTaskForm';
+import MigrateForm from './MigrateForm';
 
 
-export default function Task({ task, setTask, isMontly, onRemove }) {
+export default function Task({ task, setTask, onRemove, sourceCollection }) {
     const [isDone, setIsDone] = useState(false);
 
     const [migrateModalVisible, setMigrateModalVisible] = useState(false);
 
     const [changeModalVisible, setChangeModalVisible] = useState(false);
 
-    const LeftSwipeActions = () => {
+    const leftSwipeActions = () => {
         return (
             <TouchableOpacity
                 disable={isDone}
-                style={[taskStyles.deleteButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
+                style={[
+                    taskStyles.deleteButtonWrap, 
+                    taskStyles.buttonWrap, 
+                    sourceCollection === 'montlyplanner' ? {minHeight: 60}: {}
+                ]} 
                 onPress={() => onRemove(task.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
@@ -34,29 +39,44 @@ export default function Task({ task, setTask, isMontly, onRemove }) {
             <TouchableOpacity style={taskStyles.btnsContainer}>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={[taskStyles.doneButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
+                    style={[
+                        taskStyles.doneButtonWrap, 
+                        taskStyles.buttonWrap, 
+                        sourceCollection === 'montlyplanner' ? {minHeight: 60} : {}
+                    ]} 
                     onPress={() => setIsDone(true)}
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
                 <TouchableOpacity 
                     disable={isDone}
-                    style={[taskStyles.migrateButtonWrap, taskStyles.buttonWrap, isMontly ? {minHeight: 60} : {}]} 
+                    style={[
+                        taskStyles.migrateButtonWrap, 
+                        taskStyles.buttonWrap, 
+                        sourceCollection === 'montlyplanner' ? {minHeight: 60} : {}
+                    ]} 
                     onPress={() => isDone ? {} : setMigrateModalVisible(true)}
                 >
                     <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
-                <MigrateForm modalVisible={migrateModalVisible} setModalVisible={setMigrateModalVisible}/>
+                <MigrateForm 
+                    modalVisible={migrateModalVisible} 
+                    setModalVisible={setMigrateModalVisible}
+                    sourceCollection={sourceCollection}
+                />
             </TouchableOpacity>
         );
     };
 
     return (
         <Swipeable
-            renderLeftActions={LeftSwipeActions}
+            renderLeftActions={leftSwipeActions}
             renderRightActions={rightSwipeActions}
         >
-            <View style={[taskStyles.swipeContainer, isMontly ? {minHeight: 60} : {}]}>
+            <View style={[
+                taskStyles.swipeContainer, 
+                sourceCollection === 'montlyplanner' ? {minHeight: 60} : {}
+            ]}>
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}
@@ -73,12 +93,13 @@ export default function Task({ task, setTask, isMontly, onRemove }) {
                 </View>
                 <View style={taskStyles.textContainer}>
                     <Text style={[
-                        isMontly ? taskStyles.monthlyTaskText : taskStyles.taskText, 
+                        sourceCollection === 'montlyplanner' ? taskStyles.monthlyTaskText : taskStyles.taskText, 
                         taskStyles.boxShadow, 
                         isDone ? taskStyles.isDone : {}]}>
                             {task.text}
                     </Text>
                 </View>
+                <ActivitiesMarks activityType={task.type}/>
             </View>
         </Swipeable>
     );

@@ -3,33 +3,15 @@ import { View, FlatList, StyleSheet } from 'react-native';
 
 import { gStyles, taskListStyles } from '../../styles/GlobalStyles';
 import ScheduleBlock from './ScheduleBlock';
-import bearSchedule from '../../chronotypeSchedule/chrono_bear.json';
-import lionSchedule from '../../chronotypeSchedule/chrono_lion.json';
-import wolfSchedule from '../../chronotypeSchedule/chrono_wolf.json';
-import dolphinSchedule from '../../chronotypeSchedule/chrono_dolphin.json';
+import { schedule } from '../../Global'; 
 
 
-export default function Schedule() {
-    const schedule = () => {
-        switch (global.chronotype) {
-            case 'bear':
-                return bearSchedule;
-            case 'dolphin':
-                return dolphinSchedule;
-            case 'wolf':
-                return wolfSchedule;
-            case 'lion':
-                return lionSchedule;
-            default:
-                break;
-        }
-    }
-
+export default function Schedule() {     
     return (
         <View style={ [styles.list, gStyles.boxShadowMain] }>
             <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
             <FlatList
-                data={schedule()}
+                data={schedule}
                 renderItem={({ item }) => (
                     <View style={taskListStyles.taskContainer}>
                         <ScheduleBlock
@@ -42,7 +24,7 @@ export default function Schedule() {
             <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
         </View>
     );
-  }
+}
 
 
 const styles = StyleSheet.create({
