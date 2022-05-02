@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
+import * as FileSystem from 'expo-file-system';
+import { Asset } from 'expo-asset';
 
 import NavigationStack from './Application/navigation/RootNavigator';
 
@@ -11,6 +13,14 @@ const fonts = () => Font.loadAsync({
     'PTSans-reg': require('./Application/assets/fonts/PT_Sans/PTSans-Regular.ttf'),
     'PTSans-bold': require('./Application/assets/fonts/PT_Sans/PTSans-Bold.ttf')
 });
+
+if (!(FileSystem.getInfoAsync(FileSystem.documentDirectory + 'SQLite')).exists) {
+    FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'SQLite');
+    FileSystem.downloadAsync(
+        Asset.fromModule(require('./Application/assets/storage/storage.db')).uri,
+        FileSystem.documentDirectory + 'SQLite/storage.db'
+        );
+}
 
 //export const chrontype = "bear";
 
