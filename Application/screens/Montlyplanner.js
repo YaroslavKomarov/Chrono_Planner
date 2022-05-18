@@ -6,7 +6,7 @@ import MonthlyplannerHeader from "../components/monthlyplanner/MonthlyplannerHea
 import AddTaskForm from "../components/common/AddTaskForm";
 import TasksList from "../components/common/TasksList";
 import { gStyles } from "../styles/GlobalStyles";
-import MyCalendar from "../components/common/Calendar";
+import MyCalendar from "../components/common/MyCalendar";
 
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);

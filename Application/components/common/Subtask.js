@@ -1,25 +1,18 @@
 import React, { useState } from 'react'
-import { View, Text, Modal } from 'react-native';
+import { View, Text } from 'react-native';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import ConfirmationForm from './ConfirmationForm';
 import { taskStyles } from '../../styles/GlobalStyles';
 import ActivitiesMarks from './ActivitiesMarks';
 import ChangeTaskForm from './ChangeTaskForm';
 import MigrateForm from './MigrateForm';
 
 
-export default function Task({ task, setTask, removeTask, sourceCollection }) {
-    const [confirmFormText, setConfirmFormText] = useState("");
-
-    const [isTaskDone, setIsTaskDone] = useState(false);
-    
-    const [confirmFormType, setConfirmFormType] = useState("");
-
-    const [confirmModalVisible, setConfirmModalVisible] = useState(false);
+export default function Task({ task, setTask, onRemove, sourceCollection }) {
+    const [isDone, setIsDone] = useState(false);
 
     const [migrateModalVisible, setMigrateModalVisible] = useState(false);
 
@@ -28,17 +21,13 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
     const leftSwipeActions = () => {
         return (
             <TouchableOpacity
-                disable={isTaskDone}
+                disable={isDone}
                 style={[
                     taskStyles.deleteButtonWrap, 
                     taskStyles.buttonWrap, 
                     sourceCollection === 'montlyplanner' ? {minHeight: 60}: {}
                 ]} 
-                onPress={() => {
-                    setConfirmFormText("Вы уверены, что хотите удалить задачу?");
-                    setConfirmModalVisible(true);
-                    setConfirmFormType("delete");
-                }}
+                onPress={() => onRemove(task.key)}
                 >
                 <AntDesign name="delete" size={38} color={'white'}/>
             </TouchableOpacity>
@@ -49,28 +38,24 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
         return (
             <TouchableOpacity style={taskStyles.btnsContainer}>
                 <TouchableOpacity 
-                    disable={isTaskDone}
+                    disable={isDone}
                     style={[
                         taskStyles.doneButtonWrap, 
                         taskStyles.buttonWrap, 
                         sourceCollection === 'montlyplanner' ? {minHeight: 60} : {}
                     ]} 
-                    onPress={() => {
-                        setConfirmFormText("Вы уверены, что хотите завершить задачу?");
-                        setConfirmModalVisible(true);
-                        setConfirmFormType("complete");
-                    }}
+                    onPress={() => setIsDone(true)}
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
                 <TouchableOpacity 
-                    disable={isTaskDone}
+                    disable={isDone}
                     style={[
                         taskStyles.migrateButtonWrap, 
                         taskStyles.buttonWrap, 
                         sourceCollection === 'montlyplanner' ? {minHeight: 60} : {}
                     ]} 
-                    onPress={() => isTaskDone ? {} : setMigrateModalVisible(true)}
+                    onPress={() => isDone ? {} : setMigrateModalVisible(true)}
                 >
                     <Feather name="arrow-right" size={38} color={'white'} />
                 </TouchableOpacity>
@@ -92,17 +77,6 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
                 taskStyles.swipeContainer, 
                 sourceCollection === 'montlyplanner' ? {minHeight: 60} : {}
             ]}>
-                <Modal visible={confirmModalVisible} transparent={true}>
-                    <ConfirmationForm
-                        setModalVisible={setConfirmModalVisible}
-                        confirmFormText={confirmFormText}
-                        task={task}
-                        setIsTaskDone={setIsTaskDone}
-                        setMigrateModalVisible={setMigrateModalVisible}
-                        removeTask={removeTask}
-                        confirmFormType={confirmFormType}
-                    />
-                </Modal>
                 <View style={taskStyles.penIconWrap}>
                     <ActivitiesMarks activityType={task.type}/>
                 </View>
@@ -110,13 +84,13 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
                     <Text style={[
                         sourceCollection === 'montlyplanner' ? taskStyles.monthlyTaskText : taskStyles.taskText, 
                         taskStyles.boxShadow, 
-                        isTaskDone ? taskStyles.isTaskDone : {}]}>
+                        isDone ? taskStyles.isDone : {}]}>
                             {task.text}
                     </Text>
                 </View>
                 <TouchableOpacity
-                    disable={isTaskDone}
-                    onPress={() => isTaskDone ? {} : setChangeModalVisible(true)}
+                    disable={isDone}
+                    onPress={() => isDone ? {} : setChangeModalVisible(true)}
                 >
                     <SimpleLineIcons name="pencil" size={24} color={'#7E869E'}/>
                 </TouchableOpacity>

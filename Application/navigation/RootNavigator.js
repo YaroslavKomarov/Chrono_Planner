@@ -6,8 +6,8 @@ import Dailyplanner from "../screens/Dailyplanner";
 import Projects from "../screens/Projects";
 import Monthlyplanner from "../screens/Montlyplanner";
 import Project from "../screens/Project";
-import Test1 from "../screens/InitialTest";
-import Test2 from "../screens/AdditionalTest";
+import InitialTest from "../screens/InitialTest";
+import AdditionalTest from "../screens/AdditionalTest";
 import Unassembled from "../screens/Unassembled";
 import Tapbar from "../components/common/Tapbar";
 
@@ -17,15 +17,15 @@ export default function RootNavigator() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-				{/* <Stack.Screen
-					name="Test1"
-					component={Test1}
+				<Stack.Screen
+					name="InitialTest"
+					component={InitialTest}
 					options={{
-						title: "тест 1",
+						title: "Первоначальный тест",
 						headerStyle: { height: 0 },
 						headerLeft: () => null,
 					}}
-				/> */}
+				/>
 				<Stack.Screen
 					name="Monthlyplanner"
 					component={Monthlyplanner}
@@ -63,10 +63,10 @@ export default function RootNavigator() {
 					}}
 				/>
 				<Stack.Screen
-					name="Test2"
-					component={Test2}
+					name="AdditionalTest"
+					component={AdditionalTest}
 					options={{
-						title: "тест 2",
+						title: "Дополнительный тест",
 						headerStyle: { height: 0 },
 						headerLeft: () => null,
 					}}

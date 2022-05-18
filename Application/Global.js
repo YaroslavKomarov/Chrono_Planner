@@ -30,8 +30,6 @@ export const months = [
     '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
 ];
 
-global.chronotype = 'bear';
-
 export const schedule = (() => {
     switch (global.chronotype) {
         case 'bear':
@@ -60,4 +58,27 @@ export const collections = {
     monthlyplanner: 'Ежемесячник',
     dailyplanner: 'Ежедневник',
     projects: 'Проекты'
+};
+
+global.CHRONOTYPE = 'bear';
+
+// Временные меры, до введения БД
+global.DAYCHECK = "";
+global.DAYNAME = "";
+global.TOR = false;
+
+export const getDailyplannerTitle = () => {
+    let currentDate = new Date();
+
+    if (TOR) {
+        TOR = false;
+        currentDate = new Date(DAYNAME);
+        return `${days[currentDate.getDay()]},  ${DAYCHECK}.${
+            months[currentDate.getMonth()]
+        }`;
+    } else {
+        return `${days[currentDate.getDay()]},  ${currentDate.getDate()}.${
+            months[currentDate.getMonth()]
+        }`;
+    }
 };
