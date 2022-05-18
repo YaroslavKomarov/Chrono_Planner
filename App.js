@@ -14,8 +14,8 @@ const fonts = () => Font.loadAsync({
     'PTSans-bold': require('./Application/assets/fonts/PT_Sans/PTSans-Bold.ttf')
 });
 
-if (!(FileSystem.getInfoAsync(FileSystem.documentDirectory + 'SQLite')).exists) {
-    FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'SQLite');
+if (!(FileSystem.getInfoAsync(FileSystem.documentDirectory + 'SQLite/')).exists) {
+    FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'SQLite/');
     FileSystem.downloadAsync(
         Asset.fromModule(require('./Application/assets/storage/storage.db')).uri,
         FileSystem.documentDirectory + 'SQLite/storage.db'
