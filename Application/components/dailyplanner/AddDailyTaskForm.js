@@ -16,7 +16,6 @@ export default function AddDailyTaskForm({ modalVisible, setModalVisible, setTas
     });
 
     const addTask = (task) => {
-        // Вызов БД для добавления вместо использования setTask
         // Вместо setTask следует передавать контекст, для определения коллекции добавления (Например, имя таблицы)
         const today = new Date();
         const currentDate = today.getDate();
