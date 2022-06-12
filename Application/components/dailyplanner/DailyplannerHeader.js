@@ -4,19 +4,20 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { days, months } from '../../Global';
 import { gStyles } from '../../styles/GlobalStyles';
+import { getDailyplannerTitle } from '../../Global';
 
 
 export default function DailyplannerHeader({ setModalVisible }) {
-    const currentDate = new Date();
+    //const currentDate = new Date();
 
-    const dailyTitle = () => {
-        return `${days[currentDate.getDay()]},  ${currentDate.getDate()}.${months[currentDate.getMonth()]}`;
-    };
+    // const dailyTitle = () => {
+    //     return `${days[currentDate.getDay()]},  ${currentDate.getDate()}.${months[currentDate.getMonth()]}`;
+    // };
 
     return (
         <View style={[styles.headerWrap, gStyles.boxShadowMain]}>
             <View style={styles.textWrap}>
-                <Text style={[styles.dailyplannerTitle, gStyles.boxShadow]}>{dailyTitle()}</Text>
+                <Text style={[styles.dailyplannerTitle, gStyles.boxShadow]}>{getDailyplannerTitle()}</Text>
             </View>
             <View style={styles.btnWrap}>
                 <TouchableOpacity onPress={() => setModalVisible(true)}>

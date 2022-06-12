@@ -1,9 +1,11 @@
+import { View, FlatList, StyleSheet, TouchableOpacity, Modal, Text, Animated } from "react-native";
 import * as React from "react";
-import { View, FlatList, StyleSheet, TouchableOpacity, Modal, Text, Animated, } from "react-native";
+import { useState } from "react";
 import RadioForm from "react-native-simple-radio-button";
-
+import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { gStyles, formStyles, taskListStyles } from "../styles/GlobalStyles";
+
+import { gStyles, formStyles } from "../styles/GlobalStyles";
 
 
 const DATA = [
@@ -40,8 +42,7 @@ const DATA = [
 		id: "8",
 	},
 	{
-		title:
-		"Перед сном я перебираю случившееся в прошлом и возможные события будущего",
+		title: "Перед сном я перебираю случившееся в прошлом и возможные события будущего",
 		id: "9",
 	},
 	{
@@ -50,9 +51,9 @@ const DATA = [
 	},
 ];
 
-var arr = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
+const arr = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
 
-var radio_props = [
+const radio_props = [
 	{ label: "Да    ", value: 0 },
 	{ label: "Нет", value: 1 },
 ];
@@ -65,31 +66,10 @@ function addArr(str, val) {
 	}
 }
 
-const Item = ({ item }) => (
-	<View style={[gStyles.boxShadowMain, styles.quethion]}>
-		<Text style={styles.Text}>{item.title}</Text>
-		<View>
-		<RadioForm
-			radio_props={radio_props}
-			initial={2}
-			onPress={
-			((value) => {
-				this.setState({ value: value });
-			},
-			(value) => addArr(value, item.id))
-			}
-			style={styles.radioButton}
-			formHorizontal={true}
-			buttonColor={"rgba(17, 18, 53, 0.5)"}
-			selectedButtonColor={"rgba(135, 156, 255, 1)"}
-			buttonSize={15}
-			labelStyle={{ fontSize: 20, fontFamily: "PTSans-reg" }}
-		/>
-		</View>
-  	</View>
-);
-class Test1 extends React.Component {
-	checkArr(val) {
+export default function InitialTest() {
+	const navigation = useNavigation();
+
+	function checkArr(val) {
 		var count = 0;
 		for (var i = 1; i < 11; i++) {
 			if (val[i] == "0") {
@@ -99,127 +79,148 @@ class Test1 extends React.Component {
 				count += 1;
 			}
 		}
-		if (count >= 7) this.setState({ modalVisibleHome: true });
-		else this.setState({ modalVisible: true });
+		if (count >= 7) {
+			setModalVisibleHome(true) ;
+			global.CHRONOTYPE = 'dolphin';
+		} else {
+			setModalVisible(true);
+		}
 	}
-	state = {
-		modalVisible: false,
-		modalVisibleHome: false,
-		modalOfHI: true,
-	};
-	setModalVisible(visible) {
-		this.setState({ modalVisible: visible });
-		this.props.navigation.navigate("Test2");
-	}
-	setModalVisibleHome(visible) {
-		this.setState({ modalVisibleHome: visible });
-		this.props.navigation.navigate("Monthlyplanner");
-	}
-	setModalVisibleHI(visible) {
-		this.setState({ modalOfHI: visible });
-	}
-	render() {
-		const renderItem = ({ item }) => {
-		return <Item item={item} />;
-	};
 
-    return (
-		<AnimatedLinearGradient
-			colors={["rgba(255, 154, 158, 1)", "rgba(250, 208, 196, 1)"]}
-			style={gStyles.container}>
-			<Modal animationType="slide" visible={this.state.modalOfHI}>
-				<View>
-					<View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-					<Text
-						style={[taskListStyles.formTitle, { borderBottomWidth: 2 }]}>
-						Добро пожаловать в приложение ChronoPlanner - Ваш персональный
-						планировщик задач с опорой на биоритмы
-					</Text>
-					<Text style={[taskListStyles.formTitle, { marginBottom: 5 }]}>
-						Сейчас перед вами появится тест , который поможет нам определить
-						ваш хронотип
-					</Text>
-					<View style={{ height: 60 }}>
-						<TouchableOpacity
-						onPress={() => this.setModalVisibleHI(false)}
+	const [modalVisible, setModalVisible] = useState(false);
+
+	const [modalOfHI, setModalVisibleHI] = useState(true);
+
+	const [modalVisibleHome, setModalVisibleHome] = useState(false);
+
+	return (
+	<AnimatedLinearGradient
+		colors={["rgba(255, 154, 158, 1)", "rgba(250, 208, 196, 1)"]}
+		style={gStyles.container}
+	>
+		<Modal animationType="slide" visible={modalOfHI}>
+		<View>
+			<View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+			<Text style={[formStyles.formTitle, { borderBottomWidth: 2 }]}>
+				Добро пожаловать в приложение ChronoPlanner - Ваш персональный
+				планировщик задач с опорой на биоритмы
+			</Text>
+			<Text style={[formStyles.formTitle, { marginBottom: 5 }]}>
+				Сейчас перед вами появится тест , который поможет нам определить
+				ваш хронотип
+			</Text>
+			<View style={{ height: 60 }}>
+				<TouchableOpacity
+				onPress={() => {
+					setModalVisibleHI(false);
+				}}
+				style={[
+					formStyles.addButton,
+					gStyles.boxShadow,
+					formStyles.button,
+				]}
+				>
+				<Text style={formStyles.buttonText}> Далее </Text>
+				</TouchableOpacity>
+			</View>
+			</View>
+		</View>
+		</Modal>
+		<Modal
+			animationType="slide"
+			transparent={true}
+			visible={modalVisible}
+			style
+		>
+		<View style={formStyles.modalView}>
+			<View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+				<Text style={formStyles.formTitle}>
+					Просьба пройти еще один тест для более точного определения
+					хронотипа
+				</Text>
+				<View style={styles.touchableWrap}>
+					<TouchableOpacity
+						onPress={() => {
+							setModalVisible(false);
+							navigation.navigate("AdditionalTest");
+						}}
 						style={[
 							formStyles.addButton,
 							gStyles.boxShadow,
 							formStyles.button,
-						]}>
-						<Text style={formStyles.buttonText}> Далее </Text>
-						</TouchableOpacity>
-					</View>
-					</View>
+							styles.Button,
+						]}
+					>
+					<Text style={formStyles.buttonText}>Дополнительный тест</Text>
+					</TouchableOpacity>
 				</View>
-			</Modal>
-			<Modal
+			</View>
+		</View>
+		</Modal>
+		<Modal
 			animationType="slide"
 			transparent={true}
-			visible={this.state.modalVisible}
-			style>
-				<View style={taskListStyles.modalView}>
-					<View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-						<Text style={taskListStyles.formTitle}>
-							Просьба пройти еще один тест для более точного определения
-							хронотипа
-						</Text>
-
-						<View style={styles.touchableWrap}>
-							<TouchableOpacity
-							onPress={() => this.setModalVisible(false)}
-							style={[
-								formStyles.addButton,
-								gStyles.boxShadow,
-								formStyles.button,
-								styles.Button,
-							]}>
-								<Text style={formStyles.buttonText}>Дополнительный тест</Text>
-							</TouchableOpacity>
-						</View>
-					</View>
+			visible={modalVisibleHome}
+		>
+		<View style={formStyles.modalView}>
+			<View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+				<Text style={formStyles.formTitle}>Ваш хронотип это дельфин</Text>
+				<View style={styles.touchableWrap}>
+					<TouchableOpacity
+						onPress={() => {
+							setModalVisibleHome(false);
+							navigation.navigate("Monthlyplanner");
+					}}
+					style={[
+						formStyles.addButton,
+						gStyles.boxShadow,
+						formStyles.button,
+					]}
+					>
+						<Text style={formStyles.buttonText}>Вернуться домой</Text>
+					</TouchableOpacity>
 				</View>
-			</Modal>
-			<Modal
-			animationType="slide"
-			transparent={true}
-			visible={this.state.modalVisibleHome}
-			>
-				<View style={taskListStyles.modalView}>
-					<View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
-						<Text style={taskListStyles.formTitle}>
-							Ваш хронотип это дельфин
-						</Text>
-						<View style={styles.touchableWrap}>
-							<TouchableOpacity
-							onPress={() => this.setModalVisibleHome(false)}
-							style={[
-								formStyles.addButton,
-								gStyles.boxShadow,
-								formStyles.button,
-							]}>
-								<Text style={formStyles.buttonText}>Вернуться домой</Text>
-							</TouchableOpacity>
-						</View>
-					</View>
-				</View>
-			</Modal>
-			<FlatList
+			</View>
+		</View>
+		</Modal>
+		<FlatList
 			data={DATA}
-			renderItem={renderItem}
+			renderItem={({ item }) => (
+			<View style={[gStyles.boxShadowMain, styles.quethion]}>
+				<Text style={styles.Text}>{item.title}</Text>
+				<View>
+					<RadioForm
+						radio_props={radio_props}
+						initial={2}
+						onPress={
+							((value) => {
+							this.setState({ value: value });
+							},
+							(value) => addArr(value, item.id))
+						}
+						style={styles.radioButton}
+						formHorizontal={true}
+						buttonColor={"rgba(17, 18, 53, 0.5)"}
+						selectedButtonColor={"rgba(135, 156, 255, 1)"}
+						buttonSize={15}
+						labelStyle={{ fontSize: 20, fontFamily: "PTSans-reg" }}
+					/>
+				</View>
+				</View>
+			)}
 			keyExtractor={(item) => item.id}
 			style={styles.FlatList}
-			/>
-			<View style={styles.Button}>
-				<TouchableOpacity
-					onPress={() => this.checkArr(arr)}
-					style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}>
-					<Text style={formStyles.buttonText}>Получить результат</Text>
-				</TouchableOpacity>
-			</View>
-		</AnimatedLinearGradient>
-    );
-  }
+		/>
+		<View style={styles.Button}>
+			<TouchableOpacity
+				onPress={() => checkArr(arr)}
+				style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
+			>
+				<Text style={formStyles.buttonText}>Получить результат</Text>
+			</TouchableOpacity>
+		</View>
+	</AnimatedLinearGradient>
+	);
 }
 
 const styles = StyleSheet.create({
@@ -258,5 +259,3 @@ const styles = StyleSheet.create({
 		height: 60,
 	},
 });
-
-export default Test1;

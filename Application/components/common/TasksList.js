@@ -7,7 +7,7 @@ import Task from './Task';
 
 export default function TasksList({ tasks, setTasks, sourceCollection }) {
 
-    const handleRemove = (key) => {
+    const removeTask = (key) => {
         const newList = tasks.filter((item) => item.key !== key);
         setTasks(newList);
     };
@@ -23,7 +23,7 @@ export default function TasksList({ tasks, setTasks, sourceCollection }) {
                         <Task
                             task={item}
                             setTask={setTasks}
-                            onRemove={handleRemove}
+                            removeTask={removeTask}
                             sourceCollection={sourceCollection}
                         />
                     </View>
