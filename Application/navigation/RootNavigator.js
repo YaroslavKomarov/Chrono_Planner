@@ -17,7 +17,7 @@ export default function RootNavigator() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-				<Stack.Screen
+				{/* <Stack.Screen
 					name="InitialTest"
 					component={InitialTest}
 					options={{
@@ -25,7 +25,7 @@ export default function RootNavigator() {
 						headerStyle: { height: 0 },
 						headerLeft: () => null,
 					}}
-				/>
+				/> */}
 				<Stack.Screen
 					name="Monthlyplanner"
 					component={Monthlyplanner}
