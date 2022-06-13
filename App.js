@@ -16,7 +16,6 @@ const fonts = () => Font.loadAsync({
 
 const sqlDir = FileSystem.documentDirectory + "SQLite";
 if (!(FileSystem.getInfoAsync(sqlDir + "storage.db")).exists) {
-    console.log(FileSystem.documentDirectory);
     FileSystem.makeDirectoryAsync(sqlDir, {intermediates: true});
     const asset = Asset.fromModule(require('./Application/assets/storage/storage.db'));
     FileSystem.downloadAsync(
