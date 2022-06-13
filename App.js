@@ -14,11 +14,14 @@ const fonts = () => Font.loadAsync({
     'PTSans-bold': require('./Application/assets/fonts/PT_Sans/PTSans-Bold.ttf')
 });
 
-if (!(FileSystem.getInfoAsync(FileSystem.documentDirectory + 'SQLite/')).exists) {
-    FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'SQLite/');
+const sqlDir = FileSystem.documentDirectory + "SQLite";
+if (!(FileSystem.getInfoAsync(sqlDir + "storage.db")).exists) {
+    console.log(FileSystem.documentDirectory);
+    FileSystem.makeDirectoryAsync(sqlDir, {intermediates: true});
+    const asset = Asset.fromModule(require('./Application/assets/storage/storage.db'));
     FileSystem.downloadAsync(
-        Asset.fromModule(require('./Application/assets/storage/storage.db')).uri,
-        FileSystem.documentDirectory + 'SQLite/storage.db'
+        asset.uri,
+        sqlDir + "storage.db"
         );
 }
 
