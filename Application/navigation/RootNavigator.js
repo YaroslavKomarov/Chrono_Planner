@@ -14,74 +14,74 @@ import Tapbar from "../components/common/Tapbar";
 const Stack = createStackNavigator();
 
 export default function RootNavigator() {
-	return (
-		<NavigationContainer>
-			<Stack.Navigator>
-				{/* <Stack.Screen
-					name="InitialTest"
-					component={InitialTest}
-					options={{
-						title: "Первоначальный тест",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/> */}
-				<Stack.Screen
-					name="Monthlyplanner"
-					component={Monthlyplanner}
-					options={{
-						title: "Ежемесячник",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/> 
-				<Stack.Screen
-					name="Unassembled"
-					component={Unassembled}
-					options={{
-						title: "Неразобранные",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/>
-				<Stack.Screen
-					name="Dailyplanner"
-					component={Dailyplanner}
-					options={{
-						title: "Ежедневник",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/>
-				<Stack.Screen
-					name="Projects"
-					component={Projects}
-					options={{
-						title: "",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/>
-				<Stack.Screen
-					name="AdditionalTest"
-					component={AdditionalTest}
-					options={{
-						title: "Дополнительный тест",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/>
-				<Stack.Screen
-					name="Project"
-					component={Project}
-					options={{
-						title: "Проект",
-						headerStyle: { height: 0 },
-						headerLeft: () => null,
-					}}
-				/>
-			</Stack.Navigator>
-			<Tapbar />
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="InitialTest"
+          component={InitialTest}
+          options={{
+            title: "Первоначальный тест",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
+          name="Monthlyplanner"
+          component={Monthlyplanner}
+          options={{
+            title: "Ежемесячник",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
+          name="Unassembled"
+          component={Unassembled}
+          options={{
+            title: "Неразобранные",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
+          name="Dailyplanner"
+          component={Dailyplanner}
+          options={{
+            title: "Ежедневник",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
+          name="Projects"
+          component={Projects}
+          options={{
+            title: "",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
+          name="AdditionalTest"
+          component={AdditionalTest}
+          options={{
+            title: "Дополнительный тест",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+        <Stack.Screen
+          name="Project"
+          component={Project}
+          options={{
+            title: "Проект",
+            headerStyle: { height: 0 },
+            headerLeft: () => null,
+          }}
+        />
+      </Stack.Navigator>
+      <Tapbar />
+    </NavigationContainer>
+  );
 }

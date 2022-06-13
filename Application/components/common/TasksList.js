@@ -1,36 +1,32 @@
-import React from 'react';
-import { View, FlatList } from 'react-native';
+import React from "react";
+import { View, FlatList } from "react-native";
 
-import { gStyles, taskListStyles } from '../../styles/GlobalStyles';
-import Task from './Task';
-
+import { gStyles, taskListStyles } from "../../styles/GlobalStyles";
+import Task from "./Task";
 
 export default function TasksList({ tasks, setTasks, sourceCollection }) {
+  const removeTask = (key) => {
+    const newList = tasks.filter((item) => item.key !== key);
+    setTasks(newList);
+  };
 
-    const removeTask = (key) => {
-        const newList = tasks.filter((item) => item.key !== key);
-        setTasks(newList);
-    };
-
-    return (
-		<View style={[gStyles.boxShadowMain, taskListStyles.listWrap]}>
-            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
-            <FlatList
-                persistentScrollbar={true}
-                data={tasks}
-                renderItem={({ item }) => (
-                    <View style={taskListStyles.taskContainer}>
-                        <Task
-                            task={item}
-                            setTask={setTasks}
-                            removeTask={removeTask}
-                            sourceCollection={sourceCollection}
-                        />
-                    </View>
-                )}
-                keyExtractor={(item) => item.key}
+  return (
+    <View style={[gStyles.boxShadowMain, taskListStyles.listWrap]}>
+      <FlatList
+        persistentScrollbar={true}
+        data={tasks}
+        renderItem={({ item }) => (
+          <View style={taskListStyles.taskContainer}>
+            <Task
+              task={item}
+              setTask={setTasks}
+              removeTask={removeTask}
+              sourceCollection={sourceCollection}
             />
-            <View style={{borderBottomWidth: 1, borderColor: 'black', marginHorizontal: '2%'}}></View>
-		</View>
-	);
+          </View>
+        )}
+        keyExtractor={(item) => item.key}
+      />
+    </View>
+  );
 }
