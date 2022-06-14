@@ -81,6 +81,7 @@ export const taskStyles = StyleSheet.create({
   },
   penIconWrap: {
     marginLeft: "2%",
+    width: 30,
   },
   buttonWrap: {
     flex: 1,

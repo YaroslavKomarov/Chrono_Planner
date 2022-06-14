@@ -58,13 +58,13 @@ export default function ScheduleBlock({ block }) {
     <View style={styles.wrapper}>
       <View style={styles.timeRangeWrap}>
         {block.key === "1" ? (
-          <View style={[{ marginTop: "20%" }, styles.time]}>
+          <View style={[{ marginTop: "15%", width: 40 }, styles.time]}>
             <Text style={styles.timeText}>{block.StartTime}</Text>
           </View>
         ) : (
           <View></View>
         )}
-        <View style={[{ marginBottom: "15%" }, styles.time]}>
+        <View style={[{ marginBottom: "15%", width: 40 }, styles.time]}>
           <Text style={styles.timeText}>{block.EndTime}</Text>
         </View>
       </View>
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
   },
   timeRangeWrap: {
     justifyContent: "space-between",
+
     borderRightWidth: 1,
   },
   time: {

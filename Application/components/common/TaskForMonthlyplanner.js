@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Modal } from "react-native";
+import { View, Text, Modal, StyleSheet } from "react-native";
 import { Feather, AntDesign } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
@@ -89,7 +89,7 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
     >
       <View
         style={[
-          taskStyles.swipeContainer,
+          taskStyles1.swipeContainer,
           sourceCollection === "montlyplanner" ? { minHeight: 60 } : {},
         ]}
       >
@@ -136,3 +136,14 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
     </Swipeable>
   );
 }
+
+export const taskStyles1 = StyleSheet.create({
+  swipeContainer: {
+    flex: 1,
+    minHeight: 75,
+    flexDirection: "row",
+    marginHorizontal: "4%",
+    backgroundColor: "rgba(235, 216, 199, 1)",
+    alignItems: "center",
+  },
+});

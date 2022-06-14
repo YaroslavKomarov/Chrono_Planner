@@ -1,8 +1,7 @@
 import React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 
-import { gStyles, taskListStyles } from "../../styles/GlobalStyles";
-import Task from "./Task";
+import Task from "./TaskForMonthlyplanner";
 
 export default function TasksList({ tasks, setTasks, sourceCollection }) {
   const removeTask = (key) => {
@@ -11,7 +10,7 @@ export default function TasksList({ tasks, setTasks, sourceCollection }) {
   };
 
   return (
-    <View style={[taskListStyles.listWrap]}>
+    <View style={[taskListStyles1.listWrap]}>
       <FlatList
         persistentScrollbar={true}
         data={tasks}
@@ -30,3 +29,14 @@ export default function TasksList({ tasks, setTasks, sourceCollection }) {
     </View>
   );
 }
+export const taskListStyles1 = StyleSheet.create({
+  listWrap: {
+    flex: 2,
+    marginLeft: "5%",
+    marginRight: "5%",
+    marginBottom: "5%",
+    marginTop: "25%",
+    backgroundColor: "rgba(235, 216, 199, 1)",
+    borderRadius: 20,
+  },
+});

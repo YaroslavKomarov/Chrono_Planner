@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 import MonthlyplannerHeader from "../components/monthlyplanner/MonthlyplannerHeader";
 import AddTaskForm from "../components/common/AddTaskForm";
-import TasksList from "../components/common/TasksList";
+import TasksList from "../components/common/TasksListMonthlyPlanner";
 import { gStyles } from "../styles/GlobalStyles";
 import MyCalendar from "../components/common/MyCalendar";
 
