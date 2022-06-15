@@ -67,7 +67,6 @@ export const taskListStyles = StyleSheet.create({
 
 export const taskStyles = StyleSheet.create({
   swipeContainer: {
-    flex: 1,
     minHeight: 75,
     flexDirection: "row",
     marginHorizontal: "4%",
@@ -81,7 +80,6 @@ export const taskStyles = StyleSheet.create({
   },
   penIconWrap: {
     marginLeft: "2%",
-    width: 30,
   },
   buttonWrap: {
     flex: 1,
@@ -121,7 +119,7 @@ export const taskStyles = StyleSheet.create({
   },
   textContainer: {
     width: "70%",
-    marginLeft: "5%",
+    marginLeft: "4%",
     marginRight: "3%",
   },
   projectTextContainer: {
@@ -192,7 +190,7 @@ export const formStyles = StyleSheet.create({
     borderRadius: 20,
     padding: "5%",
     marginHorizontal: "4%",
-    marginTop: "50%",
+    marginTop: "70%",
   },
   formTitle: {
     marginHorizontal: "10%",

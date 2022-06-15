@@ -7,7 +7,7 @@ import TagList from '../common/TagList';
 import { gStyles, formStyles } from '../../styles/GlobalStyles';
 
 
-export default function MigrateForm({ modalVisible, setModalVisible, sourceCollection }) {
+export default function MigrateForm({ modalVisible, setModalVisible, sourceCollection, task, onRemove }) {
     const [collectionType, setCollectionType] = useState('');
 
     const getTagNames = () => { 
@@ -53,7 +53,7 @@ export default function MigrateForm({ modalVisible, setModalVisible, sourceColle
                                 />
                                 <View style={formStyles.btnContainer}>
                                     <TouchableOpacity 
-                                        onPress={props.handleSubmit} 
+                                        onPress={() => onRemove(task.key)} 
                                         style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
                                     >
                                         <Text style={formStyles.buttonText}>Принять</Text>

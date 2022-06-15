@@ -99,9 +99,15 @@ export default function InitialTest() {
   const [modal, setModalVisibl] = useState(false);
 
   return (
-    <Modal animationType="slide" visible={modalOfHI}>
+    <Modal visible={modalOfHI}>
       <View>
-        <View style={[formStyles.formContainer, gStyles.boxShadowMain]}>
+        <View
+          style={[
+            formStyles.formContainer,
+            gStyles.boxShadowMain,
+            { marginTop: "50%" },
+          ]}
+        >
           <Text style={[formStyles.formTitle, { borderBottomWidth: 2 }]}>
             Добро пожаловать в приложение ChronoPlanner - Ваш персональный
             планировщик задач с опорой на биоритмы

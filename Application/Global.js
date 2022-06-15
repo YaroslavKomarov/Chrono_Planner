@@ -83,6 +83,8 @@ global.DAYCHECK = "";
 global.DAYNAME = "";
 global.TOR = false;
 
+global.PROJ_DEL = false;
+
 export const getDailyplannerTitle = () => {
   let currentDate = new Date();
 

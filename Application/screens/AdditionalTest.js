@@ -267,13 +267,8 @@ export default function AdditionalTest() {
 
   return (
     <Modal style={[gStyles.container, gStyles.back]} visible={modalOfHI}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalOfResult}
-        style
-      >
-        <View style={taskListStyles.modalView}>
+      <Modal animationType="slide" transparent={true} visible={modalOfResult}>
+        <View style={formStyles.formContainer}>
           <View style={[taskListStyles.formContainer, gStyles.boxShadowMain]}>
             <Text style={taskListStyles.formTitle}>
               Ваш хронотип это {result}

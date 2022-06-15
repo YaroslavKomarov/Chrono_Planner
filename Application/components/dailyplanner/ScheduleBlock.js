@@ -21,12 +21,26 @@ export default function ScheduleBlock({ block }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [tasks, setTasks] = useState([
-    { text: "Купить молоко", key: "1" },
-    { text: "Починить кран", key: "2" },
-    { text: "Сделать проект", key: "3" },
-    { text: "Сходить в кино", key: "4" },
-    { text: "Построить коммунизм", key: "5" },
-    { text: "Больше не наливать деду", key: "6" },
+    {
+      text: "Сделать проект",
+      type: "intellectual",
+      subtasks: [
+        { text: "Утвердить новые макеты", type: "", key: "1" },
+        { text: "Провести тесты UI", type: "", key: "2" },
+        { text: "Оставить себе ясные дни", type: "", key: "3" },
+      ],
+      key: "3",
+    },
+    {
+      text: "Построить коммунизм",
+      type: "creative",
+      subtasks: [
+        { text: "Договориться с Зюгановым", type: "", key: "1" },
+        { text: "Посадить кукурузу", type: "", key: "2" },
+        { text: "Оставить себе ясные дни", type: "", key: "3" },
+      ],
+      key: "5",
+    },
   ]);
 
   const handleRemove = (key) => {
@@ -62,22 +76,27 @@ export default function ScheduleBlock({ block }) {
   const updateTime = () => {
     hoursNow = datetimeNow.getHours();
     minutesNow = datetimeNow.getMinutes();
-  }
+  };
 
   return (
     <View style={styles.wrapper}>
       <View style={styles.timeRangeWrap}>
-        {(startTime() - datetimeNow <= 0
-            && endTime() - datetimeNow > 0) ? (<Stripe sizefunc={blockSize} hoursNow={hoursNow} minutesNow={minutesNow}
-            /*style={[{marginTop: blockSize(hoursNow, minutesNow)}]}*//>) : (null)}
+        {startTime() - datetimeNow <= 0 && endTime() - datetimeNow > 0 ? (
+          <Stripe
+            sizefunc={blockSize}
+            hoursNow={hoursNow}
+            minutesNow={minutesNow}
+            /*style={[{marginTop: blockSize(hoursNow, minutesNow)}]}*/
+          />
+        ) : null}
         {block.key === "1" ? (
-          <View style={[{ marginTop: "15%", width: 40 }, styles.time]}>
+          <View style={[{ marginTop: "20%" }, styles.time]}>
             <Text style={styles.timeText}>{block.StartTime}</Text>
           </View>
         ) : (
           <View></View>
         )}
-        <View style={[{ marginBottom: "15%", width: 40 }, styles.time]}>
+        <View style={[{ marginBottom: "15%" }, styles.time]}>
           <Text style={styles.timeText}>{block.EndTime}</Text>
         </View>
       </View>
@@ -143,7 +162,6 @@ const styles = StyleSheet.create({
   },
   timeRangeWrap: {
     justifyContent: "space-between",
-
     borderRightWidth: 1,
   },
   time: {

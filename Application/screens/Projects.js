@@ -8,30 +8,25 @@ import AddProjectForm from "../components/projects/AddProjectForm";
 import { collections } from "../Global";
 
 import { useNavigation } from "@react-navigation/native";
+import DailyplannerLink from "../components/common/DailyplannerLink";
 
 export default function Projects() {
-  const navigation = useNavigation();
-
   const [projects, setProjects] = useState([
-    { projName: "Приложение на react native", key: "1" },
-    { projName: "Проект на Arduino nano", key: "2" },
-    { projName: "Обучение немецкому языку", key: "3" },
+    { projName: "Приложение на react native", tasks: [
+      { text: "Валидация Formik", type: "physical", subtasks: [], key: "1" },
+      { text: "Адаптивная верстка", type: "physical", subtasks: [], key: "2" },
+      { text: "Почитать про использование hooks", subtasks: [], type: "physical", key: "3" },
+      { text: "Построить коммунизм", type: "physical", subtasks: [], key: "4" },
+    ], key: "1" },
+    { projName: "Проект на Arduino nano", tasks: [], key: "2" },
+    { projName: "Обучение немецкому языку", tasks: [], key: "3" },
   ]);
 
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={[gStyles.container, gStyles.back]}>
-      <View style={[styles.dailyplannerWrap, gStyles.boxShadowMain]}>
-        <TouchableOpacity
-          style={styles.touchableWrap}
-          onPress={() => navigation.navigate("Dailyplanner")}
-        >
-          <Text style={styles.dailyplannerText}>
-            {collections["dailyplanner"]}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <DailyplannerLink />
       <CollectionTitle
         title={collections["projects"]}
         setModalVisible={setModalVisible}

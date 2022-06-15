@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'rgba(255, 225, 216, 1)'
+        backgroundColor: 'rgba(235, 216, 199, 1)'
     },
     icon: {
         marginRight: 3

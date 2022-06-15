@@ -4,18 +4,23 @@ import { AntDesign } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from "@react-navigation/native";
 
+import { activitiesColor } from "../../Global";
 import { taskStyles } from '../../styles/GlobalStyles';
-import MigrateForm from '../common/MigrateForm'
 import ChangeTaskForm from '../common/ChangeTaskForm';
 
 
-export default function DailyplannerTask({ task, setTask, onRemove }) {
+export default function DailyplannerTask({ task, setTask, onRemove, activityType }) {
     const [isDone, setIsDone] = useState(false);
 
     const [changeModalVisible, setChangeModalVisible] = useState(false);
 
-    const [migrateModalVisible, setMigrateModalVisible] = useState(false);
+    const navigation = useNavigation();
+
+    const loadSubtasksScreen = () => {
+		navigation.navigate('Subtasks', { title: task.text, subtasksProp: task.subtasks });
+	};
 
     const leftSwipeActions = () => {
         return (
@@ -39,7 +44,6 @@ export default function DailyplannerTask({ task, setTask, onRemove }) {
                 >
                     <AntDesign name="checkcircleo" size={38} color={'white'} />
                 </TouchableOpacity>
-                <MigrateForm modalVisible={migrateModalVisible} setModalVisible={setMigrateModalVisible}/>
             </TouchableOpacity>
         );
     };
@@ -49,7 +53,16 @@ export default function DailyplannerTask({ task, setTask, onRemove }) {
             renderLeftActions={leftSwipeActions}
             renderRightActions={rightSwipeActions}
         >
-            <View style={[styles.swipeContainer, { backgroundColor: 'transparent' }]}>
+            <View style={[styles.swipeContainer, { backgroundColor: `${activitiesColor[activityType]}` }]}>
+                <View style={taskStyles.textContainer}>
+                    <TouchableOpacity onPress={() => loadSubtasksScreen()}>
+                        <Text style={[
+                            styles.taskText, 
+                            isDone ? taskStyles.isDone : {}]}>
+                                {task.text}
+                        </Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={taskStyles.penIconWrap}>
                     <TouchableOpacity
                         disable={isDone}
@@ -64,14 +77,6 @@ export default function DailyplannerTask({ task, setTask, onRemove }) {
                         task={task}
                     />
                 </View>
-                <View style={taskStyles.textContainer}>
-                    <Text style={[
-                        styles.taskText, 
-                        taskStyles.boxShadow, 
-                        isDone ? taskStyles.isDone : {}]}>
-                            {task.text}
-                    </Text>
-                </View>
             </View>
         </Swipeable>
     );
@@ -85,7 +90,7 @@ const styles = StyleSheet.create({
     },
     taskText: {
         fontFamily: 'roboto-reg',
-        fontSize: 12,
+        fontSize: 14,
     },
     penIconWrap: {
         marginLeft: '4%',
