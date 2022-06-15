@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 
-import MonthlyplannerHeader from "../components/monthlyplanner/MonthlyplannerHeader";
+import MonthlyplannerTasksList from "../components/monthlyplanner/MontlyplannerTasksList";
 import AddTaskForm from "../components/common/AddTaskForm";
-import TasksList from "../components/common/TasksList";
 import { gStyles } from "../styles/GlobalStyles";
 import MyCalendar from "../components/common/MyCalendar";
+import CollectionTitle from "../components/common/CollectionTitle";
+import { getCurrentMonth } from "../utils/uiHandler";
+import DailyplannerLink from "../components/common/DailyplannerLink";
 
 export default function Monthlyplanner({ navigation }) {
   const [tasks, setTasks] = useState([
@@ -21,17 +23,14 @@ export default function Monthlyplanner({ navigation }) {
 
   return (
     <View style={[gStyles.container, gStyles.back]}>
-      <MonthlyplannerHeader
-        setModalVisible={setModalVisible}
-        navigation={navigation}
-      />
+      <DailyplannerLink />
+      <CollectionTitle title={getCurrentMonth()} setModalVisible={setModalVisible} />
       <MyCalendar />
-      <TasksList
+      <MonthlyplannerTasksList
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         tasks={tasks}
         setTasks={setTasks}
-        sourceCollection="monthlyplanner"
       />
       <AddTaskForm
         modalVisible={modalVisible}

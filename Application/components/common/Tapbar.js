@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
 export default function Tapbar() {
@@ -13,7 +13,10 @@ export default function Tapbar() {
 
 	const [isPressedAuthor, setIsPressedAuthor] = useState(false);
 
+	const [isPressedCompleted, setIsPressedCompleted] = useState(false);
+
 	const changeState = (mainSet) => {
+		setIsPressedCompleted(false);
 		setIsPressedArchive(false);
 		setIsPressedAuthor(false);
 		setIsPressedHome(false);
@@ -27,31 +30,37 @@ export default function Tapbar() {
 
 	return (
 		<View style={styles.tapbar}>
-		<TouchableOpacity
-			onPress={() => loadScreen(setIsPressedArchive, "Unassembled")}>
-			<View style={isPressedArchive ? styles.isPressed : {}}>
-			<AntDesign name="save" style={styles.vectorIcons} />
-			</View>
-		</TouchableOpacity>
-		<TouchableOpacity
-			onPress={() => loadScreen(setIsPressedHome, "Monthlyplanner")}>
-			<View style={isPressedHome ? styles.isPressed : {}}>
-			<AntDesign name="home" style={styles.vectorIcons} />
-			</View>
-		</TouchableOpacity>
-		<TouchableOpacity
-			onPress={() => loadScreen(setIsPressedAuthor, "Projects")}>
-			<View style={isPressedAuthor ? styles.isPressed : {}}>
-			<AntDesign name="book" style={styles.vectorIcons} />
-			</View>
-		</TouchableOpacity>
+			<TouchableOpacity
+				onPress={() => loadScreen(setIsPressedArchive, "Unassembled")}>
+				<View style={isPressedArchive ? styles.isPressed : {}}>
+				<AntDesign name="folder1" style={styles.vectorIcons} />
+				</View>
+			</TouchableOpacity>
+			<TouchableOpacity
+				onPress={() => loadScreen(setIsPressedHome, "Monthlyplanner")}>
+				<View style={isPressedHome ? styles.isPressed : {}}>
+				<Ionicons name="md-home-outline" style={styles.vectorIcons} />
+				</View>
+			</TouchableOpacity>
+			<TouchableOpacity
+				onPress={() => loadScreen(setIsPressedAuthor, "Projects")}>
+				<View style={isPressedAuthor ? styles.isPressed : {}}>
+				<AntDesign name="book" style={styles.vectorIcons} />
+				</View>
+			</TouchableOpacity>
+			<TouchableOpacity
+				onPress={() => loadScreen(setIsPressedCompleted, "Completed")}>
+				<View style={isPressedCompleted ? styles.isPressed : {}}>
+				<AntDesign name="checksquareo" style={styles.vectorIcons} />
+				</View>
+			</TouchableOpacity>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
     tapbar:{
-        paddingHorizontal: '15%',
+        paddingHorizontal: '7%',
         backgroundColor: '#FFEFDF',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -60,7 +69,7 @@ const styles = StyleSheet.create({
     },
     vectorIcons: {
         fontSize: 38,
-        padding: '6%',
+        padding: '4%',
     },
     isPressed: {
         borderRadius: 25,

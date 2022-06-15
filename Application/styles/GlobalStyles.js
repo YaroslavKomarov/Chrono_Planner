@@ -67,7 +67,6 @@ export const taskListStyles = StyleSheet.create({
 
 export const taskStyles = StyleSheet.create({
   swipeContainer: {
-    flex: 1,
     minHeight: 75,
     flexDirection: "row",
     marginHorizontal: "4%",
@@ -120,7 +119,7 @@ export const taskStyles = StyleSheet.create({
   },
   textContainer: {
     width: "70%",
-    marginLeft: "5%",
+    marginLeft: "4%",
     marginRight: "3%",
   },
   projectTextContainer: {

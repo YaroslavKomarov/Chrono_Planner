@@ -7,7 +7,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 import { taskStyles } from '../../styles/GlobalStyles';
-import MigrateForm from '../common/MigrateForm';
 import ChangeProjectForm from './ChangeProjectForm';
 
 

@@ -17,13 +17,9 @@ export default function ConfirmationForm({
     <View style={[formStyles.modalView]}>
 		<View style={[gStyles.boxShadowMain, formStyles.formContainer]}>
 			<Text style={[formStyles.formTitle]}>{confirmFormText}</Text>
-			<View style={styles.button}>
+			<View style={formStyles.btnContainer}>
 				<TouchableOpacity
-					style={[
-						formStyles.addButton,
-						gStyles.boxShadow,
-						formStyles.button
-					]}
+					style={[formStyles.addButton, gStyles.boxShadow, formStyles.button]}
 					onPress={() => {
 						setModalVisible(false);
 						if (confirmFormType == "delete") {
@@ -33,10 +29,8 @@ export default function ConfirmationForm({
 						} 
 					}}
 				>
-					<Text>Принять</Text>
+					<Text style={formStyles.buttonText}>Принять</Text>
 				</TouchableOpacity>
-			</View>
-			<View style={styles.button1}>
 				<TouchableOpacity
 					onPress={() => setModalVisible(false)}
 					style={[
@@ -45,7 +39,7 @@ export default function ConfirmationForm({
 						formStyles.button,
 					]}
 				>
-					<Text>Отмена</Text>
+					<Text style={formStyles.buttonText}>Отмена</Text>
 				</TouchableOpacity>
 			</View>
 		</View>

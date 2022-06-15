@@ -8,6 +8,7 @@ import TasksList from "../components/common/TasksList";
 import { collections } from "../Global";
 
 import { useNavigation } from "@react-navigation/native";
+import DailyplannerLink from "../components/common/DailyplannerLink";
 
 export default function Unassembled() {
   const navigation = useNavigation();
@@ -28,16 +29,7 @@ export default function Unassembled() {
 
   return (
     <View style={[gStyles.container, gStyles.back]}>
-      <View style={[styles.dailyplannerWrap, gStyles.boxShadowMain]}>
-        <TouchableOpacity
-          style={styles.touchableWrap}
-          onPress={() => navigation.navigate("Dailyplanner")}
-        >
-          <Text style={styles.dailyplannerText}>
-            {collections["dailyplanner"]}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <DailyplannerLink />
       <CollectionTitle
         title={collections["unassembled"]}
         modalVisible={modalVisible}

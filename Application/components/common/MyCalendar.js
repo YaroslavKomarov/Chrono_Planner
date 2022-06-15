@@ -5,6 +5,7 @@ import { LocaleConfig } from "react-native-calendars";
 import { useNavigation } from "@react-navigation/native";
 
 import { gStyles } from "../../styles/GlobalStyles";
+import { BooleanSchema } from "yup";
 
 LocaleConfig.locales["ru"] = {
   monthNames: [
@@ -89,7 +90,7 @@ export default function MyCalendar() {
         style={[
           {
             borderRadius: 25,
-            paddingBottom: "2.8%",
+            paddingBottom: "2.2%",
           },
           gStyles.boxShadowMain,
         ]}

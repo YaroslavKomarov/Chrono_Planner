@@ -10,6 +10,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useWindowDimensions } from "react-native";
 
 import ActivitiesMarks from "../common/ActivitiesMarks";
+import { taskStyles } from '../../styles/GlobalStyles';
 import DailyplannerTask from "./DailyplannerTask";
 import { taskListStyles } from "../../styles/GlobalStyles";
 import { activitiesColor, activities } from "../../Global";
@@ -87,9 +88,9 @@ export default function ScheduleBlock({ block }) {
               name="down"
               size={18}
               color="black"
-              style={{ marginTop: "1%" }}
+              style={[{ marginTop: "1%" }, taskStyles.boxShadow]}
             />
-            <Text> {activities[block.ActivityType]}</Text>
+            <Text style={taskStyles.boxShadow}> {activities[block.ActivityType]}</Text>
           </TouchableOpacity>
           <ActivitiesMarks
             style={styles.headerMark}
@@ -106,6 +107,7 @@ export default function ScheduleBlock({ block }) {
                     task={item}
                     setTask={setTasks}
                     onRemove={handleRemove}
+                    activityType={block.ActivityType}
                   />
                 </View>
               )}
@@ -126,14 +128,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderBottomWidth: 1,
     borderColor: "rgba(97, 89, 89, 1)",
-    marginHorizontal: "4%",
+    marginHorizontal: "2%",
   },
   timeRangeWrap: {
     justifyContent: "space-between",
-    borderRightWidth: 1,
   },
   time: {
-    padding: "2%",
     borderRadius: 10,
   },
   timeText: {
