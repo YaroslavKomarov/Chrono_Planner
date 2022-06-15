@@ -13,6 +13,7 @@ import ActivitiesMarks from "../common/ActivitiesMarks";
 import DailyplannerTask from "./DailyplannerTask";
 import { taskListStyles } from "../../styles/GlobalStyles";
 import { activitiesColor, activities } from "../../Global";
+import Stripe from "./Stripe";
 
 export default function ScheduleBlock({ block }) {
   const { height, width } = useWindowDimensions();
@@ -47,16 +48,28 @@ export default function ScheduleBlock({ block }) {
     return result;
   };
 
-  const blockSize = () => {
+  const blockSize = (endTimeHours, endTimeMinutes) => {
     const oneHourSize = height / 8;
-    const diffHours = endTime().getHours() - startTime().getHours();
-    const diffMin = endTime().getMinutes() - startTime().getMinutes();
+    const diffHours = endTimeHours - startTime().getHours();
+    const diffMin = endTimeMinutes - startTime().getMinutes();
     return (diffHours + diffMin / 60) * oneHourSize;
   };
+
+  let datetimeNow = new Date();
+  let hoursNow = datetimeNow.getHours();
+  let minutesNow = datetimeNow.getMinutes();
+
+  const updateTime = () => {
+    hoursNow = datetimeNow.getHours();
+    minutesNow = datetimeNow.getMinutes();
+  }
 
   return (
     <View style={styles.wrapper}>
       <View style={styles.timeRangeWrap}>
+        {(startTime() - datetimeNow <= 0
+            && endTime() - datetimeNow > 0) ? (<Stripe sizefunc={blockSize} hoursNow={hoursNow} minutesNow={minutesNow}
+            /*style={[{marginTop: blockSize(hoursNow, minutesNow)}]}*//>) : (null)}
         {block.key === "1" ? (
           <View style={[{ marginTop: "15%", width: 40 }, styles.time]}>
             <Text style={styles.timeText}>{block.StartTime}</Text>
@@ -73,7 +86,7 @@ export default function ScheduleBlock({ block }) {
           styles.scheduleBlock,
           styles.boxShadow,
           {
-            minHeight: blockSize(),
+            minHeight: blockSize(endTime().getHours(), endTime().getMinutes()),
             backgroundColor: activitiesColor[block.ActivityType],
           },
         ]}
