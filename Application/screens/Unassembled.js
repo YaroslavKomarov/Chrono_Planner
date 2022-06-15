@@ -12,17 +12,14 @@ import DailyplannerLink from "../components/common/DailyplannerLink";
 
 export default function Unassembled() {
   const navigation = useNavigation();
+  
   const [tasks, setTasks] = useState([
-    { text: "Купить молоко", type: "physical", key: "1" },
-    { text: "Починить кран", type: "creative", key: "2" },
-    { text: "Сделать проект", type: "intellectual", key: "3" },
-    { text: "Сходить в кино", type: "rest", key: "4" },
-    { text: "Построить коммунизм", type: "intellectual", key: "5" },
-    { text: "Больше не наливать деду", type: "communication", key: "6" },
-    { text: "Купить кран", type: "physical", key: "7" },
-    { text: "Починить молоко", type: "physical", key: "8" },
-    { text: "Сделать деда", type: "creative", key: "9" },
-    { text: "Сходить в коммунизм", type: "rest", key: "10" },
+    { text: "Починить кран", type: "physical", subtasks: [], key: "0" },
+    { text: "Начать заниматься спортом", type: "physical", subtasks: [], key: "1" },
+    { text: "Выполнить ДЗ по шарпу", type: "intellectual", subtasks: [],key: "2" },
+    { text: "Сходить в кино на Криминальное чтиво", type: "rest", subtasks: [], key: "4" },
+    { text: "Встретиться со школьными друзьями", type: "communication", subtasks: [], key: "6" },
+    { text: "Придумать идею для стартапа", type: "creative", subtasks: [], key: "9" },
   ]);
 
   const [modalVisible, setModalVisible] = useState(false);

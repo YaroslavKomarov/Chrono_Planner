@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, FlatList, StyleSheet} from "react-native";
+import { View, FlatList, StyleSheet, Text } from "react-native";
 
 import Subtask from "../components/subtasks/Subtask";
 import CollectionTitle from "../components/common/CollectionTitle";
@@ -9,13 +9,9 @@ import { gStyles, taskListStyles } from "../styles/GlobalStyles";
 import DailyplannerLink from "../components/common/DailyplannerLink";
 
 export default function Subtasks({ route }) {
-    const [subtasks, setSubtasks] = useState([
-        { text: "Утвердить новые макеты", type: '', key: "1" },
-        { text: "Провести тесты UI", type: '', key: "2" },
-        { text: "Оставить себе ясные дни", type: '', key: "3" },
-    ]);
+    const { title, subtasksProp } = route.params;
 
-    const { title } = route.params;
+    const [subtasks, setSubtasks] = useState(subtasksProp);
     
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -27,22 +23,30 @@ export default function Subtasks({ route }) {
     return (
         <View style={[gStyles.container, gStyles.back]}>
             <DailyplannerLink />
-            <CollectionTitle title={formatTitle(title, 28)} setModalVisible={setModalVisible} />
+            <CollectionTitle title={formatTitle(title, 25)} setModalVisible={setModalVisible} />
             <View style={[gStyles.boxShadowMain, taskListStyles.listWrap]}>
-                <FlatList
-                    persistentScrollbar={true}
-                    data={subtasks}
-                    renderItem={({ item }) => (
-                        <View style={taskListStyles.taskContainer}>
-                            <Subtask
-                                subtask={item}
-                                setSubtask={setSubtasks}
-                                onRemove={removeSubtask}
-                            />
-                        </View>
-                    )}
-                    keyExtractor={(item) => item.key}
-                />
+                {subtasks.length === 0 ? (
+                    <View style={{alignItems: 'center',}}>
+                        <Text style={{textAlign: 'center', fontSize: 16, fontFamily: "PTSans-bold", color: "rgba(115, 88, 65, 1)"}}>
+                            Пока нет подзадач. Добавьте новую подзадачу
+                        </Text>
+                    </View>
+                ) : (
+                    <FlatList
+                        persistentScrollbar={true}
+                        data={subtasks}
+                        renderItem={({ item }) => (
+                            <View style={taskListStyles.taskContainer}>
+                                <Subtask
+                                    subtask={item}
+                                    setSubtask={setSubtasks}
+                                    onRemove={removeSubtask}
+                                />
+                            </View>
+                        )}
+                        keyExtractor={(item) => item.key}
+                    />
+                )}
             </View>
             <AddSubtaskForm
                 modalVisible={modalVisible}

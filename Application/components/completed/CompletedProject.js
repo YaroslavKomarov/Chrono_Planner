@@ -40,7 +40,7 @@ export default function CompletedProject({ project }) {
             {modalVisible ? (
                 <View style={styles.listWrap}>
                     <FlatList
-                        data={tasks}
+                        data={project.tasks}
                         renderItem={({ item }) => (
                         <View style={taskListStyles.taskContainer}>
                             <CompletedTask task={item}/>

@@ -29,7 +29,7 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
     const navigation = useNavigation();
 
     const loadSubtasksScreen = () => {
-		navigation.navigate('Subtasks', { title: task.text });
+		navigation.navigate('Subtasks', { title: task.text, subtasksProp: task.subtasks });
 	};
 
     const leftSwipeActions = () => {
@@ -82,6 +82,8 @@ export default function Task({ task, setTask, removeTask, sourceCollection }) {
                     modalVisible={migrateModalVisible} 
                     setModalVisible={setMigrateModalVisible}
                     sourceCollection={sourceCollection}
+                    task={task}
+                    onRemove={removeTask}
                 />
             </TouchableOpacity>
         );

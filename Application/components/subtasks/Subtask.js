@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Modal } from 'react-native';
-import { Feather, AntDesign } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import ChangeTaskForm from '../common/ChangeTaskForm';
-import { gStyles, taskStyles } from '../../styles/GlobalStyles';
-import ConfirmationForm from '../common/ConfirmationForm';
+import { taskStyles } from '../../styles/GlobalStyles';
+import SubtaskConfirmationForm from './SubtaskConfirmationForm'
 
 export default function Subtask({ subtask, setSubtask, onRemove }) {
     const [changeModalVisible, setChangeModalVisible] = useState(false);
@@ -22,7 +22,7 @@ export default function Subtask({ subtask, setSubtask, onRemove }) {
     return (
         <View style={taskStyles.swipeContainer}>
             <Modal visible={confirmModalVisible} transparent={true}>
-                <ConfirmationForm
+                <SubtaskConfirmationForm
                     setModalVisible={setConfirmModalVisible}
                     confirmFormText={confirmFormText}
                     task={subtask}
@@ -34,18 +34,18 @@ export default function Subtask({ subtask, setSubtask, onRemove }) {
             <TouchableOpacity 
                 disable={isTaskDone}
                 style={styles.buttonWrap}
-                onPress={() => {
+                onPress={isTaskDone ? () => {} : () => {
                     setConfirmFormText("Вы уверены, что хотите удалить подзадачу?");
                     setConfirmModalVisible(true);
                     setConfirmFormType("delete");
                 }}
             >
-                <AntDesign name="delete" size={30} color={"#FF6E84"}/>
+                <AntDesign name="delete" size={30} color={isTaskDone ? '#7E869E' : "#FF6E84"}/>
             </TouchableOpacity>
             <View style={styles.textWrap}>
                 <Text style={[taskStyles.boxShadow, 
                     taskStyles.taskText,
-                    isTaskDone ? taskStyles.isTaskDone : {}]}>
+                    isTaskDone ? taskStyles.isDone : {}]}>
                     {subtask.text}
                 </Text>
             </View>
@@ -64,13 +64,13 @@ export default function Subtask({ subtask, setSubtask, onRemove }) {
             <TouchableOpacity 
                 disable={isTaskDone}
                 style={styles.buttonWrap} 
-                onPress={() => {
+                onPress={isTaskDone ? () => {} : () => {
                     setConfirmFormText("Вы уверены, что хотите завершить подзадачу?");
                     setConfirmModalVisible(true);
                     setConfirmFormType("complete");
                 }}
             >
-                <AntDesign name="checkcircleo" size={30} color={"#AAE2AA"} />
+                <AntDesign name="checkcircleo" size={30} color={isTaskDone ? '#7E869E' : "#AAE2AA"} />
             </TouchableOpacity>
         </View>
     );

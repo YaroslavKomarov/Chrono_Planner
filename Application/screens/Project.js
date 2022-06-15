@@ -9,14 +9,9 @@ import { formatTitle } from "../utils/uiHandler";
 import DailyplannerLink from "../components/common/DailyplannerLink";
 
 export default function Project({ route }) {
-  const [tasks, setTasks] = useState([
-    { text: "Валидация Formik", type: "physical", key: "1" },
-    { text: "Адаптивная верстка", type: "physical", key: "2" },
-    { text: "Почитать про использование hooks", type: "physical", key: "3" },
-    { text: "Построить коммунизм", type: "physical", key: "4" },
-  ]);
+  const { projName, tasksProps } = route.params;
 
-  const { projName } = route.params;
+  const [tasks, setTasks] = useState(tasksProps);
 
   const [modalVisible, setModalVisible] = useState(false);
 

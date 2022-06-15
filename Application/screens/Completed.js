@@ -14,15 +14,12 @@ export default function Completed() {
     const [screenState, setScreenState] = useState('tasks');
 
     const tasks = [
-        { text: "Сделать проект", type: "intellectual", key: "1" },
-        { text: "Сходить в кино", type: "rest", key: "2" }
+        { text: "Сходить в кино на Криминальное чтиво", type: "rest", subtasks: [], key: "2" }
     ];
 
-    const projects = [
-        { projName: "Приложение на react native", key: "1" },
-        { projName: "Проект на Arduino nano", key: "2" },
-        { projName: "Обучение немецкому языку", key: "3" },
-    ];
+    const projects = global.PROJ_DEL ? [
+        { projName: "Проект на Arduino nano", tasks: [], key: "2" },
+    ] : [];
 
     return (
         <View style={[gStyles.container, gStyles.back]}>

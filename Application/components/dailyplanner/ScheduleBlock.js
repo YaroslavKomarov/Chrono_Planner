@@ -21,13 +21,18 @@ export default function ScheduleBlock({ block }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [tasks, setTasks] = useState([
-    { text: "Купить молоко", key: "1" },
-    { text: "Починить кран", key: "2" },
-    { text: "Сделать проект", key: "3" },
-    { text: "Сходить в кино", key: "4" },
-    { text: "Построить коммунизм", key: "5" },
-    { text: "Больше не наливать деду", key: "6" },
+    { text: "Сделать проект", type: "intellectual", subtasks: [
+      { text: "Утвердить новые макеты", type: '', key: "1" },
+      { text: "Провести тесты UI", type: '', key: "2" },
+      { text: "Оставить себе ясные дни", type: '', key: "3" },
+    ], key: "3" },
+    { text: "Построить коммунизм", type: "creative", subtasks: [
+      { text: "Договориться с Зюгановым", type: '', key: "1" },
+      { text: "Посадить кукурузу", type: '', key: "2" },
+      { text: "Оставить себе ясные дни", type: '', key: "3" },
+    ], key: "5" },
   ]);
+
 
   const handleRemove = (key) => {
     const newList = tasks.filter((item) => item.key !== key);
