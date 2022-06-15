@@ -14,7 +14,9 @@ export default function Unassembled() {
   const navigation = useNavigation();
   
   const [tasks, setTasks] = useState([
-    { text: "Починить кран", type: "physical", subtasks: [], key: "0" },
+    { text: "Починить кран", type: "physical", subtasks: [
+      { text: "Купить сеситель", type: '', key: "1" },
+    ], key: "0" },
     { text: "Начать заниматься спортом", type: "physical", subtasks: [], key: "1" },
     { text: "Выполнить ДЗ по шарпу", type: "intellectual", subtasks: [],key: "2" },
     { text: "Сходить в кино на Криминальное чтиво", type: "rest", subtasks: [], key: "4" },

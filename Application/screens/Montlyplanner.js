@@ -101,7 +101,7 @@ export default function Monthlyplanner({ navigation }) {
         setModalVisible={setModalVisible}
       />
       <MyCalendar set={setMonth} />
-      {month1[month - 1] === 'Июнь' ? (
+      {month1[month - 1] === 'Июль' ? (
         <MonthlyplannerTasksList
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
